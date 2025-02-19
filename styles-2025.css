@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --light-goldish: #ebba57;
+  --goldish: rgb(188, 120, 36);
+  --lightest-greyish: #aaa;
+  --light-grey: #888;
+  --greyish: #666666;
+  --dark-greyish: rgb(80 80 80 / 80%);
+  --green: #4CAF50;
+  --dark-green: #2E7D32;
+  --light-green: #81C784;
+}
+
+ul {
+  margin-block-start: 0px;
+}
+
+body {
+  font-family: verdigris-mvb-pro-text, serif;
+  /* max-width: 1100px; */
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--greyish);
+}
+
+a {
+  text-decoration: none;
+  color: var(--goldish);
+}
+
+a:hover {
+  opacity: 50%;
+}
+
+p, li {
+  font-family: verdigris-mvb-pro-text, serif;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-variant: small-caps;
+  /* color: rgba(50,50,50); */
+}
+

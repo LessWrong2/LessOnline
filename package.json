@@ -1,0 +1,23 @@
+{
+  "name": "lessonline-2025",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tailwindcss -i ./styles-2025.css -o ./styles-2025-output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "main": "modal.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RickiHeicklen/LessOnline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RickiHeicklen/LessOnline/issues"
+  },
+  "homepage": "https://github.com/RickiHeicklen/LessOnline#readme",
+  "description": ""
+}
