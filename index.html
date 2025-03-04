@@ -4,24 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:image"
-    content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1712166847/habryka_6_g84ubl.png">
-  <meta property="twitter:image:src"
-    content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1712166847/habryka_6_g84ubl.png">
+  <meta property="og:image" content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1712166847/habryka_6_g84ubl.png">
+  <meta property="twitter:image:src" content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1712166847/habryka_6_g84ubl.png">
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="styles.css">
   <!-- <link rel="stylesheet" href="manifest-style.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://use.typekit.net/tlf2euo.css">
-  <link rel="shortcut icon" type="image/jpg"
-    href="/public/LessOnlineLogo.png" />
   <title>LessOnline 2025</title>
-  
-  <!-- Add Warnock Pro from Adobe Fonts -->
-  <link rel="stylesheet" href="https://use.typekit.net/ixj7hkl.css">
-  
+
+
   <script>
     var APP_ID = "wtb8z7sj";
     window.intercomSettings = {
@@ -29,7 +22,6 @@
     };
   </script>
   <script>(function () { var w = window; var ic = w.Intercom; if (typeof ic === "function") { ic('reattach_activator'); ic('update', w.intercomSettings); } else { var d = document; var i = function () { i.c(arguments); }; i.q = []; i.c = function (args) { i.q.push(args); }; w.Intercom = i; var l = function () { var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/' + APP_ID; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); }; if (w.attachEvent) { w.attachEvent('onload', l); } else { w.addEventListener('load', l, false); } } })();</script>
-  <script defer src="modal.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP786MY8K9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -37,65 +29,6 @@
     gtag('js', new Date());
 
     gtag('config', 'G-NP786MY8K9');
-  </script>
-  <script src="scripts/blogList.js" defer></script>
-  <script>
-    fetch('faq.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('faqContent').innerHTML = html;
-        attachEventListenersToFaqItems();
-      })
-      .catch(error => {
-        console.error('Error loading the FAQ content:', error);
-      });
-    function attachEventListenersToFaqItems() {
-      const faqItems = document.querySelectorAll('.faq-item');
-      console.log(faqItems);
-
-      faqItems.forEach(item => {
-        const faqItem = item.querySelector('.faq-item');
-        const faqIconDiv = item.querySelector('.faqIcon');
-        const faqIcon = item.querySelector('.fas');
-        const question = item.querySelector('.question');
-        const answer = item.querySelector('.answer');
-        console.log(answer.textContent)
-
-        faqIconDiv.addEventListener('click', () => {
-          answer.classList.toggle('hidden');
-          faqIcon.classList.toggle('down');
-        });
-
-        question.addEventListener('click', () => {
-          answer.classList.toggle('hidden');
-          faqIcon.classList.toggle('down');
-        });
-      });
-    }
-  </script>
-  <script>
-    fetch('timeline.html')
-      .then(response => response.text())
-      .then(html => {
-        const host = document.querySelector("#timeline-section");
-        const shadow = host.attachShadow({ mode: "open" });
-        const content = document.createElement("div");
-        content.innerHTML = html;
-        shadow.appendChild(content);
-        fetch('manifest.css')
-          .then(response => response.text())
-          .then(css => {
-            const sheet = new CSSStyleSheet();
-            sheet.replaceSync(css);
-            shadow.adoptedStyleSheets = [sheet];
-          })
-          .catch(error => {
-            console.error('Error loading the FAQ content:', error);
-        });
-      })
-      .catch(error => {
-        console.error('Error loading the FAQ content:', error);
-      });
   </script>
   <style>
     @font-face {
@@ -105,7 +38,7 @@
       font-style: normal;
       font-display: swap;
     }
-    
+
     @font-face {
       font-family: 'Bembo Book';
       src: url('fonts/bemboBookMTStd-Italic.otf') format('opentype');
@@ -113,7 +46,7 @@
       font-style: italic;
       font-display: swap;
     }
-    
+
     @font-face {
       font-family: 'Bembo Book';
       src: url('fonts/bemboBookMTStd-Bold.otf') format('opentype');
@@ -121,7 +54,7 @@
       font-style: normal;
       font-display: swap;
     }
-    
+
     @font-face {
       font-family: 'Bembo Book';
       src: url('fonts/bemboBookMTStd-BoldIt.otf') format('opentype');
@@ -132,14 +65,15 @@
   </style>
   <style>
     body {
-      background-image: url('https://cdn.midjourney.com/87358302-c2b1-492e-8830-c7be1b83a4b8/0_0.png');
+      background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       color: #000000;
       margin: 0;
       padding: 0;
-      font-family: 'Bembo Book', serif; /* Changed from 'warnock-pro' to 'Bembo Book' */
+      font-family: 'Bembo Book', serif;
+      /* Changed from 'warnock-pro' to 'Bembo Book' */
       position: relative;
       z-index: 0;
     }
@@ -147,15 +81,16 @@
     p a {
       color: #7faf83 !important;
     }
-    
+
     p a:hover {
       color: #4c8a50 !important;
     }
-    
+
     .hero-section {
       background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741048939/cover_image_qmzcby.png');
       background-size: cover;
-      background-position: center;
+      background-position: center top;
+      background-repeat: no-repeat;
       position: relative;
       height: 100vh;
       display: flex;
@@ -164,60 +99,78 @@
       text-align: center;
       color: white;
       z-index: 1;
-      
+
       /* Modify the gradient mask to fade out sooner */
       /* -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 85%); */
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 90%);
     }
-  
-    
+
     .hero-content {
       padding: 40px;
       border-radius: 8px;
       text-align: center;
-      max-width: 800px; /* Increased from 600px */
+      max-width: 80vw;
       margin: 40px;
       position: absolute;
       top: -20px;
       left: 6px;
     }
-    
+
+    @media (max-width: 768px) {
+      .hero-content {
+        /* margin: 20px; */
+        /* position: relative; */
+        top: 0;
+        left: 0;  
+      }
+    }
+
     .hero-content h1 {
-      font-size: 80px; /* Increased from 60px */
-      margin-bottom: 20px; /* Increased from 15px */
+      font-size: 80px;
+      /* Increased from 60px */
+      margin-bottom: 20px;
+      /* Increased from 15px */
       color: white;
       text-shadow: none;
     }
-    
+
     .hero-content h2 {
-      font-size: 32px; /* Increased from 24px */
-      margin-bottom: 25px; /* Increased from 20px */
+      font-size: 32px;
+      /* Increased from 24px */
+      margin-bottom: 25px;
+      /* Increased from 20px */
       color: white;
       text-shadow: none;
     }
-    
+
     .hero-content p {
-      font-size: 24px; /* Increased from 18px */
-      margin-bottom: 15px; /* Increased from 10px */
+      font-size: 24px;
+      /* Increased from 18px */
+      margin-bottom: 15px;
+      /* Increased from 10px */
       color: white;
       text-shadow: none;
     }
-    
+
     .hero-content .tagline {
-      font-size: 36px; /* Increased from 25px */
-      margin-bottom: 20px; /* Increased from 15px */
+      font-size: 36px;
+      /* Increased from 25px */
+      margin-bottom: 20px;
+      /* Increased from 15px */
       color: white;
       font-style: italic;
       text-shadow: none;
     }
-    
+
     .hero-content .event-details {
-      font-size: 24px; /* Increased from 18px */
+      font-size: 24px;
+      /* Increased from 18px */
       color: white;
-      margin-bottom: 15px; /* Increased from 10px */
+      margin-bottom: 15px;
+      /* Increased from 10px */
       text-shadow: none;
     }
-    
+
     .content-section-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -225,7 +178,7 @@
       color: #000000;
       position: relative;
     }
-    
+
     .full-width-title {
       font-size: 30px;
       margin-bottom: 40px;
@@ -236,30 +189,30 @@
       text-align: center;
       width: 100%;
     }
-    
+
     .content-section {
       display: flex;
       align-items: center;
     }
-    
+
     .image-container {
       flex: 1;
       padding-right: 40px;
       max-width: 60%;
     }
-    
+
     .image-container img {
       max-width: 100%;
       height: auto;
     }
-    
+
     .text-container {
       flex: 1;
       padding-left: 40px;
       max-width: 40%;
       color: #000000;
     }
-    
+
     .text-container h2 {
       font-size: 32px;
       margin-bottom: 30px;
@@ -268,47 +221,48 @@
       text-transform: none;
       letter-spacing: normal;
     }
-    
+
     .text-container p {
       margin-bottom: 20px;
       font-family: 'Bembo Book', serif;
     }
-    
+
     @media (max-width: 768px) {
       .content-section {
         flex-direction: column;
         padding: 40px 20px;
       }
-      
+
       .image-container {
         padding-right: 0;
         margin-bottom: 40px;
       }
-      
+
       .text-container {
         padding-left: 0;
       }
-      
+
       .full-width-title {
         font-size: 28px;
         margin-bottom: 30px;
       }
     }
-    
+
     .blogs-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 20px 60px; /* Reduced top padding from 60px to 20px */
+      padding: 20px 20px 60px;
+      /* Reduced top padding from 60px to 20px */
       color: #000000;
       position: relative;
     }
-    
+
     .blogs-header {
       text-align: center;
       margin-bottom: 50px;
       position: relative;
     }
-    
+
     .blogs-header h1 {
       font-family: 'Bembo Book', serif;
       font-size: 36px;
@@ -317,7 +271,7 @@
       text-transform: uppercase;
       letter-spacing: 3px;
     }
-    
+
     /* Remove all the old divider styling */
     .blogs-header h1:before,
     .blogs-header h1:after,
@@ -326,7 +280,7 @@
       content: none;
       display: none;
     }
-    
+
     /* Create a container for the line and icon */
     .header-divider {
       position: relative;
@@ -336,7 +290,7 @@
       align-items: center;
       justify-content: center;
     }
-    
+
     /* Left line */
     .header-divider:before {
       content: "";
@@ -345,7 +299,7 @@
       flex-grow: 1;
       margin-right: 10px;
     }
-    
+
     /* Right line */
     .header-divider:after {
       content: "";
@@ -354,14 +308,14 @@
       flex-grow: 1;
       margin-left: 10px;
     }
-    
+
     /* Icon styling */
     .header-divider .icon {
       font-size: 24px;
       color: #5a3921;
       line-height: 1;
     }
-    
+
     .blogs-header p {
       font-family: 'Bembo Book', serif;
       font-size: 20px;
@@ -371,7 +325,7 @@
       text-align: center;
       font-style: italic;
     }
-    
+
     .table-of-contents-style {
       font-family: 'Bembo Book', serif;
       max-width: 1200px;
@@ -384,7 +338,7 @@
       box-shadow: none;
       border: none;
     }
-    
+
     .blogs-header h1 {
       font-family: 'Bembo Book', serif;
       font-size: 36px;
@@ -396,7 +350,7 @@
       position: relative;
       padding-bottom: 5px;
     }
-    
+
     .blogs-header h1:before {
       content: "";
       position: absolute;
@@ -406,7 +360,7 @@
       bottom: 0;
       left: 0;
     }
-    
+
     .blogs-header h1:after {
       content: "❧";
       position: absolute;
@@ -418,27 +372,27 @@
       background: transparent;
       padding: 0 10px;
     }
-    
+
     .blogs-header:after {
       content: "";
       position: absolute;
       width: 60px;
       height: 20px;
-      background: linear-gradient(to right, 
-                  rgba(248, 243, 226, 0) 0%, 
-                  rgba(248, 243, 226, 1) 20%, 
-                  rgba(248, 243, 226, 1) 80%, 
-                  rgba(248, 243, 226, 0) 100%);
+      background: linear-gradient(to right,
+          rgba(248, 243, 226, 0) 0%,
+          rgba(248, 243, 226, 1) 20%,
+          rgba(248, 243, 226, 1) 80%,
+          rgba(248, 243, 226, 0) 100%);
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1;
     }
-    
+
     .blogs-header h1:after {
       z-index: 2;
     }
-    
+
     .table-of-contents-style .blogs-list {
       display: block;
       column-count: 4;
@@ -446,7 +400,7 @@
       column-rule: 1px dotted #d9c7a7;
       line-height: 1.2;
     }
-    
+
     .table-of-contents-style .blog-item {
       break-inside: avoid;
       margin-bottom: 3px;
@@ -459,7 +413,7 @@
       align-items: baseline;
       font-size: 16px;
     }
-    
+
     .table-of-contents-style .blog-item:before {
       content: attr(data-number);
       font-family: 'Bembo Book', serif;
@@ -472,7 +426,7 @@
       vertical-align: baseline;
       flex-shrink: 0;
     }
-    
+
     .table-of-contents-style .blog-item a {
       color: #5a3921;
       text-decoration: none;
@@ -488,11 +442,11 @@
       padding-left: 0;
       font-size: 16px;
     }
-    
+
     .table-of-contents-style .blog-item a:after {
       content: "";
     }
-    
+
     .table-of-contents-style .attending-badge {
       position: relative;
       top: 0;
@@ -508,19 +462,19 @@
       display: inline;
       vertical-align: baseline;
     }
-    
+
     @media (max-width: 992px) {
       .table-of-contents-style .blogs-list {
         column-count: 3;
       }
     }
-    
+
     @media (max-width: 768px) {
       .table-of-contents-style .blogs-list {
         column-count: 2;
       }
     }
-    
+
     @media (max-width: 480px) {
       .table-of-contents-style .blogs-list {
         column-count: 1;
@@ -557,7 +511,7 @@
       gap: 30px;
       margin-top: 30px;
     }
-    
+
     .related-post-card {
       flex: 1;
       background-color: transparent;
@@ -572,12 +526,12 @@
       flex-direction: column;
       height: 400px;
     }
-    
+
     .related-post-card:hover {
       transform: translateY(-5px);
       background-color: transparent;
     }
-    
+
     .post-title {
       font-family: 'Bembo Book', serif;
       font-size: 18px;
@@ -589,7 +543,7 @@
       align-items: center;
       margin-top: 0px;
     }
-    
+
     .post-meta {
       display: flex;
       justify-content: space-between;
@@ -600,7 +554,7 @@
       font-style: italic;
       height: 20px;
     }
-    
+
     .post-excerpt {
       font-family: 'Bembo Book', serif;
       font-size: 14px;
@@ -610,13 +564,13 @@
       overflow: hidden;
       position: relative;
     }
-    
+
     .post-excerpt p {
       margin-bottom: 15px;
       font-size: 14px;
       line-height: 1.5;
     }
-    
+
     .post-excerpt:after {
       content: "";
       position: absolute;
@@ -627,19 +581,19 @@
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
       pointer-events: none;
     }
-    
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .related-posts {
         flex-direction: column;
       }
-      
+
       .related-post-card {
         margin-bottom: 20px;
         height: auto;
         min-height: 300px;
       }
-      
+
       .post-title {
         height: auto;
         min-height: 50px;
@@ -647,38 +601,38 @@
     }
 
     .conference-info {
-        padding: 60px 0;
-        color: #000000;
-        position: relative;
+      padding: 60px 0;
+      color: #000000;
+      position: relative;
     }
-    
+
     .conference-content {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 30px;
     }
-    
+
     .conference-image img {
-        width: 100%;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
-    
+
     @media (min-width: 768px) {
-        .conference-content {
-            flex-direction: row;
-            align-items: center;
-        }
-        
-        .conference-image {
-            flex: 1;
-        }
-        
-        .conference-text {
-            flex: 1;
-            padding-left: 30px;
-        }
+      .conference-content {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .conference-image {
+        flex: 1;
+      }
+
+      .conference-text {
+        flex: 1;
+        padding-left: 30px;
+      }
     }
 
     .section-title {
@@ -716,20 +670,23 @@
     /* Update the Buy Tickets button styling with more intense golden glow */
     .buy-tickets-button {
       font-family: 'Cinzel Decorative', cursive;
-      font-size: 32px; /* Increased from 24px */
+      font-size: 32px;
+      /* Increased from 24px */
       font-weight: 700;
       color: white;
       text-shadow: 0 0 5px #f8d45c, 0 0 10px #f8d45c, 0 0 15px #f8b400, 0 0 20px #f8b400;
       letter-spacing: 2px;
-      margin-top: 30px; /* Increased from 20px */
+      margin-top: 30px;
+      /* Increased from 20px */
       cursor: pointer;
       transition: all 0.3s ease;
       display: inline-block;
-      padding: 15px 30px; /* Increased from 10px 20px */
+      padding: 15px 30px;
+      /* Increased from 10px 20px */
       border: none;
       background-color: transparent;
     }
-    
+
     .buy-tickets-button:hover {
       transform: scale(1.05);
       text-shadow: 0 0 5px #f8d45c, 0 0 10px #f8d45c, 0 0 15px #f8b400, 0 0 20px #f8b400;
@@ -771,10 +728,12 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px; /* Increased spacing between tickets */
+      gap: 30px;
+      /* Increased spacing between tickets */
       margin-top: 40px;
       position: relative;
-      max-width: 650px; /* Add a max-width to center two tickets */
+      max-width: 650px;
+      /* Add a max-width to center two tickets */
       margin-left: auto;
       margin-right: auto;
     }
@@ -798,8 +757,10 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       margin-bottom: 15px;
       position: relative;
-      overflow: visible; /* Allow content to overflow */
-      z-index: 2; /* Ensure ticket is above bookmarks */
+      overflow: visible;
+      /* Allow content to overflow */
+      z-index: 2;
+      /* Ensure ticket is above bookmarks */
     }
 
     .ticket-front {
@@ -809,7 +770,8 @@
       backface-visibility: hidden;
       background-color: #f8f3e2;
       border-radius: 8px;
-      overflow: visible; /* Allow content to overflow */
+      overflow: visible;
+      /* Allow content to overflow */
     }
 
     .ticket-border {
@@ -820,15 +782,14 @@
       bottom: 5px;
       border: 2px solid #5a3921;
       border-radius: 5px;
-      background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740705260/old-paper-texture_ixnvqm.jpg');
-      background-size: cover;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
       padding: 15px;
       box-sizing: border-box;
-      overflow: visible; /* Allow content to overflow */
+      overflow: visible;
+      /* Allow content to overflow */
     }
 
     .ticket-border:before {
@@ -897,7 +858,7 @@
       position: relative;
       z-index: 1;
     }
-    
+
     .ticket-illustration:before {
       content: "";
       position: absolute;
@@ -935,7 +896,8 @@
       margin: 0 0 5px;
     }
 
-    .ticket-date, .ticket-location {
+    .ticket-date,
+    .ticket-location {
       font-family: 'Bembo Book', serif;
       font-size: 12px;
       color: #5a3921;
@@ -977,26 +939,27 @@
 
     @media (max-width: 768px) {
       .tickets-container {
-        flex-direction: row; /* Keep as row, but with wrapping */
+        flex-direction: row;
+        /* Keep as row, but with wrapping */
       }
-      
+
       .ticket {
         width: 260px;
       }
-      
+
       .day-bookmarks {
         right: -25px;
       }
-      
+
       .bookmark {
         width: 70px;
         height: 26px;
       }
-      
+
       .bookmark-content {
         font-size: 9px;
       }
-      
+
       .bookmark-price {
         font-size: 8px;
       }
@@ -1010,20 +973,20 @@
     .ticket-button:hover {
       transform: translateY(-5px);
     }
-    
+
     .ticket-button:hover .ticket-inner {
       box-shadow: 0 8px 20px rgba(90, 57, 33, 0.3), 0 0 15px rgba(248, 211, 92, 0.5);
     }
-    
+
     .ticket-button:hover .ticket-border {
       border-color: #8c6d46;
     }
-    
+
     .ticket-button:hover .ticket-border:before {
       border-color: #b38e5d;
       box-shadow: inset 0 0 10px rgba(248, 211, 92, 0.3);
     }
-    
+
     .ticket-button:hover .ticket-header h3,
     .ticket-button:hover .ticket-price {
       color: #3a2512;
@@ -1034,42 +997,42 @@
     .photo-gallery {
       padding: 60px 0;
     }
-    
+
     .section-title {
       text-align: center;
       margin-bottom: 40px;
       font-size: 2.5rem;
     }
-    
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       grid-gap: 20px;
     }
-    
+
     .gallery-item {
       overflow: hidden;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
     }
-    
+
     .gallery-item:hover {
       transform: scale(1.03);
     }
-    
+
     .gallery-image {
       width: 100%;
       height: 250px;
       object-fit: cover;
       display: block;
     }
-    
+
     @media (max-width: 768px) {
       .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       }
-      
+
       .gallery-image {
         height: 200px;
       }
@@ -1079,7 +1042,7 @@
     .book-section {
       padding: 80px 0;
     }
-    
+
     .book-subtitle {
       font-family: 'Bembo Book', serif;
       font-size: 18px;
@@ -1088,19 +1051,19 @@
       font-style: italic;
       margin-bottom: 40px;
     }
-    
+
     .book-container {
       max-width: 720px;
       margin: 0 auto;
     }
-    
+
     .book {
       width: 100%;
       height: 500px;
       display: flex;
       perspective: 1200px;
     }
-    
+
     .book__page {
       position: relative;
       width: 50%;
@@ -1110,46 +1073,46 @@
       transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
       transform-origin: 0% 0%;
       background-color: #F5F5F5;
-      background-image: linear-gradient(90deg, rgba(227,227,227,1) 0%, rgba(247,247,247,0) 18%);
+      background-image: linear-gradient(90deg, rgba(227, 227, 227, 1) 0%, rgba(247, 247, 247, 0) 18%);
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
-    
+
     .book__page:nth-of-type(1) {
-      background-image: linear-gradient(-90deg, rgba(227,227,227,1) 0%, rgba(247,247,247,0) 18%);
+      background-image: linear-gradient(-90deg, rgba(227, 227, 227, 1) 0%, rgba(247, 247, 247, 0) 18%);
     }
-    
+
     .book__page--1 {
       cursor: pointer;
       overflow: hidden;
     }
-    
+
     .book__page--1 img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    
+
     .book__page--2 {
       position: absolute;
       right: 0;
       pointer-events: none;
       transform-style: preserve-3d;
       background-color: #F5F5F5;
-      background-image: linear-gradient(90deg, rgba(227,227,227,1) 0%, rgba(247,247,247,0) 18%);
+      background-image: linear-gradient(90deg, rgba(227, 227, 227, 1) 0%, rgba(247, 247, 247, 0) 18%);
     }
-    
+
     .book__page--4 {
       cursor: pointer;
       padding: 0 36px;
     }
-    
+
     .book__page-front {
       position: absolute;
       width: 100%;
       height: 100%;
       transform: rotateY(0deg) translateZ(1px);
     }
-    
+
     .book__page-back {
       position: absolute;
       width: 100%;
@@ -1157,7 +1120,7 @@
       padding: 0 22px;
       transform: rotateY(180deg) translateZ(1px);
     }
-    
+
     .page__content {
       padding: 12px;
       height: 100%;
@@ -1165,7 +1128,7 @@
       text-align: center;
       font-family: 'Bembo Book', serif;
     }
-    
+
     .page__content-book-title {
       font-family: 'Cinzel Decorative', 'Cinzel', 'Georgia', serif;
       font-size: 36px;
@@ -1176,7 +1139,7 @@
       margin-top: 60px;
       margin-bottom: 24px;
     }
-    
+
     .page__content-author {
       font-family: 'Bembo Book', serif;
       font-size: 14px;
@@ -1189,7 +1152,7 @@
       padding: 6px 2px;
       margin-bottom: 72px;
     }
-    
+
     .page__content-credits {
       font-family: 'Bembo Book', serif;
       text-transform: uppercase;
@@ -1197,13 +1160,13 @@
       margin-bottom: 24px;
       letter-spacing: 1px;
     }
-    
+
     .page__content-credits span {
       display: block;
       font-size: 14px;
       letter-spacing: 0;
     }
-    
+
     .page__content-copyright {
       position: absolute;
       width: calc(100% - 24px);
@@ -1212,7 +1175,7 @@
       font-size: 10px;
       text-transform: uppercase;
     }
-    
+
     .page__content-title {
       font-family: 'Bembo Book', serif;
       font-size: 14px;
@@ -1221,30 +1184,30 @@
       margin-top: 60px;
       margin-bottom: 36px;
     }
-    
+
     .page__content-table {
       width: 100%;
       margin-top: 24px;
     }
-    
+
     .page__content-table td {
       font-family: 'Bembo Book', serif;
       font-size: 14px;
       padding-bottom: 18px;
       text-transform: uppercase;
     }
-    
+
     .page__content-blockquote {
       margin-bottom: 24px;
     }
-    
+
     .page__content-blockquote-text {
       font-family: 'Bembo Book', serif;
       font-size: 8px;
       font-style: italic;
       text-align: justify;
     }
-    
+
     .page__content-blockquote-reference {
       font-family: 'Bembo Book', serif;
       font-size: 8px;
@@ -1252,14 +1215,14 @@
       float: right;
       text-transform: uppercase;
     }
-    
+
     .page__content-text {
       font-family: 'Bembo Book', serif;
       font-size: 8px;
       text-align: justify;
       text-indent: 12px;
     }
-    
+
     .page__number {
       position: absolute;
       bottom: 12px;
@@ -1268,26 +1231,26 @@
       font-size: 8px;
       text-align: center;
     }
-    
+
     .book input[type="radio"] {
       display: none;
     }
-    
+
     .book input[type="radio"]:checked+.book__page {
       transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
       transform: rotateY(-180deg);
     }
-    
+
     @media (max-width: 768px) {
       .book {
         height: 400px;
       }
-      
+
       .page__content-book-title {
         font-size: 24px;
         margin-top: 40px;
       }
-      
+
       .page__content-author {
         margin-bottom: 40px;
       }
@@ -1295,32 +1258,38 @@
 
     .day-bookmarks {
       position: absolute;
-      right: -80px; /* Position bookmarks to stick out from right */
+      right: -80px;
+      /* Position bookmarks to stick out from right */
       display: flex;
       flex-direction: column;
       gap: 20px;
-      z-index: -1; /* Ensure bookmarks are behind ticket */
+      z-index: -1;
+      /* Ensure bookmarks are behind ticket */
     }
-    
+
     .bookmark {
       width: 80px;
       height: 30px;
       background-color: #8B0000;
       position: relative;
       border-radius: 0 5px 5px 0;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       transition: all 0.3s ease;
       /* Create V-cut bookmark shape using clip-path */
-      clip-path: polygon(
-        0% 0%,                /* top-left corner */
-        90% 0%,               /* near top-right */
-        100% 50%,             /* middle-right point (peak of V) */
-        90% 100%,             /* near bottom-right */
-        0% 100%               /* bottom-left corner */
-      );
+      clip-path: polygon(0% 0%,
+          /* top-left corner */
+          90% 0%,
+          /* near top-right */
+          100% 50%,
+          /* middle-right point (peak of V) */
+          90% 100%,
+          /* near bottom-right */
+          0% 100%
+          /* bottom-left corner */
+        );
     }
-    
+
     .bookmark-content {
       font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
       display: flex;
@@ -1333,44 +1302,46 @@
       line-height: 1;
       padding: 2px 0px 0 10px;
     }
-    
+
     .bookmark-text {
       font-weight: bold;
       margin-bottom: 2px;
     }
-    
-    .bookmark:hover, .bookmark.active {
+
+    .bookmark:hover,
+    .bookmark.active {
       background-color: #C41E3A;
       transform: translateX(5px);
     }
-    
+
     .library-section {
-        margin-top: -21vh;
-        z-index: 1;
-      }
-    
+      margin-top: -21vh;
+      z-index: 1;
+    }
+
     @media (max-width: 768px) {
       .tickets-container {
-        flex-direction: row; /* Keep as row, but with wrapping */
+        flex-direction: row;
+        /* Keep as row, but with wrapping */
       }
-      
+
       .ticket {
         width: 260px;
       }
-      
+
       .day-bookmarks {
         right: -25px;
       }
-      
+
       .bookmark {
         width: 70px;
         height: 26px;
       }
-      
+
       .bookmark-content {
         font-size: 9px;
       }
-      
+
       .bookmark-price {
         font-size: 8px;
       }
@@ -1379,170 +1350,250 @@
     /* Add media query for screens below approximately 2/3 of desktop size */
     @media (max-width: 1200px) {
       .hero-content {
-        background-color: rgba(0, 0, 0, 0.3); /* Semi-opaque darkened background */
+        background-color: rgba(0, 0, 0, 0.3);
+        /* Semi-opaque darkened background */
         border-radius: 8px;
         padding: 30px 30px 15px 30px;
-        backdrop-filter: blur(3px); /* Optional: adds a slight blur effect */
+        backdrop-filter: blur(3px);
+        /* Optional: adds a slight blur effect */
       }
     }
 
     /* Global font reset - this should come AFTER any other CSS but BEFORE your custom styles */
-    html, body, div, span, applet, object, iframe,
-    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-    a, abbr, acronym, address, big, cite, code,
-    del, dfn, em, img, ins, kbd, q, s, samp,
-    small, strike, strong, sub, sup, tt, var,
-    b, u, i, center,
-    dl, dt, dd, ol, ul, li,
-    fieldset, form, label, legend,
-    table, caption, tbody, tfoot, thead, tr, th, td,
-    article, aside, canvas, details, embed, 
-    figure, figcaption, footer, header, hgroup, 
-    menu, nav, output, ruby, section, summary,
-    time, mark, audio, video {
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
       font-family: 'Bembo Book', serif !important;
     }
-    
+
     /* Then your specific styles can override this for elements that need different fonts */
     /* .hero-content h1, */
     .ticket-header h3,
     .page__content-book-title {
       font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif !important;
     }
-    
+
     .testimonials {
-  max-width: 1400px;
-  margin: 4rem auto;
-  padding: 0 1rem;
-}
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
 
-.testimonials h2 {
-  text-align: center;
-  margin-bottom: 3rem;
-}
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
 
-/* Add this to make testimonials display in a row */
-.testimonials {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-}
+    /* Add this to make testimonials display in a row */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-.testimonial {
-  /* Change from margin-bottom to flex-basis to control width */
-  flex: 1;
-  min-width: 350px;
-  padding: 2rem;
-  background: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  /* Add these properties to create a flex container */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+    .testimonial {
+      /* Change from margin-bottom to flex-basis to control width */
+      flex: 1;
+      min-width: 350px;
+      padding: 2rem;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      /* Add these properties to create a flex container */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-.testimonial-content {
-  /* Make this a flex container that takes up all available space */
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
+    .testimonial-content {
+      /* Make this a flex container that takes up all available space */
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
 
-.testimonial-content blockquote {
-  font-style: italic;
-  font-size: 1.3rem; /* Increased from 1.1rem */
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  position: relative;
-  padding-left: 0;
-  border-left: none;
-  text-align: left;
-}
+    .testimonial-content blockquote {
+      font-style: italic;
+      font-size: 1.3rem;
+      /* Increased from 1.1rem */
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-left: 0;
+      border-left: none;
+      text-align: left;
+    }
 
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  margin-top: auto; /* Push to bottom of container */
-  flex-direction: row-reverse; /* Reverse the order to put image on right */
-  justify-content: flex-end; /* Align to the right */
-  width: 100%; /* Ensure it takes full width */
-  text-align: right; /* Right-align the text */
-}
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+      /* Push to bottom of container */
+      flex-direction: row-reverse;
+      /* Reverse the order to put image on right */
+      justify-content: flex-end;
+      /* Align to the right */
+      width: 100%;
+      /* Ensure it takes full width */
+      text-align: right;
+      /* Right-align the text */
+    }
 
-.testimonial-author img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-left: 1rem; /* Space between image and text */
-  margin-right: 0; /* Reset right margin */
-}
+    .testimonial-author img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-left: 1rem;
+      /* Space between image and text */
+      margin-right: 0;
+      /* Reset right margin */
+    }
 
-.testimonial-author cite {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.2rem; /* Increased from 1rem */
-  color: #8c6d46;
-  text-align: right;
-  width: 100%;
-}
+    .testimonial-author cite {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.2rem;
+      /* Increased from 1rem */
+      color: #8c6d46;
+      text-align: right;
+      width: 100%;
+    }
 
-.testimonial-author a {
-  color: #8c6d46;
-  text-decoration: none;
-  font-size: 1.2rem; /* Increased from 1rem to match cite */
-}
+    .testimonial-author a {
+      color: #8c6d46;
+      text-decoration: none;
+      font-size: 1.2rem;
+      /* Increased from 1rem to match cite */
+    }
 
-/* Add responsive behavior for smaller screens */
-@media (max-width: 992px) {
-  .testimonial {
-    flex-basis: 100%;
-    margin-bottom: 2rem;
-  }
-}
+    /* Add responsive behavior for smaller screens */
+    @media (max-width: 992px) {
+      .testimonial {
+        flex-basis: 100%;
+        margin-bottom: 2rem;
+      }
+    }
 
-  #password-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+    #password-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-  #password-form {
-    text-align: center;
-    color: white;
-  }
+    #password-form {
+      text-align: center;
+      color: white;
+    }
 
-  #password-input {
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid white;
-    background: transparent;
-    color: white;
-    font-size: 16px;
-  }
+    #password-input {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      font-size: 16px;
+    }
 
-  #password-submit {
-    padding: 10px 20px;
-    background: white;
-    border: none;
-    color: black;
-    cursor: pointer;
-    font-size: 16px;
-  }
+    #password-submit {
+      padding: 10px 20px;
+      background: white;
+      border: none;
+      color: black;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-  .hidden {
-    display: none !important;
-  }
+    .hidden {
+      display: none !important;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -1557,18 +1608,18 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const overlay = document.getElementById('password-overlay');
       const form = document.getElementById('password-form');
       const input = document.getElementById('password-input');
       const submit = document.getElementById('password-submit');
-      
+
       // Check if already authenticated
       if (sessionStorage.getItem('authenticated')) {
         overlay.classList.add('hidden');
       }
 
-      submit.addEventListener('click', function() {
+      submit.addEventListener('click', function () {
         // Replace 'your-password-here' with your desired password
         if (input.value === 'oh no a password') {
           overlay.classList.add('hidden');
@@ -1580,7 +1631,7 @@
       });
 
       // Also allow Enter key to submit
-      input.addEventListener('keypress', function(e) {
+      input.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
           submit.click();
         }
@@ -1606,9 +1657,10 @@
         <span class="icon">❧</span>
       </div>
       <p>The sites below embody the virtues we are celebrating. Each blog author below has been offered a free ticket to LessOnline.
-         <br/>Writers marked as "Attending" will be present at LessOnline 2025.</p>
+        <br />Writers marked as "Attending" will be present at LessOnline 2025.
+      </p>
     </div>
-    
+
     <div id="blogs-container">
       <p>Loading blogs...</p>
     </div>
@@ -1618,19 +1670,21 @@
   <section class="conference-info">
     <div class="container">
       <h2 class="section-title">About the Conference</h2>
-      
+
       <div class="conference-content">
         <div class="conference-image">
-          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740704944/LessOnline_twilight_ttgn1h.png" 
-               alt="LessOnline twilight gathering" class="img-fluid">
+          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740704944/LessOnline_twilight_ttgn1h.png" alt="LessOnline twilight gathering"
+            class="img-fluid">
         </div>
-        
+
         <div class="conference-text">
-          <p>LessOnline is a festival celebrating truthseeking and blogging. It's an opportunity to meet people you've only ever known by their LessWrong username or Substack handle.
+          <p>LessOnline is a festival celebrating truthseeking and blogging. It's an opportunity to meet people you've only ever known by their LessWrong
+            username or Substack handle.
           </p>
-          
-          <p>The goal is to bring together a "mostly-online subculture of people trying to work together to figure out how to distinguish truth from falsehood using insights from probability theory, cognitive science, and AI."</p>
-          
+
+          <p>The goal is to bring together a "mostly-online subculture of people trying to work together to figure out how to distinguish truth from falsehood
+            using insights from probability theory, cognitive science, and AI."</p>
+
           <p>The weekend will be filled with talks, workshops, dance parties, and late-night conversations around the fireside.</p>
         </div>
       </div>
@@ -1640,7 +1694,7 @@
   <div class="full-bg-section">
     <section class="content-section-container">
       <h2 class="full-width-title">"If you examine something, you will have something to say about it."</h2>
-      
+
       <div class="content-section">
         <div class="image-container">
           <div class="content">
@@ -1653,70 +1707,89 @@
           </div>
         </div>
         <div class="text-container">
-          <p>The theme of this year's conference is "Original Seeing". It is a phrase <a href="https://www.lesswrong.com/posts/SA79JMXKWke32A3hG/original-seeing">taken from Robert M. Pirsig's Zen and the Art of Motorcycle Maintenance</a>. It is about setting aside your current frameworks and models, and directly observing reality yourself. The goal is to understand without an agenda, to carve nature at its joints, and to find the real mechanisms behind what others describe.</p>
-          <p>A common failure mode is endlessly reading others' analyses without ever looking at the world fresh. The secret is to take a small part of reality, stare at it, and figure out why it works as it does.</p>
-          <p>Good models and concepts from reading are crucial, but without firsthand observation, personal judgment, and model-building that predicts reality, you won't gain real power. The key is to develop strong models and focus on a small enough domain for original seeing, training your brain to integrate theory with reality.</p>
+          <p>The theme of this year's conference is "Original Seeing". It is a phrase <a
+              href="https://www.lesswrong.com/posts/SA79JMXKWke32A3hG/original-seeing">taken from Robert M. Pirsig's Zen and the Art of Motorcycle
+              Maintenance</a>. It is about setting aside your current frameworks and models, and directly observing reality yourself. The goal is to understand
+            without an agenda, to carve nature at its joints, and to find the real mechanisms behind what others describe.</p>
+          <p>A common failure mode is endlessly reading others' analyses without ever looking at the world fresh. The secret is to take a small part of reality,
+            stare at it, and figure out why it works as it does.</p>
+          <p>Good models and concepts from reading are crucial, but without firsthand observation, personal judgment, and model-building that predicts reality,
+            you won't gain real power. The key is to develop strong models and focus on a small enough domain for original seeing, training your brain to
+            integrate theory with reality.</p>
         </div>
       </div>
     </section>
 
-  <!-- Blog Posts Section -->
-  <section class="blogs-container table-of-contents-style">
-    <div class="blogs-header">
-      <h1>Related Readings</h1>
-      <div class="header-divider">
-        <span class="icon">❧</span>
+    <!-- Blog Posts Section -->
+    <section class="blogs-container table-of-contents-style">
+      <div class="blogs-header">
+        <h1>Related Readings</h1>
+        <div class="header-divider">
+          <span class="icon">❧</span>
+        </div>
+        <p>Explore these foundational posts about thinking difficult thoughts.</p>
       </div>
-      <p>Explore these foundational posts about thinking difficult thoughts.</p>
-    </div>
-    
-    <div class="related-posts">
-      <a href="https://www.lesswrong.com/posts/3XgYbghWruBMrPTAL/leave-a-line-of-retreat" class="related-post-card">
-        <h3 class="post-title">Leave a Line of Retreat</h3>
-        <div class="post-meta">
-          <span class="post-author">Eliezer Yudkowsky</span>
-          <span class="post-year">2008</span>
-        </div>
-        <div class="post-excerpt">
-          <p>I recently happened into a conversation with a nonrationalist who had somehow wandered into a local rationalists' gathering. She had just declared (a) her belief in souls and (b) that she didn't believe in cryonics because she believed the soul wouldn't stay with the frozen body. I asked, "But how do you know that?"</p>
-          <p>From the confusion that flashed on her face, it was pretty clear that this question had never occurred to her. I don't say this in a bad way—she seemed like a nice person without any applied rationality training, just like most of the rest of the human species.</p>
-          <p>Most of the ensuing conversation was on items already covered on Overcoming Bias—if you're really curious about something, you probably can figure out a good way to test it, try to attain accurate beliefs first and then let your emotions flow from that, that sort of thing. But the conversation reminded me of one notion I haven't covered here yet:</p>
-        </div>
-      </a>
-      
-      <a href="https://www.lesswrong.com/posts/EEv9JeuY5xfuDDSgF/flinching-away-from-truth-is-often-about-protecting-the" class="related-post-card">
-        <h3 class="post-title">Flinching Away from Truth is Often About Protecting the Epistemology</h3>
-        <div class="post-meta">
-          <span class="post-author">Anna Salamon</span>
-          <span class="post-year">2016</span>
-        </div>
-        <div class="post-excerpt">
-          <p>There's a story I like, about this little kid who wants to be a writer. So she writes a story and shows it to her teacher.<br/>
-          "You misspelt the word 'ocean'", says the teacher.</p>
-          <p>"No I didn't!", says the kid.</p>
-          <p>"The teacher looks a bit apologetic, but persists: 'Ocean' is spelt with a 'c' rather than an 'sh'; this makes sense, because the 'e' after the 'c' changes its sound..."</p>
-          <p>"No I didn't!", says the kid.</p>
-          <p>"Look," says the teacher, "I get it that it hurts to notice mistakes. But that which can be destroyed by the truth should be! You did, in fact, misspell the word 'ocean'.
-          "I did not!", says the kid, whereupon she bursts into tears, and runs away and hides in the closet, repeating again and again: "I did not misspell the word! I can too be a writer!".</p>
-          <p>I like to imagine the inside of the kid's head as containing a single bucket that houses three different variables that are initially all stuck together:</p>
-        </div>
-      </a>
-      
-      <a href="https://mindingourway.com/update-from-the-suckerpunch/" class="related-post-card">
-        <h3 class="post-title">Update from the Suckerpunch</h3>
-        <div class="post-meta">
-          <span class="post-author">Nate Soares</span>
-          <span class="post-year">2015</span>
-        </div>
-        <div class="post-excerpt">
-          <p>The most common objection I hear when helping people remove their guilt is something along the lines of "Hey wait! I was using that!"</p>
-          <p>Believing this (or really any variant of "but guilt is good for me!") makes it fairly hard to replace guilt with something more productive.</p>
-          <p>I've met some people who complain that if they didn't have guilt then they'd do horrible things. I think this is fairly unlikely, and I file it right next to the arguments that say that if they didn't believe in God then they'd do horrible things. Even after dropping your obligations, you will still have something to fight for. Your reasons for not doing things you'd rather not do will remain even after the guilt is replaced.</p>
-          <p>Others I have met protest that guilt is useful in order to ensure that they won't repeat their failures. Without guilt, how would they learn their lesson? To which I generally say, that's fine, but if it keeps happening then you aren't learning, and it's time to use a different tool instead.</p>
-        </div>
-      </a>
-    </div>
-  </section>
+
+      <div class="related-posts">
+        <a href="https://www.lesswrong.com/posts/3XgYbghWruBMrPTAL/leave-a-line-of-retreat" class="related-post-card">
+          <h3 class="post-title">Leave a Line of Retreat</h3>
+          <div class="post-meta">
+            <span class="post-author">Eliezer Yudkowsky</span>
+            <span class="post-year">2008</span>
+          </div>
+          <div class="post-excerpt">
+            <p>I recently happened into a conversation with a nonrationalist who had somehow wandered into a local rationalists' gathering. She had just
+              declared (a) her belief in souls and (b) that she didn't believe in cryonics because she believed the soul wouldn't stay with the frozen body. I
+              asked, "But how do you know that?"</p>
+            <p>From the confusion that flashed on her face, it was pretty clear that this question had never occurred to her. I don't say this in a bad way—she
+              seemed like a nice person without any applied rationality training, just like most of the rest of the human species.</p>
+            <p>Most of the ensuing conversation was on items already covered on Overcoming Bias—if you're really curious about something, you probably can
+              figure out a good way to test it, try to attain accurate beliefs first and then let your emotions flow from that, that sort of thing. But the
+              conversation reminded me of one notion I haven't covered here yet:</p>
+          </div>
+        </a>
+
+        <a href="https://www.lesswrong.com/posts/EEv9JeuY5xfuDDSgF/flinching-away-from-truth-is-often-about-protecting-the" class="related-post-card">
+          <h3 class="post-title">Flinching Away from Truth is Often About Protecting the Epistemology</h3>
+          <div class="post-meta">
+            <span class="post-author">Anna Salamon</span>
+            <span class="post-year">2016</span>
+          </div>
+          <div class="post-excerpt">
+            <p>There's a story I like, about this little kid who wants to be a writer. So she writes a story and shows it to her teacher.<br />
+              "You misspelt the word 'ocean'", says the teacher.</p>
+            <p>"No I didn't!", says the kid.</p>
+            <p>"The teacher looks a bit apologetic, but persists: 'Ocean' is spelt with a 'c' rather than an 'sh'; this makes sense, because the 'e' after the
+              'c' changes its sound..."</p>
+            <p>"No I didn't!", says the kid.</p>
+            <p>"Look," says the teacher, "I get it that it hurts to notice mistakes. But that which can be destroyed by the truth should be! You did, in fact,
+              misspell the word 'ocean'.
+              "I did not!", says the kid, whereupon she bursts into tears, and runs away and hides in the closet, repeating again and again: "I did not misspell
+              the word! I can too be a writer!".</p>
+            <p>I like to imagine the inside of the kid's head as containing a single bucket that houses three different variables that are initially all stuck
+              together:</p>
+          </div>
+        </a>
+
+        <a href="https://mindingourway.com/update-from-the-suckerpunch/" class="related-post-card">
+          <h3 class="post-title">Update from the Suckerpunch</h3>
+          <div class="post-meta">
+            <span class="post-author">Nate Soares</span>
+            <span class="post-year">2015</span>
+          </div>
+          <div class="post-excerpt">
+            <p>The most common objection I hear when helping people remove their guilt is something along the lines of "Hey wait! I was using that!"</p>
+            <p>Believing this (or really any variant of "but guilt is good for me!") makes it fairly hard to replace guilt with something more productive.</p>
+            <p>I've met some people who complain that if they didn't have guilt then they'd do horrible things. I think this is fairly unlikely, and I file it
+              right next to the arguments that say that if they didn't believe in God then they'd do horrible things. Even after dropping your obligations, you
+              will still have something to fight for. Your reasons for not doing things you'd rather not do will remain even after the guilt is replaced.</p>
+            <p>Others I have met protest that guilt is useful in order to ensure that they won't repeat their failures. Without guilt, how would they learn
+              their lesson? To which I generally say, that's fine, but if it keeps happening then you aren't learning, and it's time to use a different tool
+              instead.</p>
+          </div>
+        </a>
+      </div>
+    </section>
 
 
   </div>
@@ -1727,13 +1800,15 @@
       <h2 class="section-title">LessOnline 2024</h2>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714145/_ADS0793_y28ys1_zrfrmk.jpg" alt="Conference attendees in discussion" class="gallery-image">
+          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714145/_ADS0793_y28ys1_zrfrmk.jpg" alt="Conference attendees in discussion"
+            class="gallery-image">
         </div>
         <div class="gallery-item">
           <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714144/session_tzmtut_npsovm.png" alt="Conference session" class="gallery-image">
         </div>
         <div class="gallery-item">
-          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714139/outdoor_tml9dy_flqxqv.png" alt="Outdoor conference activities" class="gallery-image">
+          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714139/outdoor_tml9dy_flqxqv.png" alt="Outdoor conference activities"
+            class="gallery-image">
         </div>
         <div class="gallery-item">
           <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714111/_ADS0020_zp5pfc.jpg" alt="Conference presentation" class="gallery-image">
@@ -1754,7 +1829,8 @@
           <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714109/_ISH8133_afznla.jpg" alt="Group photo" class="gallery-image">
         </div>
         <div class="gallery-item">
-          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714663/stadium-seating_pe2nz3_vs5wsu.png" alt="Stadium seating" class="gallery-image">
+          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740714663/stadium-seating_pe2nz3_vs5wsu.png" alt="Stadium seating"
+            class="gallery-image">
         </div>
       </div>
     </div>
@@ -1762,53 +1838,63 @@
 
   <section class="section-title">
     <h2>What People Said About LessOnline</h2>
-    
+
     <div class="testimonials">
-    <div class="testimonial">
-      <div class="testimonial-content">
-        <blockquote>
-          ...a trip to an alternate universe, a road not taken, a vision of a different life where you get up and start the day in dialogue with Agnes Callard and Aristotle and in a strange combination of relaxed and frantically go from conversation to conversation on various topics, every hour passing doors of missed opportunity, gone forever.
-        </blockquote>
-        <div class="testimonial-author">
-          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715024212/zvi_gcbx4c.jpg" alt="Zvi Mowshowitz">
-          <cite>—<a href="https://thezvi.substack.com/p/ai-67-brief-strange-trip#:~:text=I%20had%20a,opportunity%2C%20gone%20forever">Zvi Mowshowitz</a></cite>
+      <div class="testimonial">
+        <div class="testimonial-content">
+          <blockquote>
+            ...a trip to an alternate universe, a road not taken, a vision of a different life where you get up and start the day in dialogue with Agnes Callard
+            and Aristotle and in a strange combination of relaxed and frantically go from conversation to conversation on various topics, every hour passing
+            doors of missed opportunity, gone forever.
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715024212/zvi_gcbx4c.jpg" alt="Zvi Mowshowitz">
+            <cite>—<a href="https://thezvi.substack.com/p/ai-67-brief-strange-trip#:~:text=I%20had%20a,opportunity%2C%20gone%20forever">Zvi
+                Mowshowitz</a></cite>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-content">
+          <blockquote>
+            I'm probably giving you the idea that the Bay Area tech people are a bunch of weirdos. Nothing could be further from the truth. In general, I found
+            them to be smarter, more rational, and even nicer than the average human being. If everyone in the world were like these people, even communism
+            might have worked.
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715626684/scottsumner_fykfhn.jpg" alt="Scott Sumner">
+            <cite>—<a
+                href="https://www.themoneyillusion.com/melancholia-2/#:~:text=I%20was%20revived.-,I%E2%80%99m%20probably%20giving%20you%20the%20idea%20that%20the%20Bay%20Area%20tech,the%20world%20were%20like%20these%20people%2C%20even%20communism%20might%20have%20worked.,-There%E2%80%99s%20a%20weird">Scott
+                Sumner</a></cite>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-content">
+          <blockquote>
+            I got to have many long (and short!), inspiring, and occasionally intimate discussions with people I really admired… you feel like you're at home
+            the whole time you're there… if you weren't there, you missed out, but there's always next year.
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715116970/cremieux-transformed_ffrhpj.jpg" alt="Cremieux Recueil">
+            <cite>—<a
+                href="https://www.cremieux.xyz/p/meetups-are-fun#:~:text=I%20got%20to%20have%20many%20long%20(and%20short!)%2C%20inspiring%2C%20and%20occasionally%20intimate%20discussions%20with%20people%20I%20really%20admired">Cremieux
+                Recueil</a></cite>
+          </div>
         </div>
       </div>
     </div>
-    
-    <div class="testimonial">
-      <div class="testimonial-content">
-        <blockquote>
-          I'm probably giving you the idea that the Bay Area tech people are a bunch of weirdos. Nothing could be further from the truth. In general, I found them to be smarter, more rational, and even nicer than the average human being. If everyone in the world were like these people, even communism might have worked.
-        </blockquote>
-        <div class="testimonial-author">
-          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715626684/scottsumner_fykfhn.jpg" alt="Scott Sumner">
-          <cite>—<a href="https://www.themoneyillusion.com/melancholia-2/#:~:text=I%20was%20revived.-,I%E2%80%99m%20probably%20giving%20you%20the%20idea%20that%20the%20Bay%20Area%20tech,the%20world%20were%20like%20these%20people%2C%20even%20communism%20might%20have%20worked.,-There%E2%80%99s%20a%20weird">Scott Sumner</a></cite>
-        </div>
-      </div>
-    </div>
-    
-    <div class="testimonial">
-      <div class="testimonial-content">
-        <blockquote>
-          I got to have many long (and short!), inspiring, and occasionally intimate discussions with people I really admired… you feel like you're at home the whole time you're there… if you weren't there, you missed out, but there's always next year.
-        </blockquote>
-        <div class="testimonial-author">
-          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715116970/cremieux-transformed_ffrhpj.jpg" alt="Cremieux Recueil">
-          <cite>—<a href="https://www.cremieux.xyz/p/meetups-are-fun#:~:text=I%20got%20to%20have%20many%20long%20(and%20short!)%2C%20inspiring%2C%20and%20occasionally%20intimate%20discussions%20with%20people%20I%20really%20admired">Cremieux Recueil</a></cite>
-        </div>
-      </div>
-    </div>
-  </div>
   </section>
 
   <!-- Tickets Section (Regular Section instead of Modal) -->
   <section id="tickets-section" class="content-section-container">
     <h2 class="full-width-title">Select Your Ticket</h2>
     <p class="tickets-subtitle">Choose the ticket that best suits your participation in LessOnline 2025</p>
-    
+
     <div class="tickets-container">
-      
+
       <!-- Early Bird Ticket -->
       <div class="ticket ticket-button">
         <div class="ticket-inner">
@@ -1834,7 +1920,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Supporter Ticket -->
       <div class="ticket ticket-button">
         <div class="ticket-inner">
@@ -1886,7 +1972,7 @@
           </div>
         </div>
       </div>
-      
+
       <!-- Day Pass Ticket -->
       <div class="ticket ticket-button">
         <div class="ticket-inner">
@@ -1938,47 +2024,52 @@
     <div class="container">
       <h2 class="section-title">Conference Book</h2>
       <p class="book-subtitle">Explore our official conference publication</p>
-      
+
       <div class="book-container">
         <div class="book">
           <label for="page-1" class="book__page book__page--1">
-            <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740720607/benito2692_In_the_middle_of_a_jungle_clearing_a_strange_ancie_b086254e-626b-4a11-a0df-3af02bf0a9e2_0_ixiirr.png" alt="LessOnline Book Cover">
+            <img
+              src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740720607/benito2692_In_the_middle_of_a_jungle_clearing_a_strange_ancie_b086254e-626b-4a11-a0df-3af02bf0a9e2_0_ixiirr.png"
+              alt="LessOnline Book Cover">
           </label>
-          
+
           <label for="page-2" class="book__page book__page--4">
             <div class="page__content">
               <h1 class="page__content-title">Introduction</h1>
               <div class="page__content-blockquote">
-                <p class="page__content-blockquote-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p class="page__content-blockquote-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p class="page__content-blockquote-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p class="page__content-blockquote-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p class="page__content-blockquote-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="page__content-blockquote-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                  rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                 <span class="page__content-blockquote-reference">- LessOnline Conference Notes</span>
               </div>
               <div class="page__number">3</div>
             </div>
           </label>
-            
+
           <!-- Resets the page -->
-          <input type="radio" name="page" id="page-1" checked/>
-            
+          <input type="radio" name="page" id="page-1" checked />
+
           <!-- Goes to the second page -->
-          <input type="radio" name="page" id="page-2"/>
+          <input type="radio" name="page" id="page-2" />
           <label class="book__page book__page--2">
             <div class="book__page-front">
               <div class="page__content">
                 <h1 class="page__content-book-title">LessOnline</h1>
                 <h2 class="page__content-author">Conference Proceedings</h2>
-                
+
                 <p class="page__content-credits">
-                  Edited by 
+                  Edited by
                   <span>The Community</span>
                 </p>
-                
+
                 <p class="page__content-credits">
-                  Contributions from 
+                  Contributions from
                   <span>Festival Participants</span>
                 </p>
-                
+
                 <div class="page__content-copyright">
                   <p>LessOnline Conference</p>
                   <p>Berkeley - MMXXV</p>
@@ -1990,22 +2081,32 @@
                 <h1 class="page__content-title">Contents</h1>
                 <table class="page__content-table">
                   <tr>
-                    <td align="left">Part I</td><td align="left">The Writers</td><td align="right">3</td>
+                    <td align="left">Part I</td>
+                    <td align="left">The Writers</td>
+                    <td align="right">3</td>
                   </tr>
                   <tr>
-                    <td align="left">Part II</td><td align="left">The Thinkers</td><td align="right">43</td>
+                    <td align="left">Part II</td>
+                    <td align="left">The Thinkers</td>
+                    <td align="right">43</td>
                   </tr>
                   <tr>
-                    <td align="left">Part III</td><td align="left">The Explorers</td><td align="right">87</td>
+                    <td align="left">Part III</td>
+                    <td align="left">The Explorers</td>
+                    <td align="right">87</td>
                   </tr>
                   <tr>
-                    <td align="left">Part IV</td><td align="left">The Creators</td><td align="right">147</td>
+                    <td align="left">Part IV</td>
+                    <td align="left">The Creators</td>
+                    <td align="right">147</td>
                   </tr>
                   <tr>
-                    <td align="left">Part V</td><td align="left">The Future</td><td align="right">173</td>
+                    <td align="left">Part V</td>
+                    <td align="left">The Future</td>
+                    <td align="right">173</td>
                   </tr>
                 </table>
-                
+
                 <div class="page__number">2</div>
               </div>
             </div>
@@ -2016,7 +2117,7 @@
   </section>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Embedded CSV data
       const csvData = `name, link, attending
 250bpm, https://250bpm.com/,
@@ -2156,7 +2257,7 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
     function parseCSV(csvText) {
       const lines = csvText.split('\n');
       const result = [];
-      
+
       // Skip header row
       for (let i = 1; i < lines.length; i++) {
         const line = lines[i].trim();
@@ -2169,24 +2270,24 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
           });
         }
       }
-      
+
       return result;
     }
 
     function displayBlogs(blogs) {
       const container = document.getElementById('blogs-container');
       if (!container) return;
-      
+
       // Sort blogs alphabetically
       blogs.sort((a, b) => a.name.localeCompare(b.name));
-      
+
       let html = '<div class="blogs-list">';
-      
+
       blogs.forEach((blog, index) => {
         const romanNumeral = toRoman(index + 1);
-        const attendingBadge = blog.attending ? 
+        const attendingBadge = blog.attending ?
           '<span class="attending-badge">(Att.)</span>' : '';
-        
+
         html += `
           <div class="blog-item" data-number="${romanNumeral}.">
             <a href="${blog.link}" target="_blank" rel="noopener noreferrer">
@@ -2196,7 +2297,7 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
           </div>
         `;
       });
-      
+
       html += '</div>';
       container.innerHTML = html;
     }
@@ -2218,44 +2319,57 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
         { value: 4, numeral: 'IV' },
         { value: 1, numeral: 'I' }
       ];
-      
+
       let result = '';
-      
+
       for (let i = 0; i < romanNumerals.length; i++) {
         while (num >= romanNumerals[i].value) {
           result += romanNumerals[i].numeral;
           num -= romanNumerals[i].value;
         }
       }
-      
+
       return result;
     }
   </script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add click handler for Buy Tickets button
+      const buyTicketsButton = document.getElementById('open-tickets-modal');
+      buyTicketsButton.addEventListener('click', function (event) {
+        // Prevent default behavior
+        event.preventDefault();
+
+        // Find the tickets section
+        const ticketsSection = document.getElementById('tickets-section');
+
+        // Scroll to the tickets section smoothly
+        ticketsSection.scrollIntoView({ behavior: 'smooth' });
+      });
+
       // Bookmark selection functionality for day pass tickets
       const bookmarks = document.querySelectorAll('.bookmark');
-      
+
       // Find the day pass ticket by its header text
       const ticketHeaders = document.querySelectorAll('.ticket-header h3');
       let dayPassPrice;
-      
+
       for (const header of ticketHeaders) {
         if (header.textContent.trim() === 'SINGLE DAY') {
           dayPassPrice = header.closest('.ticket-inner').querySelector('.ticket-price');
           break;
         }
       }
-      
+
       if (dayPassPrice) {
         bookmarks.forEach(bookmark => {
-          bookmark.addEventListener('click', function() {
+          bookmark.addEventListener('click', function () {
             // Remove active class from all bookmarks
             bookmarks.forEach(b => b.classList.remove('active'));
-            
+
             // Add active class to clicked bookmark
             this.classList.add('active');
-            
+
             // Update price based on selection
             if (this.classList.contains('bookmark-fri')) {
               dayPassPrice.textContent = 'Friday: $250';
@@ -2268,7 +2382,7 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
         });
       }
     });
-    
+
     // Rest of your existing scripts
     // ...
   </script>
