@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:image" content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1712166847/habryka_6_g84ubl.png">
   <meta property="twitter:image:src" content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1712166847/habryka_6_g84ubl.png">
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="styles.css">
   <!-- <link rel="stylesheet" href="manifest-style.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,6 +74,8 @@
       /* Changed from 'warnock-pro' to 'Bembo Book' */
       position: relative;
       z-index: 0;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     p a {
@@ -99,6 +99,7 @@
       text-align: center;
       color: white;
       z-index: 1;
+      width: 100%;
 
       /* Modify the gradient mask to fade out sooner */
       /* -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 85%); */
@@ -114,14 +115,19 @@
       position: absolute;
       top: -20px;
       left: 6px;
+      width: calc(100% - 80px);
+      box-sizing: border-box;
     }
 
     @media (max-width: 768px) {
       .hero-content {
-        /* margin: 20px; */
-        /* position: relative; */
+        margin: 0;
+        position: relative;
         top: 0;
-        left: 0;  
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
       }
     }
 
@@ -255,11 +261,19 @@
       /* Reduced top padding from 60px to 20px */
       color: #000000;
       position: relative;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    @media (max-width: 768px) {
+      .blogs-container {
+        max-width: 100%;
+        padding: 20px 10px 30px;
+      }
     }
 
     .blogs-header {
       text-align: center;
-      margin-bottom: 50px;
       position: relative;
     }
 
@@ -337,6 +351,17 @@
       background-color: transparent;
       box-shadow: none;
       border: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .table-of-contents-style {
+        padding: 20px;
+        margin: 30px auto;
+        max-width: 100%;
+        width: 100%;
+      }
     }
 
     .blogs-header h1 {
@@ -479,6 +504,99 @@
       .table-of-contents-style .blogs-list {
         column-count: 1;
       }
+    }
+
+    /* Tab styles for mobile view */
+    .tabs-container {
+      display: none;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .tab-button {
+      background-color: #f8f3e2;
+      border: 1px solid #d9c7a7;
+      color: #5a3921;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-family: 'Bembo Book', serif;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      min-width: 60px;
+      text-align: center;
+      flex-grow: 1;
+      max-width: 120px;
+    }
+
+    .tab-button.active {
+      background-color: #8c6d46;
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .tab-button:hover {
+      background-color: #d9c7a7;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 10px 0;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Show tabs on mobile and adjust layout */
+    @media (max-width: 768px) {
+      .tabs-container {
+        display: block;
+      }
+
+      .tab-content:not(.active) {
+        display: none !important;
+      }
+      
+      /* Ensure single column on mobile */
+      .table-of-contents-style .blogs-list {
+        column-count: 1 !important;
+      }
+      
+      /* Hide desktop view on mobile */
+      .desktop-view {
+        display: none !important;
+      }
+      
+      /* Show mobile view on mobile */
+      .mobile-view {
+        display: block;
+      }
+    }
+    
+    /* Hide mobile view on desktop */
+    .mobile-view {
+      display: none;
+    }
+    
+    /* Show desktop view on desktop */
+    .desktop-view {
+      display: block;
     }
 
     .triptych {
@@ -641,6 +759,18 @@
 
     .container {
       padding: 0px 40px;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        max-width: 100%;
+        padding: 0px 20px;
+        margin: 0;
+      }
     }
 
     /* New image grid for four images */
@@ -1317,14 +1447,21 @@
     .library-section {
       margin-top: -21vh;
       z-index: 1;
+      width: 100%;
+      box-sizing: border-box;
     }
-
+    
     @media (max-width: 768px) {
+      .library-section {
+        width: 100%;
+        margin-top: -15vh; /* Adjust the negative margin for mobile */
+      }
+      
       .tickets-container {
         flex-direction: row;
         /* Keep as row, but with wrapping */
       }
-
+      
       .ticket {
         width: 260px;
       }
@@ -1355,6 +1492,7 @@
         border-radius: 8px;
         padding: 30px 30px 15px 30px;
         backdrop-filter: blur(3px);
+        margin: 30px;
         /* Optional: adds a slight blur effect */
       }
     }
@@ -1594,6 +1732,13 @@
     .hidden {
       display: none !important;
     }
+
+    html {
+      width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -1659,6 +1804,16 @@
       <p>The sites below embody the virtues we are celebrating. Each blog author below has been offered a free ticket to LessOnline.
         <br />Writers marked as "Attending" will be present at LessOnline 2025.
       </p>
+    </div>
+
+    <!-- Added tabs for mobile view -->
+    <div class="tabs-container">
+      <div class="tabs">
+        <button class="tab-button active" data-tab="tab1">A-C</button>
+        <button class="tab-button" data-tab="tab2">D-K</button>
+        <button class="tab-button" data-tab="tab3">M-R</button>
+        <button class="tab-button" data-tab="tab4">S-Z</button>
+      </div>
     </div>
 
     <div id="blogs-container">
@@ -2243,7 +2398,17 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       // Replace the loadBlogsData function with one that uses the embedded data
       function loadBlogsData() {
         try {
+          console.log('Loading blogs data...');
           displayBlogs(parseCSV(csvData));
+          
+          // Ensure tabs are initialized after a short delay
+          setTimeout(() => {
+            console.log('Re-initializing tabs...');
+            setupTabs();
+            
+            // Also force display styles to ensure correct visibility
+            updateViewMode();
+          }, 100);
         } catch (error) {
           console.error('Error processing blogs data:', error);
           document.getElementById('blogs-container').innerHTML = '<p>Error processing blogs data: ' + error.message + '</p>';
@@ -2252,6 +2417,52 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
 
       // Call the function to load blogs
       loadBlogsData();
+      
+      // Add window resize listener to handle view mode changes
+      window.addEventListener('resize', handleResize);
+      
+      // Debounce function to limit resize events
+      let resizeTimeout;
+      function handleResize() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          updateViewMode();
+        }, 250);
+      }
+      
+      // Function to update view mode based on screen width
+      function updateViewMode() {
+        if (window.innerWidth <= 768) {
+          // Mobile view
+          const desktopView = document.querySelector('.desktop-view');
+          const mobileView = document.querySelector('.mobile-view');
+          
+          if (desktopView) desktopView.style.display = 'none';
+          if (mobileView) mobileView.style.display = 'block';
+          
+          // Ensure a tab is active
+          const activeTab = document.querySelector('.tab-content.active');
+          if (!activeTab) {
+            const firstTab = document.querySelector('.tab-content');
+            if (firstTab) {
+              firstTab.classList.add('active');
+              
+              // Also activate the corresponding button
+              const firstButton = document.querySelector('.tab-button[data-tab="tab1"]');
+              if (firstButton) {
+                firstButton.classList.add('active');
+              }
+            }
+          }
+        } else {
+          // Desktop view
+          const desktopView = document.querySelector('.desktop-view');
+          const mobileView = document.querySelector('.mobile-view');
+          
+          if (desktopView) desktopView.style.display = 'block';
+          if (mobileView) mobileView.style.display = 'none';
+        }
+      }
     });
 
     function parseCSV(csvText) {
@@ -2281,27 +2492,149 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       // Sort blogs alphabetically
       blogs.sort((a, b) => a.name.localeCompare(b.name));
 
-      let html = '<div class="blogs-list">';
-
-      blogs.forEach((blog, index) => {
-        const romanNumeral = toRoman(index + 1);
-        const attendingBadge = blog.attending ?
-          '<span class="attending-badge">(Att.)</span>' : '';
-
-        html += `
-          <div class="blog-item" data-number="${romanNumeral}.">
-            <a href="${blog.link}" target="_blank" rel="noopener noreferrer">
-              ${blog.name}
-            </a>
-            ${attendingBadge}
-          </div>
-        `;
+      // Group blogs by first letter for tabs with new ranges
+      const groupA_C = blogs.filter(blog => {
+        const firstChar = blog.name.charAt(0).toUpperCase();
+        return firstChar >= 'A' && firstChar <= 'C';
+      });
+      
+      const groupD_K = blogs.filter(blog => {
+        const firstChar = blog.name.charAt(0).toUpperCase();
+        return firstChar >= 'D' && firstChar <= 'K';
+      });
+      
+      const groupM_R = blogs.filter(blog => {
+        const firstChar = blog.name.charAt(0).toUpperCase();
+        return firstChar >= 'M' && firstChar <= 'R';
+      });
+      
+      const groupS_Z = blogs.filter(blog => {
+        const firstChar = blog.name.charAt(0).toUpperCase();
+        return (firstChar >= 'S' && firstChar <= 'Z') || firstChar < 'A';
       });
 
-      html += '</div>';
-      container.innerHTML = html;
+      // Function to create HTML for a group of blogs
+      function createBlogsHTML(groupBlogs) {
+        let html = '<div class="blogs-list">';
+        
+        groupBlogs.forEach((blog, index) => {
+          const romanNumeral = toRoman(blogs.indexOf(blog) + 1); // Use global index for consistent numbering
+          const attendingBadge = blog.attending ?
+            '<span class="attending-badge">(Att.)</span>' : '';
+
+          html += `
+            <div class="blog-item" data-number="${romanNumeral}.">
+              <a href="${blog.link}" target="_blank" rel="noopener noreferrer">
+                ${blog.name}
+              </a>
+              ${attendingBadge}
+            </div>
+          `;
+        });
+        
+        html += '</div>';
+        return html;
+      }
+
+      // Create HTML for desktop view (all blogs)
+      const desktopHTML = `<div class="desktop-view">${createBlogsHTML(blogs)}</div>`;
+      
+      // Create HTML for mobile view (tabbed)
+      const mobileHTML = `
+        <div class="mobile-view">
+          <div id="tab1" class="tab-content active">${createBlogsHTML(groupA_C)}</div>
+          <div id="tab2" class="tab-content">${createBlogsHTML(groupD_K)}</div>
+          <div id="tab3" class="tab-content">${createBlogsHTML(groupM_R)}</div>
+          <div id="tab4" class="tab-content">${createBlogsHTML(groupS_Z)}</div>
+        </div>
+      `;
+      
+      // Combine desktop and mobile views
+      container.innerHTML = desktopHTML + mobileHTML;
+      
+      // Add tab functionality after DOM is updated
+      setTimeout(() => {
+        setupTabs();
+      }, 0);
     }
 
+    // Function to handle tab switching
+    function setupTabs() {
+      console.log('Setting up tabs...');
+      const tabButtons = document.querySelectorAll('.tab-button');
+      console.log('Found tab buttons:', tabButtons.length);
+      
+      if (tabButtons.length === 0) {
+        console.error('No tab buttons found! Will retry later...');
+        // Retry after a delay
+        setTimeout(setupTabs, 1000);
+        return;
+      }
+      
+      tabButtons.forEach(button => {
+        // Remove any existing event listeners
+        button.removeEventListener('click', tabClickHandler);
+        
+        // Add new event listener
+        button.addEventListener('click', tabClickHandler);
+        
+        // Add a direct onclick attribute as fallback
+        button.setAttribute('onclick', 'manualTabClick(this)');
+      });
+    }
+    
+    // Manual tab click function as fallback
+    function manualTabClick(button) {
+      console.log('Manual tab click on:', button.getAttribute('data-tab'));
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Add active class to clicked button
+      button.classList.add('active');
+      
+      // Hide all tab content
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Show corresponding content
+      const tabId = button.getAttribute('data-tab');
+      const tabContent = document.getElementById(tabId);
+      if (tabContent) {
+        tabContent.classList.add('active');
+      }
+    }
+    
+    // Tab click handler function
+    function tabClickHandler() {
+      console.log('Tab clicked:', this.getAttribute('data-tab'));
+      
+      // Remove active class from all buttons
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Add active class to clicked button
+      this.classList.add('active');
+      
+      // Hide all tab content
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Show corresponding content
+      const tabId = this.getAttribute('data-tab');
+      const tabContent = document.getElementById(tabId);
+      if (tabContent) {
+        console.log('Activating tab content:', tabId);
+        tabContent.classList.add('active');
+      } else {
+        console.error('Tab content not found for:', tabId);
+      }
+    }
+    
     // Function to convert numbers to Roman numerals
     function toRoman(num) {
       const romanNumerals = [
