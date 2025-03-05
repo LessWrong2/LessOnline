@@ -1739,6 +1739,33 @@
       margin: 0;
       padding: 0;
     }
+
+    .table-of-contents-style .mobile-view .blog-item {
+        font-size: 25px;
+        padding: 3px 5px;
+        padding-bottom: 1px;
+        border: 1px solid oklch(0.45 0.11 57.97 / 1);
+        border-radius: 6px;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .table-of-contents-style .mobile-view .blog-item::before {
+        display: none;
+    }
+
+    .mobile-view .blogs-list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 3px;
+        column-gap: 6px;
+        padding-left: 11px;
+    }
+
+    .table-of-contents-style .mobile-view .blog-item a {
+        font-size: 19px;
+        font-variant: small-caps;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -1804,16 +1831,6 @@
       <p>The sites below embody the virtues we are celebrating. Each blog author below has been offered a free ticket to LessOnline.
         <br />Writers marked as "Attending" will be present at LessOnline 2025.
       </p>
-    </div>
-
-    <!-- Added tabs for mobile view -->
-    <div class="tabs-container">
-      <div class="tabs">
-        <button class="tab-button active" data-tab="tab1">A-C</button>
-        <button class="tab-button" data-tab="tab2">D-K</button>
-        <button class="tab-button" data-tab="tab3">M-R</button>
-        <button class="tab-button" data-tab="tab4">S-Z</button>
-      </div>
     </div>
 
     <div id="blogs-container">
@@ -2404,7 +2421,6 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
           // Ensure tabs are initialized after a short delay
           setTimeout(() => {
             console.log('Re-initializing tabs...');
-            setupTabs();
             
             // Also force display styles to ensure correct visibility
             updateViewMode();
@@ -2492,33 +2508,14 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       // Sort blogs alphabetically
       blogs.sort((a, b) => a.name.localeCompare(b.name));
 
-      // Group blogs by first letter for tabs with new ranges
-      const groupA_C = blogs.filter(blog => {
-        const firstChar = blog.name.charAt(0).toUpperCase();
-        return firstChar >= 'A' && firstChar <= 'C';
-      });
+      // No need to group blogs by first letter anymore since we're not using tabs
       
-      const groupD_K = blogs.filter(blog => {
-        const firstChar = blog.name.charAt(0).toUpperCase();
-        return firstChar >= 'D' && firstChar <= 'K';
-      });
-      
-      const groupM_R = blogs.filter(blog => {
-        const firstChar = blog.name.charAt(0).toUpperCase();
-        return firstChar >= 'M' && firstChar <= 'R';
-      });
-      
-      const groupS_Z = blogs.filter(blog => {
-        const firstChar = blog.name.charAt(0).toUpperCase();
-        return (firstChar >= 'S' && firstChar <= 'Z') || firstChar < 'A';
-      });
-
       // Function to create HTML for a group of blogs
-      function createBlogsHTML(groupBlogs) {
+      function createBlogsHTML(blogs) {
         let html = '<div class="blogs-list">';
         
-        groupBlogs.forEach((blog, index) => {
-          const romanNumeral = toRoman(blogs.indexOf(blog) + 1); // Use global index for consistent numbering
+        blogs.forEach((blog, index) => {
+          const romanNumeral = toRoman(index + 1);
           const attendingBadge = blog.attending ?
             '<span class="attending-badge">(Att.)</span>' : '';
 
@@ -2539,102 +2536,16 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       // Create HTML for desktop view (all blogs)
       const desktopHTML = `<div class="desktop-view">${createBlogsHTML(blogs)}</div>`;
       
-      // Create HTML for mobile view (tabbed)
+      // Create HTML for mobile view (all blogs, no tabs)
       const mobileHTML = `
         <div class="mobile-view">
-          <div id="tab1" class="tab-content active">${createBlogsHTML(groupA_C)}</div>
-          <div id="tab2" class="tab-content">${createBlogsHTML(groupD_K)}</div>
-          <div id="tab3" class="tab-content">${createBlogsHTML(groupM_R)}</div>
-          <div id="tab4" class="tab-content">${createBlogsHTML(groupS_Z)}</div>
+          ${createBlogsHTML(blogs)}
         </div>
       `;
       
       // Combine desktop and mobile views
       container.innerHTML = desktopHTML + mobileHTML;
-      
-      // Add tab functionality after DOM is updated
-      setTimeout(() => {
-        setupTabs();
-      }, 0);
-    }
-
-    // Function to handle tab switching
-    function setupTabs() {
-      console.log('Setting up tabs...');
-      const tabButtons = document.querySelectorAll('.tab-button');
-      console.log('Found tab buttons:', tabButtons.length);
-      
-      if (tabButtons.length === 0) {
-        console.error('No tab buttons found! Will retry later...');
-        // Retry after a delay
-        setTimeout(setupTabs, 1000);
-        return;
-      }
-      
-      tabButtons.forEach(button => {
-        // Remove any existing event listeners
-        button.removeEventListener('click', tabClickHandler);
-        
-        // Add new event listener
-        button.addEventListener('click', tabClickHandler);
-        
-        // Add a direct onclick attribute as fallback
-        button.setAttribute('onclick', 'manualTabClick(this)');
-      });
-    }
-    
-    // Manual tab click function as fallback
-    function manualTabClick(button) {
-      console.log('Manual tab click on:', button.getAttribute('data-tab'));
-      // Remove active class from all buttons
-      document.querySelectorAll('.tab-button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      
-      // Add active class to clicked button
-      button.classList.add('active');
-      
-      // Hide all tab content
-      document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-      });
-      
-      // Show corresponding content
-      const tabId = button.getAttribute('data-tab');
-      const tabContent = document.getElementById(tabId);
-      if (tabContent) {
-        tabContent.classList.add('active');
-      }
-    }
-    
-    // Tab click handler function
-    function tabClickHandler() {
-      console.log('Tab clicked:', this.getAttribute('data-tab'));
-      
-      // Remove active class from all buttons
-      document.querySelectorAll('.tab-button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      
-      // Add active class to clicked button
-      this.classList.add('active');
-      
-      // Hide all tab content
-      document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.remove('active');
-      });
-      
-      // Show corresponding content
-      const tabId = this.getAttribute('data-tab');
-      const tabContent = document.getElementById(tabId);
-      if (tabContent) {
-        console.log('Activating tab content:', tabId);
-        tabContent.classList.add('active');
-      } else {
-        console.error('Tab content not found for:', tabId);
-      }
-    }
-    
+    }    
     // Function to convert numbers to Roman numerals
     function toRoman(num) {
       const romanNumerals = [
