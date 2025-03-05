@@ -429,7 +429,7 @@
     .table-of-contents-style .blog-item {
       break-inside: avoid;
       margin-bottom: 3px;
-      padding: 2px 5px 2px 5px;
+      padding: 2px 0px 2px 0px;
       background-color: transparent;
       position: relative;
       transition: all 0.3s ease;
@@ -480,7 +480,7 @@
       color: #8B0000;
       font-size: 13px;
       padding: 0;
-      border-radius: 0;
+      border-radius: 10px;
       font-family: 'Bembo Book', serif;
       font-style: italic;
       margin-left: 4px;
@@ -1766,11 +1766,56 @@
         font-size: 19px;
         font-variant: small-caps;
     }
+    
+    /* Style for attending blog items in mobile view */
+    .table-of-contents-style .mobile-view .blog-item:has(.attending-badge) {
+        background-color: oklch(0.45 0.11 57.97 / 1); /* Same brown as the border */
+        color: white;
+    }
+    
+    .table-of-contents-style .mobile-view .blog-item:has(.attending-badge) a {
+        color: white;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* UPDATED STYLES FOR LIBRARY SECTION */
+    
+    /* Mobile view: attending blogs have brown background and white text */
+    .table-of-contents-style .mobile-view .blog-item:has(.attending-badge) {
+      background-color: oklch(0.45 0.11 57.97 / 1); /* Same brown as the border */
+      color: white;
+    }
+    
+    .table-of-contents-style .mobile-view .blog-item:has(.attending-badge) a {
+      color: white;
+    }
+    
+    /* Desktop view: attending blogs have color #815b40, non-attending have color #5a392180 */
+    .table-of-contents-style .desktop-view .blog-item a {
+      color: #5a392180; /* Non-attending blog text color */
+    }
+    
+    .table-of-contents-style .desktop-view .blog-item:has(.attending-badge) a {
+      color: #815b40; /* Attending blog text color */
+      font-weight: 600;
+    }
+    
+    .table-of-contents-style .desktop-view .attending-badge {
+      display: none; /* Hide the attending badge in desktop view */
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+  <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png" class="background">
   <div id="password-overlay">
     <div id="password-form">
       <h2>Enter Password</h2>
@@ -1829,7 +1874,7 @@
         <span class="icon">❧</span>
       </div>
       <p>The sites below embody the virtues we are celebrating. Each blog author below has been offered a free ticket to LessOnline.
-        <br />Writers marked as "Attending" will be present at LessOnline 2025.
+        <br />Writers marked in a brown highlight will be present at LessOnline 2025.
       </p>
     </div>
 
@@ -2292,7 +2337,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       // Embedded CSV data
       const csvData = `name, link, attending
-250bpm, https://250bpm.com/,
+250bpm, https://250bpm.com/, true
 A Collection of Unmitigated Pedantry, https://acoup.blog/, 
 A Song for Two Voices, https://archiveofourown.org/series/936480,
 Abram Demski, https://www.lesswrong.com/users/abramdemski?sortedBy=top,
@@ -2306,7 +2351,7 @@ Andrew Critch, http://blog.acritch.com/,
 Andy Matuschak, https://andymatuschak.org/,
 Applied Divinity Studies, https://www.applieddivinitystudies.com/, 
 Artificially Intelligent, https://markxu.com/, 
-Asterisk, https://asteriskmag.com/, 
+Asterisk, https://asteriskmag.com/, true
 Astral Codex Ten | UNSONG, https://www.astralcodexten.com/, 
 Bayesian Investor, https://bayesianinvestor.com/blog/, true
 Becoming Eden, http://becomingeden.com/,
@@ -2517,7 +2562,7 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
         blogs.forEach((blog, index) => {
           const romanNumeral = toRoman(index + 1);
           const attendingBadge = blog.attending ?
-            '<span class="attending-badge">(Att.)</span>' : '';
+            '<span class="attending-badge"></span>' : '';
 
           html += `
             <div class="blog-item" data-number="${romanNumeral}.">
