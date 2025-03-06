@@ -882,7 +882,6 @@
 
     .ticket {
       width: 280px;
-      margin-bottom: 30px;
       perspective: 1000px;
       display: flex;
       flex-direction: column;
@@ -1083,12 +1082,99 @@
       .tickets-container {
         flex-direction: row;
         /* Keep as row, but with wrapping */
+        gap: 15px; /* Reduced from 30px */
       }
 
       .ticket {
         width: 260px;
       }
-
+      
+      /* Mobile ticket styles - compact version */
+      .ticket-inner {
+        height: auto;
+        min-height: 130px; /* Reduced from 120px */
+      }
+      
+      .ticket-illustration,
+      .ticket-number,
+      .day-bookmarks {
+        display: none;
+      }
+      
+      /* Hide all details except "Admits One" */
+      .ticket-details {
+        border: none;
+        padding: 0;
+        margin: 3px 0 0 0;
+      }
+      
+      .ticket-event,
+      .ticket-date,
+      .ticket-location {
+        display: none;
+      }
+      
+      .ticket-admit {
+        font-size: 12px;
+        margin: 0;
+      }
+      
+      .ticket-content {
+        justify-content: center;
+        padding: 10px 5px;
+      }
+      
+      .ticket-border {
+        justify-content: center;
+      }
+      
+      /* Ornate border with symbol for ticket header */
+      .ticket-header {
+        position: relative;
+        padding-bottom: 0;
+        margin-bottom: 5px;
+        border-bottom: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      /* Create ornate divider after the header content */
+      .ticket-header:after {
+        content: "❧";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        height: 20px;
+        margin-top: 5px;
+        font-size: 14px;
+        color: #5a3921;
+      }
+      
+      /* Left line */
+      .ticket-header:before {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 55%;
+        height: 1px;
+        background-color: #8c6d46;
+      }
+      
+      /* Right line */
+      .ticket-price:after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        left: 55%;
+        right: 0;
+        height: 1px;
+        background-color: #8c6d46;
+      }
+      
       .day-bookmarks {
         right: -25px;
       }
@@ -1489,12 +1575,36 @@
       }
 
       .bookmark-content {
-        font-size: 9px;
+        font-size: 14px;
+        padding-right: 10px;
       }
 
       .bookmark-price {
         font-size: 8px;
       }
+
+      .ticket-inner {
+        min-height: 130px;
+      }
+
+      .day-bookmarks.day-bookmarks-mobile {
+        right: 20px;
+        z-index: 1;
+        top: 120px;
+        flex-direction: row;
+      }
+
+      .day-bookmarks-mobile .bookmark {
+        clip-path: none;
+        width: 50px;
+        border-radius: 8px;
+      }
+
+      .bookmark:hover, .bookmark.active {
+        background-color: #C41E3A;
+        transform: none;
+      }
+      
     }
 
     /* Add media query for screens below approximately 2/3 of desktop size */
@@ -2184,7 +2294,7 @@
 
       <!-- Day Pass Ticket -->
       <div class="ticket ticket-button">
-        <div class="ticket-inner">
+        <div class="ticket-inner day-pass-mobile">
           <div class="ticket-front">
             <div class="ticket-border">
               <div class="ticket-content">
@@ -2202,7 +2312,7 @@
                   <p class="ticket-location">Lighthaven, Berkeley CA</p>
                 </div>
                 <!-- Day Selection Bookmarks -->
-                <div class="day-bookmarks">
+                <div class="day-bookmarks day-bookmarks-mobile">
                   <div class="bookmark bookmark-fri">
                     <div class="bookmark-content">
                       <span class="bookmark-text">Fri</span>
