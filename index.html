@@ -1646,12 +1646,20 @@
         min-height: 130px;
       }
 
-      .day-bookmarks.day-bookmarks-mobile {
+      /* .day-bookmarks.day-bookmarks-mobile {
         right: 20px;
         z-index: 1;
         top: 120px;
         flex-direction: row;
-      }
+      } */
+
+      /* @media (max-width: 768px) {
+          .day-bookmarks.day-bookmarks-mobile {
+          top: 100%;
+          right: 12%;
+          flex-direction: row;
+        }
+      } */
 
       .day-bookmarks-mobile .bookmark {
         clip-path: none;
@@ -1989,6 +1997,36 @@
     .table-of-contents-style .desktop-view .attending-badge {
       display: none; /* Hide the attending badge in desktop view */
     }
+
+    /* Styles for the day pass container with external bookmarks */
+    .day-pass-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .day-pass-container .day-bookmarks {
+      position: absolute;
+      top: 8%;
+      right: -20%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: -30px; /* Overlap with the ticket */
+      z-index: 1; /* Ensure bookmarks are above the ticket */
+    }
+
+     @media (max-width: 768px) {
+          .day-pass-container .day-bookmarks {
+          top: 100%;
+          right: 12%;
+          flex-direction: row;
+        }
+      }
+    
+    .day-pass-container .ticket {
+      position: relative;
+      z-index: 5;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -2271,7 +2309,7 @@
     <div class="tickets-container">
 
       <!-- Early Bird Ticket -->
-      <a href="https://buy.stripe.com/9AQ5mzfoX3uK9qMfZ4" class="ticket ticket-button" target="_blank">
+      <a href="https://buy.stripe.com/4gwaGT3Gf2qGauQfZ9" class="ticket ticket-button" target="_blank">
         <div class="ticket-inner">
           <div class="ticket-front">
             <div class="ticket-border">
@@ -2349,43 +2387,46 @@
       </div>
 
       <!-- Day Pass Ticket -->
-      <div class="ticket ticket-button">
-        <div class="ticket-inner day-pass-mobile">
-          <div class="ticket-front">
-            <div class="ticket-border">
-              <div class="ticket-content">
-                <div class="ticket-header">
-                  <h3>SINGLE DAY</h3>
-                  <div class="ticket-price">Please choose a day</div>
-                </div>
-                <div class="ticket-illustration">
-                  <img src="https://cdn.midjourney.com/60bc44db-9eda-4ac5-b6d4-7bc404bf82bc/0_2.png" alt="Day Pass Illustration">
-                </div>
-                <div class="ticket-details">
-                  <p class="ticket-admit">ADMITS ONE</p>
-                  <p class="ticket-event">LessOnline Festival</p>
-                  <p class="ticket-date">Select Days</p>
-                  <p class="ticket-location">Lighthaven, Berkeley CA</p>
-                </div>
-                <!-- Day Selection Bookmarks -->
-                <div class="day-bookmarks day-bookmarks-mobile">
-                  <div class="bookmark bookmark-fri">
-                    <div class="bookmark-content">
-                      <span class="bookmark-text">Fri</span>
-                    </div>
+      <div id="day-pass-container" class="day-pass-container">
+        <!-- Day Selection Bookmarks - moved outside the ticket -->
+        <div class="day-bookmarks day-bookmarks-mobile">
+          <div class="bookmark bookmark-fri">
+            <div class="bookmark-content">
+              <span class="bookmark-text">Fri</span>
+            </div>
+          </div>
+          <div class="bookmark bookmark-sat">
+            <div class="bookmark-content">
+              <span class="bookmark-text">Sat</span>
+            </div>
+          </div>
+          <div class="bookmark bookmark-sun">
+            <div class="bookmark-content">
+              <span class="bookmark-text">Sun</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ticket ticket-button">
+          <div class="ticket-inner day-pass-mobile">
+            <div class="ticket-front">
+              <div class="ticket-border">
+                <div class="ticket-content">
+                  <div class="ticket-header">
+                    <h3>SINGLE DAY</h3>
+                    <div class="ticket-price">Please choose a day</div>
                   </div>
-                  <div class="bookmark bookmark-sat">
-                    <div class="bookmark-content">
-                      <span class="bookmark-text">Sat</span>
-                    </div>
+                  <div class="ticket-illustration">
+                    <img src="https://cdn.midjourney.com/60bc44db-9eda-4ac5-b6d4-7bc404bf82bc/0_2.png" alt="Day Pass Illustration">
                   </div>
-                  <div class="bookmark bookmark-sun">
-                    <div class="bookmark-content">
-                      <span class="bookmark-text">Sun</span>
-                    </div>
+                  <div class="ticket-details">
+                    <p class="ticket-admit">ADMITS ONE</p>
+                    <p class="ticket-event">LessOnline Festival</p>
+                    <p class="ticket-date">Select Days</p>
+                    <p class="ticket-location">Lighthaven, Berkeley CA</p>
                   </div>
+                  <div class="ticket-number">No. 18253</div>
                 </div>
-                <div class="ticket-number">No. 18253</div>
               </div>
             </div>
           </div>
@@ -2796,39 +2837,75 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       });
 
       // Bookmark selection functionality for day pass tickets
-      const bookmarks = document.querySelectorAll('.bookmark');
-
-      // Find the day pass ticket by its header text
-      const ticketHeaders = document.querySelectorAll('.ticket-header h3');
-      let dayPassPrice;
-
-      for (const header of ticketHeaders) {
-        if (header.textContent.trim() === 'SINGLE DAY') {
-          dayPassPrice = header.closest('.ticket-inner').querySelector('.ticket-price');
-          break;
+      function initDayPassTicket() {
+        // Find the day pass ticket by its header text
+        const ticketHeaders = document.querySelectorAll('.ticket-header h3');
+        let dayPassPrice;
+        let dayPassContainer;
+        let dayPassTicket;
+        
+        for (const header of ticketHeaders) {
+          if (header.textContent.trim() === 'SINGLE DAY') {
+            dayPassContainer = document.getElementById('day-pass-container');
+            dayPassTicket = dayPassContainer.querySelector('.ticket');
+            dayPassPrice = header.closest('.ticket-inner').querySelector('.ticket-price');
+            break;
+          }
         }
-      }
-
-      if (dayPassPrice) {
-        bookmarks.forEach(bookmark => {
-          bookmark.addEventListener('click', function () {
-            // Remove active class from all bookmarks
-            bookmarks.forEach(b => b.classList.remove('active'));
-
-            // Add active class to clicked bookmark
-            this.classList.add('active');
-
-            // Update price based on selection
-            if (this.classList.contains('bookmark-fri')) {
-              dayPassPrice.textContent = 'Friday: $250';
-            } else if (this.classList.contains('bookmark-sat')) {
-              dayPassPrice.textContent = 'Saturday: $350';
-            } else if (this.classList.contains('bookmark-sun')) {
-              dayPassPrice.textContent = 'Sunday: $350';
-            }
+        
+        if (!dayPassPrice || !dayPassContainer || !dayPassTicket) return;
+        
+        // Get all bookmarks in the day pass container
+        const dayBookmarks = dayPassContainer.querySelectorAll('.bookmark');
+        
+        // Initially, the ticket is not clickable
+        dayPassTicket.style.pointerEvents = 'none';
+        
+        // Store the current purchase URL
+        let currentPurchaseUrl = '';
+        
+        // Function to update the ticket with the selected day's information
+        function updateTicket(selectedBookmark) {
+          // Remove active class from all bookmarks
+          dayBookmarks.forEach(b => b.classList.remove('active'));
+          
+          // Add active class to clicked bookmark
+          selectedBookmark.classList.add('active');
+          
+          // Update price based on selection and prepare the link
+          if (selectedBookmark.classList.contains('bookmark-fri')) {
+            dayPassPrice.textContent = 'Friday: $200';
+            currentPurchaseUrl = 'https://buy.stripe.com/bIYcP1gt1e9odH228k';
+          } else if (selectedBookmark.classList.contains('bookmark-sat')) {
+            dayPassPrice.textContent = 'Saturday: $300';
+            currentPurchaseUrl = 'https://buy.stripe.com/28o2an3Gf9T8byUbIV';
+          } else if (selectedBookmark.classList.contains('bookmark-sun')) {
+            dayPassPrice.textContent = 'Sunday: $300';
+            currentPurchaseUrl = 'https://buy.stripe.com/dR6g1d90zc1g9qMcN0';
+          }
+          
+          // Make the ticket clickable
+          dayPassTicket.style.cursor = 'pointer';
+          dayPassTicket.style.pointerEvents = 'auto';
+        }
+        
+        // Add click event to the ticket (only once)
+        dayPassTicket.addEventListener('click', function() {
+          if (currentPurchaseUrl) {
+            window.open(currentPurchaseUrl, '_blank');
+          }
+        });
+        
+        // Add click event to each bookmark
+        dayBookmarks.forEach(bookmark => {
+          bookmark.addEventListener('click', function() {
+            updateTicket(this);
           });
         });
       }
+      
+      // Initialize the day pass ticket functionality
+      initDayPassTicket();
     });
 
     // Rest of your existing scripts
