@@ -1224,6 +1224,62 @@
       text-shadow: 0 0 3px rgba(248, 211, 92, 0.3);
     }
 
+    /* Coming soon ticket styling */
+    .ticket-coming-soon {
+      cursor: default;
+      position: relative;
+      opacity: 0.5;
+    }
+
+    .ticket-coming-soon:hover {
+      transform: none;
+    }
+
+    .ticket-coming-soon .ticket-inner {
+      box-shadow: none;
+    }
+
+    .ticket-coming-soon:hover .ticket-inner {
+      box-shadow: none;
+    }
+
+    .ticket-coming-soon:hover .ticket-border {
+      border-color: inherit;
+    }
+
+    .ticket-coming-soon:hover .ticket-border:before {
+      border-color: inherit;
+      box-shadow: none;
+    }
+
+    .ticket-coming-soon:hover .ticket-header h3,
+    .ticket-coming-soon:hover .ticket-price {
+      color: inherit;
+      text-shadow: none;
+    }
+
+    .ticket-coming-soon::after {
+      content: "Coming Soon";
+      position: absolute;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 5px 15px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      z-index: 10;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .ticket-coming-soon::after {
+        font-size: 1.2rem;
+      }
+    }
+
     /* Photo Gallery Section */
     .photo-gallery {
       padding: 60px 0;
@@ -2222,7 +2278,7 @@
               <div class="ticket-content">
                 <div class="ticket-header">
                   <h3>EARLY BIRD</h3>
-                  <div class="ticket-price">$500</div>
+                  <div class="ticket-price">$450</div>
                 </div>
                 <div class="ticket-illustration">
                   <img src="https://cdn.midjourney.com/60bc44db-9eda-4ac5-b6d4-7bc404bf82bc/0_2.png" alt="Early Bird Illustration">
@@ -2267,14 +2323,14 @@
       </a>
 
       <!-- Volunteer Ticket -->
-      <div class="ticket ticket-button">
+      <div class="ticket ticket-button ticket-coming-soon">
         <div class="ticket-inner">
           <div class="ticket-front">
             <div class="ticket-border">
               <div class="ticket-content">
                 <div class="ticket-header">
                   <h3>VOLUNTEER</h3>
-                  <div class="ticket-price">$150</div>
+                  <div class="ticket-price">TBD</div>
                 </div>
                 <div class="ticket-illustration">
                   <img src="https://cdn.midjourney.com/60bc44db-9eda-4ac5-b6d4-7bc404bf82bc/0_2.png" alt="Volunteer Illustration">
