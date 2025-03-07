@@ -2038,45 +2038,7 @@
 </head>
 <body>
   <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png" class="background">
-  <div id="password-overlay">
-    <div id="password-form">
-      <h2>Enter Password</h2>
-      <input type="password" id="password-input" placeholder="Enter password">
-      <button id="password-submit">Submit</button>
-    </div>
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const overlay = document.getElementById('password-overlay');
-      const form = document.getElementById('password-form');
-      const input = document.getElementById('password-input');
-      const submit = document.getElementById('password-submit');
-
-      // Check if already authenticated
-      if (sessionStorage.getItem('authenticated')) {
-        overlay.classList.add('hidden');
-      }
-
-      submit.addEventListener('click', function () {
-        // Replace 'your-password-here' with your desired password
-        if (input.value === 'oh no a password') {
-          overlay.classList.add('hidden');
-          sessionStorage.setItem('authenticated', 'true');
-        } else {
-          alert('Incorrect password');
-          input.value = '';
-        }
-      });
-
-      // Also allow Enter key to submit
-      input.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-          submit.click();
-        }
-      });
-    });
-  </script>
 
   <!-- Hero Section with Background Image -->
   <div class="hero-section" style="z-index: 1;">
@@ -2553,6 +2515,7 @@ Alexey Guzey, https://guzey.com/,
 Alicorn, https://alicorn.elcenia.com/index.shtml, true
 Andrew Critch, http://blog.acritch.com/, 
 Andy Matuschak, https://andymatuschak.org/,
+Anna Salamon, https://www.lesswrong.com/users/annasalamon,
 Applied Divinity Studies, https://www.applieddivinitystudies.com/, 
 Artificially Intelligent, https://markxu.com/, 
 Asterisk, https://asteriskmag.com/, true
