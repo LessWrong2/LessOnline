@@ -2027,6 +2027,12 @@
       position: relative;
       z-index: 5;
     }
+
+    @media (max-width: 768px) {
+      .reading-section-mobile {
+        display: none;
+      }
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -2150,7 +2156,7 @@
     </section>
 
     <!-- Blog Posts Section -->
-    <section class="blogs-container table-of-contents-style">
+    <section class="blogs-container table-of-contents-style reading-section-mobile">
       <div class="blogs-header">
         <h1>Related Readings</h1>
         <div class="header-divider">
