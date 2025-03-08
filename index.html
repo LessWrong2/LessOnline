@@ -2053,6 +2053,59 @@
         display: none;
       }
     }
+
+    /* Base Styles */
+    :root {
+      --primary-color: #8B4513;
+      --secondary-color: #D2B48C;
+      --text-color: #333;
+      --light-bg: #F5F5DC;
+      --dark-bg: #3A3A3A;
+      --highlight: #E6CCB2;
+      --border-color: #8B4513;
+      --shadow-color: rgba(139, 69, 19, 0.2);
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Montserrat', sans-serif;
+      --max-width: 1200px;
+      --section-padding: 4rem 2rem;
+    }
+
+    /* Attendance Filter Styles */
+    .attendance-filter {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-serif);
+      font-style: normal;
+      color: #815b40;
+      cursor: pointer;
+    }
+
+    .attendance-filter input[type="checkbox"] {
+      margin-right: 8px;
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--primary-color);
+      border-radius: 3px;
+      background-color: var(--light-bg);
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    .attendance-filter input[type="checkbox"]:checked {
+      background-color: var(--primary-color);
+    }
+
+    .attendance-filter input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      color: white;
+      font-size: 14px;
+      top: -2px;
+      left: 3px;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -2103,7 +2156,10 @@
         <span class="icon">❧</span>
       </div>
       <p>The sites below embody the virtues we are celebrating. Each author below has been offered a free ticket to LessOnline.
-        <br />Writers marked in a brown highlight will be present at LessOnline 2025.
+        <br /><br />
+        <label class="attendance-filter">
+          <input type="checkbox" id="show-attending-only"> Only show authors confirmed attending
+        </label>
       </p>
     </div>
 
@@ -2526,7 +2582,7 @@
       const csvData = `name, link, attending
 250bpm, https://250bpm.com/, true
 A Collection of Unmitigated Pedantry, https://acoup.blog/, 
-A Song for Two Voices, https://archiveofourown.org/series/936480,
+A Song for Two Voices | Swimmer963 , https://archiveofourown.org/series/936480,
 Abram Demski, https://www.lesswrong.com/users/abramdemski?sortedBy=top,
 Abstraction, https://abstraction.substack.com/, 
 Aceso Under Glass, https://acesounderglass.com/, true
@@ -2553,7 +2609,7 @@ Carcinisation, https://carcinisation.com/,
 Cold Takes, https://www.cold-takes.com/, 
 Compass Rose, http://benjaminrosshoffman.com/, 
 Cremieux Recueil, https://www.cremieux.xyz/, 
-Crystal Society, https://crystalbooks.ai/, 
+Crystal Society | Max Harms, https://crystalbooks.ai/, true
 Dan Luu, https://danluu.com/, 
 Daniel Kokotajlo, https://www.lesswrong.com/users/daniel-kokotajlo?sortedBy=top, 
 David Friedman, https://daviddfriedman.substack.com/, 
@@ -2568,7 +2624,7 @@ Eukaryote Writes Blog, https://eukaryotewritesblog.com/,
 Everything Studies, https://everythingstudies.com/, 
 Experimental History, https://www.experimental-history.com/,
 Friendship Is Optimal, https://www.fimfiction.net/user/16334/Iceman/stories,
-GeneSmith, https://www.lesswrong.com/users/genesmith?sortedBy=top, true
+Gene Smith, https://www.lesswrong.com/users/genesmith?sortedBy=top, true
 Gwern, https://gwern.net/,
 Holly Elmore, https://hollyelmore.substack.com/, 
 Homo Sabiens | r!Animorphs, https://homosabiens.substack.com/, 
@@ -2590,7 +2646,7 @@ Messy Matters, https://messymatters.com/,
 Michael's Notebook, https://michaelnotebook.com/, 
 Minding our way, https://mindingourway.com/, true
 Money Stuff, https://www.bloomberg.com/account/newsletters/money-stuff, 
-Mother of Learning, https://www.royalroad.com/fiction/21220/mother-of-learning,
+Mother of Learning | Domagoj Kurmaic, https://www.royalroad.com/fiction/21220/mother-of-learning,
 Musings and Rough Drafts, https://musingsandroughdrafts.com/, true
 Narrative Ark, https://www.narrativeark.xyz/, 
 Nintil, https://nintil.com/, 
@@ -2601,10 +2657,10 @@ Optimize Everything, https://www.spencergreenberg.com/all-essays/,
 Otherwise, https://juliawise.net/, 
 Overcoming Bias, https://www.overcomingbias.com/, 
 Paul Graham, https://www.paulgraham.com/articles.html, 
+Planecrash | lintamande, https://www.lesswrong.com/posts/SA9hDewwsYgnuscae/projectlawful-com-eliezer-s-latest-story-past-1m-words,
 Planned Obsolescence, https://www.planned-obsolescence.org/, 
 Progress and Poverty, https://progressandpoverty.substack.com/, 
 PutANumOnIt, https://putanumonit.com/, 
-QNTM, https://qntm.org/blog, 
 Radimentary, https://radimentary.wordpress.com/, 
 Rationalist Conspiracy, https://rationalconspiracy.com/, 
 Ribbon Farm, https://www.ribbonfarm.com/, 
@@ -2629,20 +2685,21 @@ The Merely Real, https://themerelyreal.wordpress.com/, true
 The n-Category Cafe, https://golem.ph.utexas.edu/category/, 
 The Sequences | HPMOR, https://www.yudkowsky.net/, true
 The Sideways View, https://sideways-view.com/, 
-The Unit of Caring | Planecrash, https://www.tumblr.com/theunitofcaring, 
+The Unit of Caring, https://www.tumblr.com/theunitofcaring, 
 The Money Illusion, https://www.themoneyillusion.com/, 
+There Is No Antimimetics Division | QNTM, https://qntm.org/blog, 
 Thing of Things, https://thingofthings.substack.com/, 
 TurnTrout, https://www.lesswrong.com/users/turntrout, 
 Unexpected Values, https://ericneyman.wordpress.com/, true
 Unstable Ontology, https://unstableontology.com/, 
-UTOPIA，LOL?, http://strangehorizons.com/fiction/utopia-lol/, true
+UTOPIA，LOL? | Jamie Wahls, http://strangehorizons.com/fiction/utopia-lol/, true
 Victoria Krakovna, https://vkrakovna.wordpress.com/blog/, 
 Vitalik Buterin, https://vitalik.eth.limo/, 
 Wait But Why, https://waitbutwhy.com/, 
 Wei Dai, https://www.lesswrong.com/users/wei-dai?sortedBy=top, 
 World Spirit Sock Puppet, https://worldspiritsockpuppet.com/, 
-Worm, https://parahumans.wordpress.com/,
-Worth the Candle, https://alexanderwales.com/, true
+Worm | Wildbow, https://parahumans.wordpress.com/,
+Worth the Candle | Alexander Wales, https://alexanderwales.com/, true
 Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
 
       // Replace the loadBlogsData function with one that uses the embedded data
@@ -2669,6 +2726,29 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       
       // Add window resize listener to handle view mode changes
       window.addEventListener('resize', handleResize);
+      
+      // Add event listener for the attendance filter checkbox
+      const attendanceCheckbox = document.getElementById('show-attending-only');
+      if (attendanceCheckbox) {
+        attendanceCheckbox.addEventListener('change', function() {
+          filterBlogsByAttendance(this.checked);
+        });
+      }
+      
+      // Function to filter blogs by attendance
+      function filterBlogsByAttendance(showOnlyAttending) {
+        const blogItems = document.querySelectorAll('.blog-item');
+        
+        blogItems.forEach(item => {
+          const isAttending = item.querySelector('.attending-badge') !== null;
+          
+          if (showOnlyAttending && !isAttending) {
+            item.style.display = 'none';
+          } else {
+            item.style.display = 'flex';
+          }
+        });
+      }
       
       // Debounce function to limit resize events
       let resizeTimeout;
