@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:image" content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1712166847/habryka_6_g84ubl.png">
-  <meta property="twitter:image:src" content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1712166847/habryka_6_g84ubl.png">
+  <meta property="og:image" content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png">
+  <meta property="twitter:image:src" content="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png">
   <!-- <link rel="stylesheet" href="manifest-style.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,6 +78,48 @@
       z-index: 0;
       width: 100%;
       overflow-x: hidden;
+    }
+
+    a {
+      color: #7faf83 !important;
+      text-decoration: none !important;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #4c8a50 !important;
+    }
+
+    /* Override for testimonial author links */
+    .testimonial-author a {
+      color: inherit !important;
+      text-decoration: underline !important;
+    }
+
+    .testimonial-author a:hover {
+      color: inherit !important;
+      opacity: 0.8;
+    }
+
+    /* Override for blog links in the "Some Writings We Love" section */
+    .blog-item a {
+      color: #5a3921 !important;
+      text-decoration: none !important;
+    }
+
+    .blog-item a:hover {
+      color: inherit !important;
+      text-decoration: underline !important;
+    }
+
+    /* Ensure attending blogs have white text */
+    .blog-item:has(.attending-badge) a {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .blog-item:has(.attending-badge) a:hover {
+      color: white !important;
     }
 
     p a {
@@ -229,7 +271,6 @@
       flex: 1;
       padding-right: 40px;
       max-width: 60%;
-      margin-bottom: auto;
     }
 
     .image-container img {
@@ -239,7 +280,6 @@
 
     .text-container {
       flex: 1;
-      padding-left: 40px;
       max-width: 40%;
       color: #000000;
       font-size: 17px;
@@ -283,12 +323,12 @@
     .blogs-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 20px 60px;
-      /* Reduced top padding from 60px to 20px */
+      padding-top: 20px;
       color: #000000;
       position: relative;
       width: 100%;
       box-sizing: border-box;
+      text-align: justify
     }
     
     @media (max-width: 768px) {
@@ -299,7 +339,7 @@
     }
 
     .blogs-header {
-      text-align: center;
+      text-align: right; /* Ensure right alignment */
       position: relative;
     }
 
@@ -307,7 +347,7 @@
       font-family: 'Bembo Book', serif;
       font-size: 36px;
       color: #5a3921;
-      text-align: center;
+      text-align: right; /* Ensure right alignment */
       text-transform: uppercase;
       letter-spacing: 3px;
     }
@@ -359,10 +399,8 @@
     .blogs-header p {
       font-family: 'Bembo Book', serif;
       font-size: 20px;
-      max-width: 1000px;
-      margin: 0 auto 30px;
       color: #5a3921;
-      text-align: center;
+      text-align: right; /* Ensure right alignment */
       font-style: italic;
     }
 
@@ -370,7 +408,6 @@
       font-family: 'Bembo Book', serif;
       max-width: 1200px;
       margin: 60px auto;
-      padding: 40px;
       border-radius: 8px;
       position: relative;
       color: #000000;
@@ -393,13 +430,11 @@
     .blogs-header h1 {
       font-family: 'Bembo Book', serif;
       font-size: 36px;
-      margin-bottom: 30px;
       color: #5a3921;
-      text-align: center;
+      text-align: right;
       text-transform: uppercase;
       letter-spacing: 3px;
       position: relative;
-      padding-bottom: 5px;
     }
 
     .blogs-header h1:before {
@@ -443,13 +478,14 @@
     .blogs-header h1:after {
       z-index: 2;
     }
-
+    
     .table-of-contents-style .blogs-list {
       display: block;
       column-count: 4;
       column-gap: 30px;
       column-rule: 1px dotted #d9c7a7;
       line-height: 1.2;
+      text-align: justify; /* Keep the blog items justified */
     }
 
     .table-of-contents-style .blog-item {
@@ -747,7 +783,9 @@
     .conference-info {
       color: #000000;
       position: relative;
-      margin-top: -21vh;
+      margin-top: -16vh;
+      width: clamp(300px, 33%, 100%);
+      padding: 0 26px;
     }
 
     @media (max-width: 768px) {
@@ -756,11 +794,70 @@
       }
     }
 
+    /* Add styles for the sections container */
+    .sections-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 30px;
+      width: 100%;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+      margin-top: -16vh;
+      box-sizing: border-box;
+    }
+
+    /* Adjust width for both sections */
+    .sections-container .conference-info,
+    .sections-container .library-section {
+      margin-top: 0;
+      position: relative;
+    }
+
+    /* Remove the negative margin from conference-info since it's now in the container */
+    .sections-container .conference-info {
+      margin-top: 0;
+    }
+
+    /* Adjust the container inside conference-info */
+    .sections-container .conference-info .container {
+      padding: 0;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .sections-container {
+        flex-direction: column;
+        gap: 50px;
+      }
+      
+      .sections-container .conference-info,
+      .sections-container .library-section {
+        width: 100%;
+      }
+    }
+
     .conference-content {
       display: flex;
       flex-direction: column;
       gap: 30px;
       margin-top: 30px;
+      text-align: left; /* Ensure left alignment */
+    }
+
+    @media (min-width: 768px) {
+      .conference-content {
+        flex-direction: row;
+        align-items: center;
+        text-align: left; /* Ensure left alignment */
+      }
+
+      .conference-text {
+        flex: 1;
+        text-align: left;
+        font-size: 26px;
+      }
     }
 
     .conference-image img {
@@ -769,28 +866,12 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    @media (min-width: 768px) {
-      .conference-content {
-        flex-direction: row;
-        align-items: center;
-      }
-
-      .conference-image {
-        flex: 1;
-      }
-
-      .conference-text {
-        flex: 1;
-        padding-left: 30px;
-      }
-    }
-
     .section-title {
       color: black;
     }
 
     .container {
-      padding: 0px 40px;
+      padding: 0px 24px;
       width: 100%;
       box-sizing: border-box;
       max-width: 1440px;
@@ -894,19 +975,38 @@
 
     /* Ticket Styles */
     .tickets-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 30px;
-      /* Increased spacing between tickets */
+      justify-items: center;
       margin-top: 40px;
       position: relative;
-      max-width: 650px;
-      /* Add a max-width to center two tickets */
+      max-width: 1200px; /* Maintains the max width for 4 tickets */
       margin-left: auto;
       margin-right: auto;
+      width: 100%;
     }
-
+    
+    /* Medium screens - 2x2 layout */
+    @media (min-width: 768px) {
+      .tickets-container {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 40px; /* Fixed column gap */
+        row-gap: 30px; /* Fixed row gap */
+        justify-content: center;
+        width: calc(2 * 280px + 60px); /* Width for 2 tickets plus gap */
+      }
+    }
+    
+    /* Large screens - 1x4 layout */
+    @media (min-width: 1400px) {
+      .tickets-container {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 40px; /* Same fixed column gap */
+        width: calc(4 * 280px + 3 * 60px); /* Width for 4 tickets plus gaps */
+      }
+    }
+    
     .ticket {
       width: 280px;
       perspective: 1000px;
@@ -915,6 +1015,7 @@
       align-items: center;
       position: relative;
       overflow: visible;
+      justify-self: center; /* Center each ticket in its grid cell */
     }
 
     .ticket-inner {
@@ -1315,6 +1416,66 @@
       font-size: 2.5rem;
     }
 
+    .section-title-left {
+      text-align: left!important;
+    }
+    
+    /* Ensure the h1 inside section-title-left is also left-aligned */
+    .section-title-left h1 {
+      text-align: left!important;
+    }
+
+    .section-title-right {
+      text-align: right!important;
+    }
+
+    .section-title h1 {
+      font-family: 'Bembo Book', serif;
+      font-size: 36px;
+      color: #5a3921;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    
+    /* Override for section titles */
+    .section-title.section-title-left h1 {
+      text-align: left !important;
+    }
+    
+    .section-title.section-title-right h1 {
+      text-align: right !important;
+    }
+
+    .section-title.section-title-right h1 {
+      text-align: right !important;
+    }
+
+    /* New styles for right-aligned title and subtitle in the Truthseeking section */
+    .right-aligned-title {
+      font-size: 38px;
+      margin-bottom: 20px;
+      color: #000000;
+      line-height: 1.3;
+      text-transform: none;
+      letter-spacing: normal;
+      text-align: right;
+    }
+    
+    .right-aligned-subtitle {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #333333;
+      line-height: 1.3;
+      font-style: normal;
+      text-align: right;
+    }
+    
+    .right-aligned-subtitle .quote-attribution {
+      font-style: italic;
+      font-weight: 500;
+    }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1628,7 +1789,7 @@
 
     .library-section {
       z-index: 1;
-      width: 100%;
+      width: clamp(500px, 67%, 100%);
       box-sizing: border-box;
     }
     
@@ -1830,7 +1991,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      max-width: 390px;
+      max-width: 520px;
     }
 
     .testimonial-content {
@@ -1841,7 +2002,7 @@
     }
 
     .testimonial-content blockquote {
-      font-size: 1rem;
+      font-size: 1.3rem;
       /* Increased from 1.1rem */
       line-height: 1.6;
       margin-bottom: 1.5rem;
@@ -2012,7 +2173,7 @@
     }
     
     .table-of-contents-style .desktop-view .blog-item:has(.attending-badge) a {
-      color: #815b40; /* Attending blog text color */
+      color: white !important; /* Attending blog text color */
       font-weight: 600;
     }
     
@@ -2080,6 +2241,8 @@
       font-style: normal;
       color: #815b40;
       cursor: pointer;
+      text-align: right;
+      font-size: 20px;
     }
 
     .attendance-filter input[type="checkbox"] {
@@ -2108,8 +2271,49 @@
       top: -2px;
       left: 3px;
     }
+
+    .filter-container {
+      text-align: right;
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @media (max-width: 1000px) {
+      .content-section {
+        flex-direction: column-reverse !important; /* Show text first, then images on mobile */
+      }
+      
+      .image-container, .text-container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        flex: 1 !important;
+      }
+      
+      .text-container {
+        align-items: center !important;
+        margin-bottom: 30px;
+      }
+      
+      /* Adjust quote styling for mobile */
+      .text-container blockquote {
+        font-size: 22px !important;
+        padding: 0 30px !important;
+        margin: 20px 0 !important;
+      }
+      
+      .text-container blockquote span {
+        font-size: 40px !important;
+      }
+      
+      .text-container blockquote footer {
+        font-size: 18px !important;
+      }
+      
+      .text-container h2 {
+        font-size: 26px !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png" class="background">
@@ -2125,58 +2329,55 @@
     </div>
   </div>
 
-  <!-- About the Conference Section (Moved here) -->
-  <section class="conference-info">
-    <div class="container">
-      <h2 class="section-title">A Festival of Writers Who are Wrong on the Internet</h2>
+  <!-- Create a container for both sections -->
+  <div class="sections-container">
+    <!-- About the Conference Section -->
+    <section class="conference-info">
+      <div class="container">
+      <div class="section-title section-title-left">
+        <h1 style="text-align: left !important;">What is LessOnline?</h1>
+      </div>
 
-      <div class="conference-content">
-        <div class="conference-image">
-          <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740704944/LessOnline_twilight_ttgn1h.png" alt="LessOnline twilight gathering"
-            class="img-fluid">
-        </div>
+        <div class="conference-content">
+          <!-- Removed the conference-image div -->
+          <div class="conference-text">
+            <p>LessOnline is a festival celebrating truthseeking and blogging. It's an opportunity to meet people you've only ever known by their LessWrong
+              username or Substack handle.
+            </p>
 
-        <div class="conference-text">
-          <p>LessOnline is a festival celebrating truthseeking and blogging. It's an opportunity to meet people you've only ever known by their LessWrong
-            username or Substack handle.
-          </p>
+            <p>The goal is to bring together a "mostly-online subculture of people trying to work together to figure out how to distinguish truth from falsehood
+              using insights from probability theory, cognitive science, and AI."</p>
 
-          <p>The goal is to bring together a "mostly-online subculture of people trying to work together to figure out how to distinguish truth from falsehood
-            using insights from probability theory, cognitive science, and AI."</p>
-
-          <p>The weekend will be filled with talks, workshops, dance parties, and late-night conversations around the fireside.</p>
+            <p>The weekend will be filled with talks, workshops, dance parties, and late-night conversations around the fireside.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-   <!-- Blogs Library Section -->
-   <section id="blogs-library" class="library-section table-of-contents-style">
-    <div class="blogs-header">
-      <h1>Some Writings We Love</h1>
-      <div class="header-divider">
-        <span class="icon">❧</span>
+    <!-- Blogs Library Section -->
+    <section id="blogs-library" class="library-section table-of-contents-style">
+      <div class="blogs-header section-title-right">
+        <h1>Some Writings We Love</h1>
+        <p>The sites below embody the virtues we are celebrating. Each author below has been offered a free ticket to LessOnline.</p>
       </div>
-      <p>The sites below embody the virtues we are celebrating. Each author below has been offered a free ticket to LessOnline.
-        <br /><br />
+
+      <div class="filter-container">
         <label class="attendance-filter">
-          <input type="checkbox" id="show-attending-only"> Only show authors confirmed attending
+          <input type="checkbox" id="show-attending-only">
+          <span class="filter-text">Show only authors who are attending</span>
         </label>
-      </p>
-    </div>
+      </div>
 
-    <div id="blogs-container">
-      <p>Loading blogs...</p>
-    </div>
-  </section>
+      <div id="blogs-container" class="blogs-container">
+        <!-- Blogs will be loaded here by JavaScript -->
+      </div>
+    </section>
+  </div>
 
   <div class="full-bg-section">
     <section class="content-section-container">
-      <h2 class="full-width-title">Truthseeking and Original Seeing</h2>
-      <p class="quote-subtitle">"She was strangely unaware that she could look and see freshly for herself, as she wrote, without primary regard for what had been said before." — <span class="quote-attribution">Zen and the Art of Motorcycle Maintenance</span></p>
-
-      <div class="content-section">
-        <div class="image-container">
+      <div class="content-section" style="display: flex; align-items: center;">
+        <div class="image-container" style="flex: 3; max-width: 60%; padding-right: 40px;">
           <div class="content">
             <div class="image-grid">
               <img src="https://cdn.midjourney.com/fcaf4a5a-52dd-400e-be34-88903926de16/0_2.png" alt="Thought exploration visual">
@@ -2186,18 +2387,18 @@
             </div>
           </div>
         </div>
-        <div class="text-container">
-          <p>This year, LessOnline celebrates <i><a href="https://www.lesswrong.com/posts/SA79JMXKWke32A3hG/original-seeing">Original Seeing</a></i>—looking at the world with fresh eyes, avoiding standard assumptions, tropes, and frames.</p>
-          <p>Consider: "The Earth orbits the Sun". It's true, and it's a useful compression of what we know, but it has a way of making it feel like there's nothing left to be confused about here. But what really is "orbiting"? Doesn't it have something to do with the "mass" of the Sun causing "space-time" to "curve"? Many of us (if not all) have every right to be deeply confused about what any of those things even are. But when we say "the Earth orbits the Sun," it's easy to forget that there's anything left here that is worth wondering about at all.</p>
-          <p>We invite you then to come and let yourself be affected by the enormity of your environment without first trying to make it small and manageable. Come and wonder how a pen works and revel in your absolute inability to hold it all in your head at once. Come and notice that particular curl of your friend's nose that happens when they hear that one phrase and try to understand, why, really… do they do that? Come and notice how little sense it makes that you have a first person point of view at all.</p>
-          <p>We invite everyone to bring this spirit into their sessions and conversations. Show us where <i>Original Seeing</i> shapes your work—moments when you had to paint what you saw and not what you thought you saw, when you understood something clearly for the first time, or uncovered something nobody else had ever noticed before. Whether sharing an argument, model, or cognitive practice, consider revealing how you were able to see things that way for the first time. Better yet, consider seeing them in a new way for the first time right now.</p>
-          <p>All this so that we might come away with even more useful compressions of this enormous, intractable tangle of happenings we find ourselves a part of.</p>
+        <div class="text-container" style="flex: 2; max-width: 40%; display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <h2 style="font-size: 32px; margin-bottom: 30px; line-height: 1.3; text-align: center;">This year, LessOnline celebrates <i><a href="https://www.lesswrong.com/posts/SA79JMXKWke32A3hG/original-seeing">Original Seeing</a></i> — setting aside standard assumptions, tropes, and frames, in order to look at the world with fresh eyes.</h2>
+          <blockquote style="font-size: 28px; margin: 30px 0; line-height: 1.4; font-style: italic; position: relative; color: #5a3921; border-left: none; text-align: center;">
+            She was strangely unaware that she could look and see freshly for herself, as she wrote, without primary regard for what had been said before.
+            <footer style="font-weight: 500; font-size: 22px; margin-top: 15px; color: #5a3921;">— Zen and the Art of Motorcycle Maintenance</footer>
+          </blockquote>
         </div>
       </div>
     </section>
 
     <!-- Blog Posts Section -->
-    <section class="blogs-container table-of-contents-style reading-section-mobile">
+    <!-- <section class="blogs-container table-of-contents-style reading-section-mobile">
       <div class="blogs-header">
         <h1>Related Readings</h1>
         <div class="header-divider">
@@ -2251,7 +2452,7 @@
         </a>
       </div>
     </section>
-  </div>
+  </div> -->
 
   <!-- Photo Gallery Section -->
   <section class="photo-gallery">
@@ -2479,104 +2680,8 @@
         </div>
       </div>
     </div>
+  </div>
   </section>
-
-  <!-- Book Section -->
-  <!-- <section class="book-section">
-    <div class="container">
-      <h2 class="section-title">Conference Book</h2>
-      <p class="book-subtitle">Explore our official conference publication</p>
-
-      <div class="book-container">
-        <div class="book">
-          <label for="page-1" class="book__page book__page--1">
-            <img
-              src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1740720607/benito2692_In_the_middle_of_a_jungle_clearing_a_strange_ancie_b086254e-626b-4a11-a0df-3af02bf0a9e2_0_ixiirr.png"
-              alt="LessOnline Book Cover">
-          </label>
-
-          <label for="page-2" class="book__page book__page--4">
-            <div class="page__content">
-              <h1 class="page__content-title">Introduction</h1>
-              <div class="page__content-blockquote">
-                <p class="page__content-blockquote-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p class="page__content-blockquote-text">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p class="page__content-blockquote-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                  rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                <span class="page__content-blockquote-reference">- LessOnline Conference Notes</span>
-              </div>
-              <div class="page__number">3</div>
-            </div>
-          </label> -->
-
-          <!-- Resets the page -->
-          <!-- <input type="radio" name="page" id="page-1" checked /> -->
-
-          <!-- Goes to the second page -->
-          <!-- <input type="radio" name="page" id="page-2" />
-          <label class="book__page book__page--2">
-            <div class="book__page-front">
-              <div class="page__content">
-                <h1 class="page__content-book-title">LessOnline</h1>
-                <h2 class="page__content-author">Conference Proceedings</h2>
-
-                <p class="page__content-credits">
-                  Edited by
-                  <span>The Community</span>
-                </p>
-
-                <p class="page__content-credits">
-                  Contributions from
-                  <span>Festival Participants</span>
-                </p>
-
-                <div class="page__content-copyright">
-                  <p>LessOnline Conference</p>
-                  <p>Berkeley - MMXXV</p>
-                </div>
-              </div>
-            </div>
-            <div class="book__page-back">
-              <div class="page__content">
-                <h1 class="page__content-title">Contents</h1>
-                <table class="page__content-table">
-                  <tr>
-                    <td align="left">Part I</td>
-                    <td align="left">The Writers</td>
-                    <td align="right">3</td>
-                  </tr>
-                  <tr>
-                    <td align="left">Part II</td>
-                    <td align="left">The Thinkers</td>
-                    <td align="right">43</td>
-                  </tr>
-                  <tr>
-                    <td align="left">Part III</td>
-                    <td align="left">The Explorers</td>
-                    <td align="right">87</td>
-                  </tr>
-                  <tr>
-                    <td align="left">Part IV</td>
-                    <td align="left">The Creators</td>
-                    <td align="right">147</td>
-                  </tr>
-                  <tr>
-                    <td align="left">Part V</td>
-                    <td align="left">The Future</td>
-                    <td align="right">173</td>
-                  </tr>
-                </table>
-
-                <div class="page__number">2</div>
-              </div>
-            </div>
-          </label>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -2763,35 +2868,26 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       
       // Function to update view mode based on screen width
       function updateViewMode() {
-        if (window.innerWidth <= 768) {
-          // Mobile view
-          const desktopView = document.querySelector('.desktop-view');
-          const mobileView = document.querySelector('.mobile-view');
-          
-          if (desktopView) desktopView.style.display = 'none';
-          if (mobileView) mobileView.style.display = 'block';
-          
-          // Ensure a tab is active
-          const activeTab = document.querySelector('.tab-content.active');
-          if (!activeTab) {
-            const firstTab = document.querySelector('.tab-content');
-            if (firstTab) {
-              firstTab.classList.add('active');
-              
-              // Also activate the corresponding button
-              const firstButton = document.querySelector('.tab-button[data-tab="tab1"]');
-              if (firstButton) {
-                firstButton.classList.add('active');
-              }
+        // Always show mobile view regardless of screen width
+        const desktopView = document.querySelector('.desktop-view');
+        const mobileView = document.querySelector('.mobile-view');
+        
+        if (desktopView) desktopView.style.display = 'none';
+        if (mobileView) mobileView.style.display = 'block';
+        
+        // Ensure a tab is active
+        const activeTab = document.querySelector('.tab-content.active');
+        if (!activeTab) {
+          const firstTab = document.querySelector('.tab-content');
+          if (firstTab) {
+            firstTab.classList.add('active');
+            
+            // Also activate the corresponding button
+            const firstButton = document.querySelector('.tab-button[data-tab="tab1"]');
+            if (firstButton) {
+              firstButton.classList.add('active');
             }
           }
-        } else {
-          // Desktop view
-          const desktopView = document.querySelector('.desktop-view');
-          const mobileView = document.querySelector('.mobile-view');
-          
-          if (desktopView) desktopView.style.display = 'block';
-          if (mobileView) mobileView.style.display = 'none';
         }
       }
     });
@@ -2988,7 +3084,7 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       <div class="header-divider">
         <span class="icon">❧</span>
       </div>
-      <p>For more information, please contact <a href="mailto:ben@lesswrong.com">Ben Pace</a></p>
+      <p style="text-align: center;">For more information, please contact <a href="mailto:ben@lesswrong.com">Ben Pace</a></p>
     </div>
   </section>
 </body>
