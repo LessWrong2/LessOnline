@@ -147,7 +147,7 @@
 
       /* Modify the gradient mask to fade out sooner */
       /* -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 85%); */
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 90%);
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 83%);
     }
 
     .hero-content {
@@ -338,7 +338,7 @@
     }
 
     .blogs-header {
-      text-align: right; /* Ensure right alignment */
+      text-align: center; /* Ensure right alignment */
       position: relative;
     }
 
@@ -346,7 +346,7 @@
       font-family: 'Bembo Book', serif;
       font-size: 36px;
       color: #5a3921;
-      text-align: right; /* Ensure right alignment */
+      text-align: center; /* Ensure right alignment */
       text-transform: uppercase;
       letter-spacing: 3px;
     }
@@ -399,7 +399,7 @@
       font-family: 'Bembo Book', serif;
       font-size: 20px;
       color: #5a3921;
-      text-align: right; /* Ensure right alignment */
+      text-align: center; /* Ensure right alignment */
       font-style: italic;
     }
 
@@ -952,6 +952,10 @@
       color: #000000;
     }
 
+    .conference-text p {
+      margin-block-start: 0;
+    }
+
     @media (max-width: 768px) {
       .full-bg-section {
         padding: 0;
@@ -1409,7 +1413,6 @@
 
     .section-title {
       text-align: center;
-      margin-bottom: 40px;
       font-size: 2.5rem;
     }
 
@@ -2011,6 +2014,12 @@
       margin-right: 20px;
     }
 
+    @media (max-width: 768px) {
+      .testimonial-content blockquote {
+        font-size: 1.1rem;
+      }
+    }
+
     .testimonial-author {
       display: flex;
       align-items: center;
@@ -2231,14 +2240,15 @@
 
     /* Attendance Filter Styles */
     .attendance-filter {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       font-family: var(--font-serif);
       font-style: normal;
       color: #815b40;
       cursor: pointer;
-      text-align: right;
+      text-align: left;
       font-size: 20px;
+      margin-left: 0; /* Remove the left margin */
     }
 
     .attendance-filter input[type="checkbox"] {
@@ -2309,6 +2319,47 @@
       }
     }
   </style>
+  <style>
+    /* Style for the filter as a blog item */
+    .filter-blog-item {
+      margin-bottom: 15px;
+      border-bottom: none;
+      font-family: var(--font-serif);
+      display: flex;
+      align-items: center;
+      padding: 0;
+      background: none;
+      position: relative; /* Add position relative for absolute positioning of children */
+    }
+    
+    /* Make the filter look like a blog item with a number */
+    .filter-blog-item:before {
+      content: "";
+      margin-right: 0;
+    }
+    
+    /* Position the filter text to align with blog items */
+    .filter-blog-item .attendance-filter {
+      margin-left: 0; /* Remove the margin we added earlier */
+      position: relative;
+      left: 0; /* Align with the blog items */
+    }
+    
+    /* Responsive behavior for the filter */
+    @media (max-width: 768px) {
+      .filter-blog-item {
+        text-align: left;
+        padding-left: 0;
+      }
+    }
+
+    .filter-text {
+      line-height: normal;
+      vertical-align: middle;
+      display: inline-block;
+      margin-bottom: -4px;
+    }
+  </style>
 </head>
 <body>
   <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png" class="background">
@@ -2351,16 +2402,9 @@
 
     <!-- Blogs Library Section -->
     <section id="blogs-library" class="library-section table-of-contents-style">
-      <div class="blogs-header section-title-right">
+      <div class="blogs-header section-title">
         <h1>Some Writings We Love</h1>
         <p>The sites below embody the virtues we are celebrating. Each author below has been offered a free ticket to LessOnline.</p>
-      </div>
-
-      <div class="filter-container">
-        <label class="attendance-filter">
-          <input type="checkbox" id="show-attending-only">
-          <span class="filter-text">Show only authors who are attending</span>
-        </label>
       </div>
 
       <div id="blogs-container" class="blogs-container">
@@ -2913,12 +2957,21 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
 
       // Sort blogs alphabetically
       blogs.sort((a, b) => a.name.localeCompare(b.name));
-
-      // No need to group blogs by first letter anymore since we're not using tabs
       
       // Function to create HTML for a group of blogs
       function createBlogsHTML(blogs) {
+        // Create the blogs list with the filter as the first item inside it
         let html = '<div class="blogs-list">';
+        
+        // Add the filter as the first item inside the blogs-list
+        html += `
+          <div class="" data-number="">
+            <label class="attendance-filter">
+              <input type="checkbox" id="show-attending-only">
+              <span class="filter-text">Show only authors who are attending</span>
+            </label>
+          </div>
+        `;
         
         blogs.forEach((blog, index) => {
           const romanNumeral = toRoman(index + 1);
@@ -2951,7 +3004,31 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       
       // Combine desktop and mobile views
       container.innerHTML = desktopHTML + mobileHTML;
-    }    
+      
+      // Add event listener to the checkbox
+      const checkboxes = document.querySelectorAll('#show-attending-only');
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+          filterAttendingBlogs(this.checked);
+        });
+      });
+    }
+
+    // Function to filter blogs based on attendance
+    function filterAttendingBlogs(showOnlyAttending) {
+      const blogItems = document.querySelectorAll('.blog-item:not(.filter-blog-item)');
+      
+      blogItems.forEach(item => {
+        const hasAttendingBadge = item.querySelector('.attending-badge') !== null;
+        
+        if (showOnlyAttending && !hasAttendingBadge) {
+          item.style.display = 'none';
+        } else {
+          item.style.display = '';
+        }
+      });
+    }
+
     // Function to convert numbers to Roman numerals
     function toRoman(num) {
       const romanNumerals = [
