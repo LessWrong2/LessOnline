@@ -2294,6 +2294,2348 @@
     .filter-container {
       text-align: right;
     }
+
+    /* Global Styles */
+    body {
+      background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+      font-family: 'Bembo Book', serif;
+      /* Changed from 'warnock-pro' to 'Bembo Book' */
+      position: relative;
+      z-index: 0;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: #7faf83 !important;
+      text-decoration: none !important;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #4c8a50 !important;
+    }
+
+    /* Override for testimonial author links */
+    .testimonial-author a {
+      color: inherit !important;
+      text-decoration: underline !important;
+    }
+
+    .testimonial-author a:hover {
+      color: inherit !important;
+      opacity: 0.8;
+    }
+
+    /* Override for blog links in the "Some Writings We Love" section */
+    .blog-item a {
+      color: #5a3921 !important;
+      text-decoration: none !important;
+    }
+
+    .blog-item a:hover {
+      color: inherit !important;
+      text-decoration: underline !important;
+    }
+
+    /* Ensure attending blogs have white text */
+    .blog-item:has(.attending-badge) a {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .blog-item:has(.attending-badge) a:hover {
+      color: white !important;
+    }
+
+    p a {
+      color: #7faf83 !important;
+    }
+
+    p a:hover {
+      color: #4c8a50 !important;
+    }
+
+    .hero-section {
+      background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741048939/cover_image_qmzcby.png');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      z-index: 1;
+      width: 100%;
+
+      /* Modify the gradient mask to fade out sooner */
+      /* -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 85%); */
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 83%);
+    }
+
+    .hero-content {
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 80vw;
+      margin: 40px;
+      position: absolute;
+      top: -90px;
+      left: -22px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        align-items: flex-start;
+        min-height: 600px;
+      }
+
+      .hero-content {
+        margin: 0;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+      }
+
+      .hero-content h1 {
+        margin-top: 0;
+      }
+
+      .buy-tickets-button {
+        padding: 0px;
+      }
+    }
+
+    .hero-content h1 {
+      font-size: clamp(45px, 10vw, 80px);
+      /* Increased from 60px */
+      margin-bottom: 20px;
+      /* Increased from 15px */
+      color: white;
+      text-shadow: none;
+    }
+
+    .hero-content h2 {
+      font-size: clamp(24px, 10vw, 32px);
+      /* Increased from 24px */
+      margin-bottom: 25px;
+      /* Increased from 20px */
+      color: white;
+      text-shadow: none;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      /* Increased from 18px */
+      margin-bottom: 15px;
+      /* Increased from 10px */
+      color: white;
+      text-shadow: none;
+    }
+
+    .hero-content .tagline {
+      font-size: clamp(24px, 5vw, 36px);
+      /* Increased from 25px */
+      margin-bottom: 20px;
+      /* Increased from 15px */
+      color: white;
+      font-style: italic;
+      text-shadow: none;
+    }
+
+    .hero-content .event-details {
+      font-size: clamp(18px, 5vw, 24px);
+      /* Increased from 18px */
+      color: white;
+      margin-bottom: 15px;
+      /* Increased from 10px */
+      text-shadow: none;
+    }
+
+    .content-section-container {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      color: #000000;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .content-section-container {
+        padding: 80px 10px;
+      }
+    }
+
+    .full-width-title {
+      font-size: 38px;
+      margin-bottom: 20px; /* Reduced from 40px to accommodate subtitle */
+      color: #000000;
+      line-height: 1.3;
+      text-transform: none;
+      letter-spacing: normal;
+      text-align: center;
+      margin: auto;
+    }
+
+    .quote-subtitle {
+      font-size: 20px;
+      margin-bottom: 40px;
+      color: #333333;
+      line-height: 1.3;
+      font-style: normal;
+      text-align: center;
+      max-width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .quote-subtitle {
+        max-width: 85%;
+      }
+    }
+    
+    .quote-attribution {
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .content-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .image-container {
+      flex: 1;
+      padding-right: 40px;
+      max-width: 60%;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .text-container {
+      flex: 1;
+      max-width: 40%;
+      color: #000000;
+      font-size: 17px;
+    }
+
+    .text-container h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #000000;
+      line-height: 1.3;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .text-container p {
+      margin-bottom: 20px;
+      font-family: 'Bembo Book', serif;
+    }
+
+    @media (max-width: 768px) {
+      .content-section {
+        flex-direction: column;
+      }
+
+      .image-container {
+        padding-right: 0;
+        margin-bottom: 40px;
+        max-width: 100%;
+      }
+
+      .text-container {
+        padding-left: 0;
+        max-width: 100%;
+      }
+
+      .full-width-title {
+        margin-bottom: 30px;
+      }
+    }
+
+    .blogs-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 20px;
+      color: #000000;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: justify
+    }
+    
+    @media (max-width: 768px) {
+      .blogs-container {
+        max-width: 100%;
+      }
+    }
+
+    .blogs-header {
+      text-align: center; /* Ensure right alignment */
+      position: relative;
+    }
+
+    .blogs-header h1 {
+      font-family: 'Bembo Book', serif;
+      font-size: 36px;
+      color: #5a3921;
+      text-align: center; /* Ensure right alignment */
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    /* Remove all the old divider styling */
+    .blogs-header h1:before,
+    .blogs-header h1:after,
+    .blogs-header:before,
+    .blogs-header:after {
+      content: none;
+      display: none;
+    }
+
+    /* Create a container for the line and icon */
+    .header-divider {
+      position: relative;
+      height: 30px;
+      margin: 0 0 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Left line */
+    .header-divider:before {
+      content: "";
+      height: 2px;
+      background-color: #8c6d46;
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    /* Right line */
+    .header-divider:after {
+      content: "";
+      height: 2px;
+      background-color: #8c6d46;
+      flex-grow: 1;
+      margin-left: 10px;
+    }
+
+    /* Icon styling */
+    .header-divider .icon {
+      font-size: 24px;
+      color: #5a3921;
+      line-height: 1;
+    }
+
+    .blogs-header p {
+      font-family: 'Bembo Book', serif;
+      font-size: 20px;
+      color: #5a3921;
+      text-align: center; /* Ensure right alignment */
+      font-style: italic;
+    }
+
+    .table-of-contents-style {
+      font-family: 'Bembo Book', serif;
+      max-width: 1200px;
+      margin: 60px auto;
+      border-radius: 8px;
+      position: relative;
+      color: #000000;
+      background-color: transparent;
+      box-shadow: none;
+      border: none;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .table-of-contents-style {
+        margin: 30px auto;
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+    .blogs-header h1 {
+      font-family: 'Bembo Book', serif;
+      font-size: 36px;
+      color: #5a3921;
+      text-align: right;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      position: relative;
+    }
+
+    .blogs-header h1:before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: #8c6d46;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+
+    .blogs-header h1:after {
+      content: "❧";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: #5a3921;
+      background: transparent;
+      padding: 0 10px;
+    }
+
+    .blogs-header:after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 20px;
+      background: linear-gradient(to right,
+          rgba(248, 243, 226, 0) 0%,
+          rgba(248, 243, 226, 1) 20%,
+          rgba(248, 243, 226, 1) 80%,
+          rgba(248, 243, 226, 0) 100%);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .blogs-header h1:after {
+      z-index: 2;
+    }
+    
+    .table-of-contents-style .blogs-list {
+      display: block;
+      column-count: 4;
+      column-gap: 30px;
+      column-rule: 1px dotted #d9c7a7;
+      line-height: 1.2;
+      text-align: justify; /* Keep the blog items justified */
+    }
+
+    .table-of-contents-style .blog-item {
+      break-inside: avoid;
+      margin-bottom: 3px;
+      padding: 2px 0px 2px 0px;
+      background-color: transparent;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: flex-start;
+      align-items: baseline;
+      font-size: 16px;
+    }
+
+    .table-of-contents-style .blog-item:before {
+      content: attr(data-number);
+      font-family: 'Bembo Book', serif;
+      font-size: 11px;
+      color: #8c6d46;
+      margin-right: 5px;
+      width: 60px;
+      text-align: right;
+      display: inline-block;
+      vertical-align: baseline;
+      flex-shrink: 0;
+    }
+
+    .table-of-contents-style .blog-item a {
+      color: #5a3921;
+      text-decoration: none;
+      font-weight: normal;
+      font-family: 'Bembo Book', serif;
+      transition: all 0.2s ease;
+      flex: 1;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      display: inline;
+      vertical-align: baseline;
+      padding-left: 0;
+      font-size: 16px;
+    }
+
+    .table-of-contents-style .blog-item a:after {
+      content: "";
+    }
+
+    .table-of-contents-style .attending-badge {
+      position: relative;
+      top: 0;
+      right: auto;
+      background-color: transparent;
+      color: #8B0000;
+      font-size: 13px;
+      padding: 0;
+      border-radius: 10px;
+      font-family: 'Bembo Book', serif;
+      font-style: italic;
+      margin-left: 4px;
+      display: inline;
+      vertical-align: baseline;
+    }
+
+    @media (max-width: 992px) {
+      .table-of-contents-style .blogs-list {
+        column-count: 3;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .table-of-contents-style .blogs-list {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .table-of-contents-style .blogs-list {
+        column-count: 1;
+      }
+    }
+
+    /* Tab styles for mobile view */
+    .tabs-container {
+      display: none;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .tab-button {
+      background-color: #f8f3e2;
+      border: 1px solid #d9c7a7;
+      color: #5a3921;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-family: 'Bembo Book', serif;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      min-width: 60px;
+      text-align: center;
+      flex-grow: 1;
+      max-width: 120px;
+    }
+
+    .tab-button.active {
+      background-color: #8c6d46;
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .tab-button:hover {
+      background-color: #d9c7a7;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 10px 0;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Show tabs on mobile and adjust layout */
+    @media (max-width: 768px) {
+      .tabs-container {
+        display: block;
+      }
+
+      .tab-content:not(.active) {
+        display: none !important;
+      }
+      
+      /* Ensure single column on mobile */
+      .table-of-contents-style .blogs-list {
+        column-count: 1 !important;
+      }
+      
+      /* Hide desktop view on mobile */
+      .desktop-view {
+        display: none !important;
+      }
+      
+      /* Show mobile view on mobile */
+      .mobile-view {
+        display: block;
+      }
+    }
+    
+    /* Hide mobile view on desktop */
+    .mobile-view {
+      display: none;
+    }
+    
+    /* Show desktop view on desktop */
+    .desktop-view {
+      display: block;
+    }
+
+    .triptych {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      max-width: 100%;
+    }
+
+    .triptych img {
+      flex: 1;
+      max-width: 45%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .triptych img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Related Posts Section */
+    .related-posts {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .related-post-card {
+      flex: 1;
+      background-color: transparent;
+      border: none;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: none;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      height: 400px;
+    }
+
+    .related-post-card:hover {
+      transform: translateY(-5px);
+      background-color: transparent;
+    }
+
+    .post-title {
+      font-family: 'Bembo Book', serif;
+      font-size: 18px;
+      color: #5a3921;
+      margin-bottom: 10px;
+      line-height: 1.3;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      margin-top: 0px;
+    }
+
+    .post-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Bembo Book', serif;
+      font-size: 14px;
+      color: #8c6d46;
+      margin-bottom: 15px;
+      font-style: italic;
+      height: 20px;
+    }
+
+    .post-excerpt {
+      font-family: 'Bembo Book', serif;
+      font-size: 14px;
+      color: #5a3921;
+      line-height: 1.5;
+      flex-grow: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .post-excerpt p {
+      margin-bottom: 15px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .post-excerpt:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .related-posts {
+        flex-direction: column;
+      }
+
+      .related-post-card {
+        margin-bottom: 20px;
+        height: auto;
+        min-height: 300px;
+      }
+
+      .post-title {
+        height: auto;
+        min-height: 50px;
+      }
+    }
+
+    .conference-info {
+      color: #000000;
+      position: relative;
+      margin-top: -16vh;
+      width: clamp(300px, 33%, 100%);
+      padding: 0 26px;
+    }
+
+    @media (max-width: 768px) {
+      .conference-info {
+        padding: 0;
+      }
+    }
+
+    /* Add styles for the sections container */
+    .sections-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+      margin-top: -16vh;
+      box-sizing: border-box;
+    }
+
+    /* Adjust width for both sections */
+    .sections-container .conference-info,
+    .sections-container .library-section {
+      margin-top: 0;
+      position: relative;
+    }
+
+    /* Remove the negative margin from conference-info since it's now in the container */
+    .sections-container .conference-info {
+      margin-top: 0;
+    }
+
+    /* Adjust the container inside conference-info */
+    .sections-container .conference-info .container {
+      padding: 0;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .sections-container {
+        flex-direction: column;
+      }
+      
+      .sections-container .conference-info,
+      .sections-container .library-section {
+        width: 100%;
+      }
+    }
+
+    .conference-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 30px;
+      text-align: left; /* Ensure left alignment */
+      font-size: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .conference-content {
+        flex-direction: row;
+        align-items: center;
+        text-align: left; /* Ensure left alignment */
+      }
+
+      .conference-text {
+        flex: 1;
+        text-align: left;
+        font-size: 26px;
+      }
+    }
+
+    .conference-image img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      color: black;
+    }
+
+    .container {
+      padding: 0px 24px;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        max-width: 100%;
+        padding: 0px 20px;
+        margin: 0;
+      }
+    }
+
+    /* New image grid for four images */
+    .image-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      margin: 20px 0;
+      max-width: 100%;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-grid img:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Update the Buy Tickets button styling with more intense golden glow */
+    .buy-tickets-button {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 32px;
+      /* Increased from 24px */
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 0 5px #f8d45c, 0 0 10px #f8d45c, 0 0 15px #f8b400, 0 0 20px #f8b400;
+      letter-spacing: 2px;
+      margin-top: 30px;
+      /* Increased from 20px */
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      padding: 15px 30px;
+      /* Increased from 10px 20px */
+      border: none;
+      background-color: transparent;
+    }
+
+    .buy-tickets-button:hover {
+      transform: scale(1.05);
+      text-shadow: 0 0 5px #f8d45c, 0 0 10px #f8d45c, 0 0 15px #f8b400, 0 0 20px #f8b400;
+    }
+
+    /* Update the full-screen background section styles */
+    .full-bg-section {
+      background-image: none;
+      color: #000000;
+      position: relative;
+    }
+
+    /* Remove the dark overlay */
+    .full-bg-section::before {
+      content: none;
+    }
+
+    /* Update text colors */
+    .full-bg-section .full-width-title,
+    .full-bg-section .text-container p,
+    .full-bg-section .section-title,
+    .full-bg-section .conference-text p {
+      color: #000000;
+    }
+
+    .conference-text p {
+      margin-block-start: 0;
+    }
+
+    @media (max-width: 768px) {
+      .full-bg-section {
+        padding: 0;
+      }
+    }
+
+    /* Ticket Section Styles */
+    .tickets-subtitle {
+      font-family: 'Bembo Book', serif;
+      font-size: 18px;
+      color: #5a3921;
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 40px;
+      margin: auto;
+      max-width: 600px;
+    }
+
+    /* Ticket Styles */
+    .tickets-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      justify-items: center;
+      margin-top: 40px;
+      position: relative;
+      max-width: 1200px; /* Maintains the max width for 4 tickets */
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    
+    /* Medium screens - 2x2 layout */
+    @media (min-width: 768px) {
+      .tickets-container {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 40px; /* Fixed column gap */
+        row-gap: 30px; /* Fixed row gap */
+        justify-content: center;
+        width: calc(2 * 280px + 60px); /* Width for 2 tickets plus gap */
+      }
+    }
+    
+    /* Large screens - 1x4 layout */
+    @media (min-width: 1400px) {
+      .tickets-container {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 40px; /* Same fixed column gap */
+        width: calc(4 * 280px + 3 * 60px); /* Width for 4 tickets plus gaps */
+      }
+    }
+    
+    .ticket {
+      width: 280px;
+      perspective: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: visible;
+      justify-self: center; /* Center each ticket in its grid cell */
+    }
+
+    .ticket-inner {
+      width: 100%;
+      height: 420px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+      position: relative;
+      overflow: visible;
+      /* Allow content to overflow */
+      z-index: 2;
+      /* Ensure ticket is above bookmarks */
+    }
+
+    .ticket-front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      background-color: #f8f3e2;
+      border-radius: 8px;
+      overflow: visible;
+      /* Allow content to overflow */
+    }
+
+    .ticket-border {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border: 2px solid #5a3921;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      box-sizing: border-box;
+      overflow: visible;
+      /* Allow content to overflow */
+    }
+
+    .ticket-border:before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border: 1px solid #8c6d46;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+
+    .ticket-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .ticket-header {
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid #8c6d46;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+
+    .ticket-header h3 {
+      font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+      font-size: 22px;
+      color: #5a3921;
+      margin: 0 0 5px;
+      letter-spacing: 1px;
+    }
+
+    .ticket-price {
+      font-family: 'Georgia', serif;
+      font-size: 20px;
+      color: #5a3921;
+      font-weight: bold;
+    }
+
+    .ticket-illustration {
+      width: 100%;
+      height: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ticket-illustration img {
+      max-width: 100%;
+      max-height: 100%;
+      filter: grayscale(100%) sepia(20%);
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ticket-illustration:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(248, 243, 226, 0.4);
+      z-index: 2;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    .ticket-details {
+      width: 100%;
+      text-align: center;
+      border-top: 1px solid #8c6d46;
+      border-bottom: 1px solid #8c6d46;
+      padding: 10px 0;
+      margin: 10px 0;
+    }
+
+    .ticket-admit {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 14px;
+      color: #5a3921;
+      margin: 0 0 5px;
+      font-weight: bold;
+    }
+
+    .ticket-event {
+      font-family: 'Bembo Book', serif;
+      font-size: 16px;
+      color: #5a3921;
+      margin: 0 0 5px;
+    }
+
+    .ticket-date,
+    .ticket-location {
+      font-family: 'Bembo Book', serif;
+      font-size: 12px;
+      color: #5a3921;
+      margin: 0 0 3px;
+    }
+
+    .ticket-signature {
+      font-family: 'Tangerine', cursive;
+      font-size: 24px;
+      color: #5a3921;
+      margin-top: 10px;
+    }
+
+    .ticket-number {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: #5a3921;
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+    }
+
+    .select-ticket-btn {
+      font-family: 'Cinzel', Georgia, serif;
+      background-color: #5a3921;
+      color: #f8f3e2;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .select-ticket-btn:hover {
+      background-color: #8c6d46;
+    }
+
+    @media (max-width: 768px) {
+      .tickets-container {
+        flex-direction: row;
+        /* Keep as row, but with wrapping */
+        gap: 15px; /* Reduced from 30px */
+      }
+
+      .ticket {
+        width: 260px;
+      }
+      
+      /* Mobile ticket styles - compact version */
+      .ticket-inner {
+        height: auto;
+        min-height: 130px; /* Reduced from 120px */
+      }
+      
+      .ticket-illustration,
+      .ticket-number,
+      .day-bookmarks {
+        display: none;
+      }
+      
+      /* Hide all details except "Admits One" */
+      .ticket-details {
+        border: none;
+        padding: 0;
+        margin: 3px 0 0 0;
+      }
+      
+      .ticket-event,
+      .ticket-date,
+      .ticket-location {
+        display: none;
+      }
+      
+      .ticket-admit {
+        font-size: 12px;
+        margin: 0;
+      }
+      
+      .ticket-content {
+        justify-content: center;
+        padding: 10px 5px;
+      }
+      
+      .ticket-border {
+        justify-content: center;
+      }
+      
+      /* Ornate border with symbol for ticket header */
+      .ticket-header {
+        position: relative;
+        padding-bottom: 0;
+        margin-bottom: 5px;
+        border-bottom: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      /* Create ornate divider after the header content */
+      .ticket-header:after {
+        content: "❧";
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+        height: 20px;
+        margin-top: 5px;
+        font-size: 14px;
+        color: #5a3921;
+      }
+      
+      /* Left line */
+      .ticket-header:before {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 55%;
+        height: 1px;
+        background-color: #8c6d46;
+      }
+      
+      /* Right line */
+      .ticket-price:after {
+        content: "";
+        position: absolute;
+        bottom: 10px;
+        left: 55%;
+        right: 0;
+        height: 1px;
+        background-color: #8c6d46;
+      }
+      
+      .day-bookmarks {
+        right: -25px;
+      }
+
+      .bookmark {
+        width: 70px;
+        height: 26px;
+      }
+
+      .bookmark-content {
+        font-size: 9px;
+      }
+
+      .bookmark-price {
+        font-size: 8px;
+      }
+    }
+
+    .ticket-button {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .ticket-button:hover {
+      transform: translateY(-5px);
+    }
+
+    .ticket-button:hover .ticket-inner {
+      box-shadow: 0 8px 20px rgba(90, 57, 33, 0.3), 0 0 15px rgba(248, 211, 92, 0.5);
+    }
+
+    .ticket-button:hover .ticket-border {
+      border-color: #8c6d46;
+    }
+
+    .ticket-button:hover .ticket-border:before {
+      border-color: #b38e5d;
+      box-shadow: inset 0 0 10px rgba(248, 211, 92, 0.3);
+    }
+
+    .ticket-button:hover .ticket-header h3,
+    .ticket-button:hover .ticket-price {
+      color: #3a2512;
+      text-shadow: 0 0 3px rgba(248, 211, 92, 0.3);
+    }
+
+    /* Coming soon ticket styling */
+    .ticket-coming-soon {
+      cursor: default;
+      position: relative;
+      opacity: 0.5;
+    }
+
+    .ticket-coming-soon:hover {
+      transform: none;
+    }
+
+    .ticket-coming-soon .ticket-inner {
+      box-shadow: none;
+    }
+
+    .ticket-coming-soon:hover .ticket-inner {
+      box-shadow: none;
+    }
+
+    .ticket-coming-soon:hover .ticket-border {
+      border-color: inherit;
+    }
+
+    .ticket-coming-soon:hover .ticket-border:before {
+      border-color: inherit;
+      box-shadow: none;
+    }
+
+    .ticket-coming-soon:hover .ticket-header h3,
+    .ticket-coming-soon:hover .ticket-price {
+      color: inherit;
+      text-shadow: none;
+    }
+
+    .ticket-coming-soon::after {
+      content: "Coming Soon";
+      position: absolute;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 5px 15px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      border-radius: 5px;
+      z-index: 10;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .ticket-coming-soon::after {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Photo Gallery Section */
+    .photo-gallery {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .section-title-left {
+      text-align: left!important;
+    }
+    
+    /* Ensure the h1 inside section-title-left is also left-aligned */
+    .section-title-left h1 {
+      text-align: left!important;
+    }
+
+    .section-title-right {
+      text-align: right!important;
+    }
+
+    .section-title h1 {
+      font-family: 'Bembo Book', serif;
+      font-size: 36px;
+      color: #5a3921;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    
+    /* Override for section titles */
+    .section-title.section-title-left h1 {
+      text-align: left !important;
+    }
+    
+    .section-title.section-title-right h1 {
+      text-align: right !important;
+    }
+
+    .section-title.section-title-right h1 {
+      text-align: right !important;
+    }
+
+    /* New styles for right-aligned title and subtitle in the Truthseeking section */
+    .right-aligned-title {
+      font-size: 38px;
+      margin-bottom: 20px;
+      color: #000000;
+      line-height: 1.3;
+      text-transform: none;
+      letter-spacing: normal;
+      text-align: right;
+    }
+    
+    .right-aligned-subtitle {
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #333333;
+      line-height: 1.3;
+      font-style: normal;
+      text-align: right;
+    }
+    
+    .right-aligned-subtitle .quote-attribution {
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .gallery-image {
+        height: 200px;
+      }
+    }
+
+    /* Commenting out Book Section Styles
+    .book-section {
+      padding: 80px 0;
+    }
+
+    .book-subtitle {
+      font-family: 'Bembo Book', serif;
+      font-size: 18px;
+      color: #5a3921;
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+
+    .book-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .book {
+      width: 100%;
+      height: 500px;
+      display: flex;
+      perspective: 1200px;
+    }
+
+    .book__page {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      display: grid;
+      transform: rotateY(0deg);
+      transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transform-origin: 0% 0%;
+      background-color: #F5F5F5;
+      background-image: linear-gradient(90deg, rgba(227, 227, 227, 1) 0%, rgba(247, 247, 247, 0) 18%);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .book__page:nth-of-type(1) {
+      background-image: linear-gradient(-90deg, rgba(227, 227, 227, 1) 0%, rgba(247, 247, 247, 0) 18%);
+    }
+
+    .book__page--1 {
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .book__page--1 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book__page--2 {
+      position: absolute;
+      right: 0;
+      pointer-events: none;
+      transform-style: preserve-3d;
+      background-color: #F5F5F5;
+      background-image: linear-gradient(90deg, rgba(227, 227, 227, 1) 0%, rgba(247, 247, 247, 0) 18%);
+    }
+
+    .book__page--4 {
+      cursor: pointer;
+      padding: 0 36px;
+    }
+
+    .book__page-front {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotateY(0deg) translateZ(1px);
+    }
+
+    .book__page-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 0 22px;
+      transform: rotateY(180deg) translateZ(1px);
+    }
+
+    .page__content {
+      padding: 12px;
+      height: 100%;
+      position: relative;
+      text-align: center;
+      font-family: 'Bembo Book', serif;
+    }
+
+    .page__content-book-title {
+      font-family: 'Cinzel Decorative', 'Cinzel', 'Georgia', serif;
+      font-size: 36px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #2A2935;
+      margin-top: 60px;
+      margin-bottom: 24px;
+    }
+
+    .page__content-author {
+      font-family: 'Bembo Book', serif;
+      font-size: 14px;
+      font-weight: 100;
+      text-transform: uppercase;
+      color: #2A2935;
+      border-top: 1px solid #2A2935;
+      border-bottom: 1px solid #2A2935;
+      display: inline-block;
+      padding: 6px 2px;
+      margin-bottom: 72px;
+    }
+
+    .page__content-credits {
+      font-family: 'Bembo Book', serif;
+      text-transform: uppercase;
+      font-size: 10px;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .page__content-credits span {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0;
+    }
+
+    .page__content-copyright {
+      position: absolute;
+      width: calc(100% - 24px);
+      bottom: 24px;
+      font-family: 'Bembo Book', serif;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .page__content-title {
+      font-family: 'Bembo Book', serif;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 60px;
+      margin-bottom: 36px;
+    }
+
+    .page__content-table {
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    .page__content-table td {
+      font-family: 'Bembo Book', serif;
+      font-size: 14px;
+      padding-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .page__content-blockquote {
+      margin-bottom: 24px;
+    }
+
+    .page__content-blockquote-text {
+      font-family: 'Bembo Book', serif;
+      font-size: 8px;
+      font-style: italic;
+      text-align: justify;
+    }
+
+    .page__content-blockquote-reference {
+      font-family: 'Bembo Book', serif;
+      font-size: 8px;
+      margin-top: 4px;
+      float: right;
+      text-transform: uppercase;
+    }
+
+    .page__content-text {
+      font-family: 'Bembo Book', serif;
+      font-size: 8px;
+      text-align: justify;
+      text-indent: 12px;
+    }
+
+    .page__number {
+      position: absolute;
+      bottom: 12px;
+      width: calc(100% - 24px);
+      font-family: 'Bembo Book', serif;
+      font-size: 8px;
+      text-align: center;
+    }
+
+    .book input[type="radio"] {
+      display: none;
+    }
+
+    .book input[type="radio"]:checked+.book__page {
+      transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+      transform: rotateY(-180deg);
+    }
+
+    @media (max-width: 768px) {
+      .book {
+        height: 400px;
+      }
+
+      .page__content-book-title {
+        font-size: 24px;
+        margin-top: 40px;
+      }
+
+      .page__content-author {
+        margin-bottom: 40px;
+      }
+    }
+    */
+
+    .day-bookmarks {
+      position: absolute;
+      right: -80px;
+      /* Position bookmarks to stick out from right */
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: -1;
+      /* Ensure bookmarks are behind ticket */
+    }
+
+    .bookmark {
+      width: 80px;
+      height: 30px;
+      background-color: #8B0000;
+      position: relative;
+      border-radius: 0 5px 5px 0;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      /* Create V-cut bookmark shape using clip-path */
+      clip-path: polygon(0% 0%,
+          /* top-left corner */
+          90% 0%,
+          /* near top-right */
+          100% 50%,
+          /* middle-right point (peak of V) */
+          90% 100%,
+          /* near bottom-right */
+          0% 100%
+          /* bottom-left corner */
+        );
+    }
+
+    .bookmark-content {
+      font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: #fff;
+      font-size: 13px;
+      line-height: 1;
+      padding: 2px 0px 0 10px;
+    }
+
+    .bookmark-text {
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+
+    .bookmark:hover,
+    .bookmark.active {
+      background-color: #C41E3A;
+      transform: translateX(5px);
+    }
+
+    .library-section {
+      z-index: 1;
+      width: clamp(500px, 67%, 100%);
+      box-sizing: border-box;
+    }
+    
+    @media (max-width: 768px) {
+      .library-section {
+        width: 100%;
+      }
+      
+      .tickets-container {
+        flex-direction: row;
+        /* Keep as row, but with wrapping */
+      }
+      
+      .ticket {
+        width: 260px;
+      }
+
+      .day-bookmarks {
+        right: -25px;
+      }
+
+      .bookmark {
+        width: 70px;
+        height: 26px;
+      }
+
+      .bookmark-content {
+        font-size: 14px;
+        padding-right: 10px;
+      }
+
+      .bookmark-price {
+        font-size: 8px;
+      }
+
+      .ticket-inner {
+        min-height: 130px;
+      }
+
+      /* .day-bookmarks.day-bookmarks-mobile {
+        right: 20px;
+        z-index: 1;
+        top: 120px;
+        flex-direction: row;
+      } */
+
+      /* @media (max-width: 768px) {
+          .day-bookmarks.day-bookmarks-mobile {
+          top: 100%;
+          right: 12%;
+          flex-direction: row;
+        }
+      } */
+
+      .day-bookmarks-mobile .bookmark {
+        clip-path: none;
+        width: 50px;
+        border-radius: 8px;
+      }
+
+      .bookmark:hover, .bookmark.active {
+        background-color: #C41E3A;
+        transform: none;
+      }
+      
+    }
+
+    /* Add media query for screens below approximately 2/3 of desktop size */
+    @media (max-width: 1200px) {
+      .hero-content {
+        background-color: rgba(0, 0, 0, 0.3);
+        /* Semi-opaque darkened background */
+        border-radius: 8px;
+        padding: 30px 30px 15px 30px;
+        backdrop-filter: blur(3px);
+        margin: 30px;
+        /* Optional: adds a slight blur effect */
+      }
+    }
+
+    /* Global font reset - this should come AFTER any other CSS but BEFORE your custom styles */
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+      font-family: 'Bembo Book', serif !important;
+    }
+
+    /* Then your specific styles can override this for elements that need different fonts */
+    /* .hero-content h1, */
+    .ticket-header h3,
+    .page__content-book-title {
+      font-family: 'Cinzel Decorative', 'Cinzel', Georgia, serif !important;
+    }
+
+    .testimonials {
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    /* Add this to make testimonials display in a row */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .testimonial {
+      /* Change from margin-bottom to flex-basis to control width */
+      flex: 1;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      /* Add these properties to create a flex container */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      max-width: 520px;
+    }
+
+    .testimonial-content {
+      /* Make this a flex container that takes up all available space */
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .testimonial-content blockquote {
+      font-size: 1.3rem;
+      /* Increased from 1.1rem */
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-left: 0;
+      border-left: none;
+      text-align: left;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-content blockquote {
+        font-size: 1.1rem;
+      }
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      text-align: right;
+      margin-right: 10px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-author img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-left: 1rem;
+      /* Space between image and text */
+      margin-right: 0;
+      /* Reset right margin */
+    }
+
+    .testimonial-author cite {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.2rem;
+      /* Increased from 1rem */
+      color: #8c6d46;
+      text-align: right;
+      width: 100%;
+    }
+
+    .testimonial-author a {
+      color: #8c6d46;
+      text-decoration: none;
+      font-size: 1.2rem;
+      /* Increased from 1rem to match cite */
+    }
+
+    /* Add responsive behavior for smaller screens */
+    @media (max-width: 992px) {
+      .testimonial {
+        flex-basis: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+
+    #password-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    #password-form {
+      text-align: center;
+      color: white;
+    }
+
+    #password-input {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      font-size: 16px;
+    }
+
+    #password-submit {
+      padding: 10px 20px;
+      background: white;
+      border: none;
+      color: black;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    html {
+      width: 100%;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .table-of-contents-style .mobile-view .blog-item {
+        font-size: 25px;
+        padding: 3px 5px;
+        padding-bottom: 1px;
+        border: 1px solid oklch(0.45 0.11 57.97 / 1);
+        border-radius: 6px;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .table-of-contents-style .mobile-view .blog-item::before {
+        display: none;
+    }
+
+    .mobile-view .blogs-list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 3px;
+        column-gap: 6px;
+    }
+
+    .table-of-contents-style .mobile-view .blog-item a {
+        font-size: 19px;
+        font-variant: small-caps;
+    }
+    
+    /* Style for attending blog items in mobile view */
+    .table-of-contents-style .mobile-view .blog-item:has(.attending-badge) {
+        background-color: oklch(0.45 0.11 57.97 / 1); /* Same brown as the border */
+        color: white;
+    }
+    
+    .table-of-contents-style .mobile-view .blog-item:has(.attending-badge) a {
+        color: white;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* UPDATED STYLES FOR LIBRARY SECTION */
+    
+    /* Mobile view: attending blogs have brown background and white text */
+    .table-of-contents-style .mobile-view .blog-item:has(.attending-badge) {
+      background-color: oklch(0.45 0.11 57.97 / 1); /* Same brown as the border */
+      color: white;
+    }
+    
+    .table-of-contents-style .mobile-view .blog-item:has(.attending-badge) a {
+      color: white;
+    }
+    
+    /* Desktop view: attending blogs have color #815b40, non-attending have color #5a392180 */
+    .table-of-contents-style .desktop-view .blog-item a {
+      color: #5a392180; /* Non-attending blog text color */
+    }
+    
+    .table-of-contents-style .desktop-view .blog-item:has(.attending-badge) a {
+      color: white !important; /* Attending blog text color */
+      font-weight: 600;
+    }
+    
+    .table-of-contents-style .desktop-view .attending-badge {
+      display: none; /* Hide the attending badge in desktop view */
+    }
+
+    /* Styles for the day pass container with external bookmarks */
+    .day-pass-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .day-pass-container .day-bookmarks {
+      position: absolute;
+      top: 8%;
+      right: -20%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: -30px; /* Overlap with the ticket */
+      z-index: 1; /* Ensure bookmarks are above the ticket */
+    }
+
+     @media (max-width: 768px) {
+          .day-pass-container .day-bookmarks {
+          top: 100%;
+          right: 12%;
+          flex-direction: row;
+        }
+      }
+    
+    .day-pass-container .ticket {
+      position: relative;
+      z-index: 5;
+    }
+
+    @media (max-width: 768px) {
+      .reading-section-mobile {
+        display: none;
+      }
+    }
+
+    /* Base Styles */
+    :root {
+      --primary-color: #8B4513;
+      --secondary-color: #D2B48C;
+      --text-color: #333;
+      --light-bg: #F5F5DC;
+      --dark-bg: #3A3A3A;
+      --highlight: #E6CCB2;
+      --border-color: #8B4513;
+      --shadow-color: rgba(139, 69, 19, 0.2);
+      --font-serif: 'Libre Baskerville', Georgia, serif;
+      --font-sans: 'Montserrat', sans-serif;
+      --max-width: 1200px;
+      --section-padding: 4rem 2rem;
+    }
+
+    /* Attendance Filter Styles */
+    .attendance-filter {
+      display: flex;
+      align-items: center;
+      font-family: var(--font-serif);
+      font-style: normal;
+      color: #815b40;
+      cursor: pointer;
+      text-align: left;
+      font-size: 20px;
+      margin-left: 0; /* Remove the left margin */
+    }
+
+    .attendance-filter input[type="checkbox"] {
+      margin-right: 8px;
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--primary-color);
+      border-radius: 3px;
+      background-color: var(--light-bg);
+      cursor: pointer;
+      position: relative;
+      vertical-align: middle;
+    }
+
+    .attendance-filter input[type="checkbox"]:checked {
+      background-color: var(--primary-color);
+    }
+
+    .attendance-filter input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      color: white;
+      font-size: 14px;
+      top: -2px;
+      left: 3px;
+    }
+
+    .filter-container {
+      text-align: right;
+    }
+
+    /* FAQ Section Styles */
+    .faq-container {
+      display: flex;
+      margin: 0 auto;
+      gap: 40px;
+      padding: 20px;
+      align-items: center;
+    }
+
+    .faq-image {
+      flex: 1;
+    }
+
+    .faq-image img {
+      width: 100%;
+      height: auto;
+      mix-blend-mode: multiply;
+    }
+
+    .faq-content {
+      flex: 1.5;
+      max-width: 700px;
+    }
+
+    .faq-controls {
+      margin-bottom: 20px;
+      text-align: right;
+    }
+
+    .show-all-button {
+      background-color: #8b5a2b;
+      color: #f5f5dc;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'EB Garamond', serif;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .show-all-button:hover {
+      background-color: #a67c52;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #d4c9b6;
+    }
+
+    .faq-question {
+      padding: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: 'EB Garamond', serif;
+      font-size: 19px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question:hover {
+      background-color: rgba(139, 90, 43, 0.1);
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 20px;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 15px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 15px;
+      max-height: 100%;
+    }
+
+    /* Responsive styles for FAQ section */
+    @media (max-width: 768px) {
+      .faq-container {
+        flex-direction: column;
+      }
+
+      .faq-image {
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    /* Existing styles continue below */
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -2304,7 +4646,7 @@
       
       .image-container, .text-container {
         max-width: 100% !important;
-        padding: 0 !important;
+        padding: 0 15px !important;
         flex: 1 !important;
       }
       
@@ -2736,6 +5078,27 @@
   </div>
 
   <div class="tickets-subtitle">Combined tickets with Summer Camp & Manifest Forecasting Conference are coming soon.</div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq-section" class="content-section-container">
+    <h2 class="full-width-title">Frequently Asked Questions</h2>
+    
+    <div class="faq-container">
+      <div class="faq-image">
+        <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741644147/lighthaven_lfpyac.jpg" alt="Lighthaven">
+      </div>
+      
+      <div class="faq-content">
+        <div class="faq-controls">
+          <button id="show-all-faq" class="show-all-button">Show All</button>
+        </div>
+        
+        <div class="faq-questions">
+          <!-- FAQ items will be populated by JavaScript -->
+        </div>
+      </div>
+    </div>
   </section>
 
   <script>
@@ -3175,6 +5538,105 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       <p style="text-align: center;">For more information, please contact <a href="mailto:ben@lesswrong.com">Ben Pace</a></p>
     </div>
   </section>
+
+  <script>
+    // FAQ data
+    const faqData = [
+      {
+        question: "What is the address?",
+        answer: "It's pretty close to Downtown Berkeley, CA. You'll get the precise address after you purchase a ticket."
+      },
+      {
+        question: "What time on Friday does LessOnline start?",
+        answer: "Opening session will be Friday evening sometime in 5pm to 7pm. You can arrive any time on Friday you like though."
+      },
+      {
+        question: "What sorts of things will happen at LessOnline?",
+        answer: "The weekend will be filled with talks, workshops, dance parties, and late-night conversations around the fireside.<br><br>Would you like to run a session? After you've gotten a ticket and we've processed it (takes about a day) you can submit a session on the schedule.<br><br>Here are the sorts of things we'd love people to run:<br><br><ul><li><strong>Debates:</strong> Present arguments for a claim that you've thought a lot about, and argue against someone who disagrees with you about it.</li><li><strong>Storytelling:</strong> Read us a new story that you've written.</li><li><strong>Workshops:</strong> Give a workshops on a skill you've had practice with — statistics, forecasting, investigative journalism, story-writing, anything you know well and people might be interested in.</li><li><strong>Talk with Q&A:</strong> If you have talks you've given before or have one you'd like to give to this audience, we'd like to hear it!</li><li><strong>Memo Sessions:</strong> This is where someone has written a short essay (2-6 pages) ahead of time, then a small group of people reads it, and then has a Q&A with the author about the ideas in the essay. It works best if the author defends a strong or surprising claim that some people in the room will clearly disagree with.</li><li><strong>Make music:</strong> Bring your instrument and have a jam, or lead a singalong, or host a dance session.</li><li>… Something else?</li></ul><br>Over the weekend, there will be a continuously updating collaborative schedule for sessions that anyone is invited to add to."
+      },
+      {
+        question: "How many people will be at LessOnline?",
+        answer: "We don't know yet, but last year ~450 people attended! We will open a prediction market soon so you can get a better esimtate."
+      },
+      {
+        question: "Who is organizing the event?",
+        answer: "Ben Pace, Ronny Fernandez, & the rest of the team at Lightcone Infrastructure."
+      },
+      {
+        question: "What does my ticket include?",
+        answer: "Access from Friday through Sunday. It includes breakfast, lunch, and dinner."
+      },
+      {
+        question: "How do I get my LessWrong karma discount?",
+        answer: "After clicking on your ticket, you will be taken to a Stripe payment page. When you get there, do the following:<br><br><ol><li>In the field \"LessWrong Username,\" write your LessWrong username.</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741645344/Stripe_1_hgarfn.png\" style=\"max-width: 70%; margin: 10px 0;\"></div><br><ol start=\"2\"><li>Look up (on LessWrong) your karma. Multiply this number by 0.01 to determine your discount. (So, if you have 613 karma, your discount is $6.13.)</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741645344/Stripe_2_rlx2iv.png\" style=\"max-width: 70%; margin: 10px 0;\"></div><br><ol start=\"3\"><li>On the payment page, click the \"Change amount\" button beneath the listed price.</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741645344/Stripe_3_xp1vuu.png\" style=\"max-width: 70%; margin: 10px 0;\"></div><br><ol start=\"4\"><li>Subtract your discount from the price listed. (So, if the listed price is $400, and your discount is $6.13, you should change the amount to $393.87.)</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741645344/Stripe_4_po8mwv.png\" style=\"max-width: 70%; margin: 10px 0;\"></div><br><ol start=\"5\"><li>Click pay!</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741645344/Strip_5_wzosu9.png\" style=\"max-width: 70%; margin: 10px 0;\"></div>"
+      },
+      {
+        question: "Can I bring my kids?",
+        answer: "Absolutely! We're still figuring out the details for tickets and what's on offer."
+      },
+      {
+        question: "Can I come for just part of the event?",
+        answer: "Sure! As much or as little as you want. If you're coming just for one day, you can buy a day pass for cheaper than the full ticket."
+      },
+      {
+        question: "What's up with Manifest & Summer Camp?",
+        answer: "The Manifest team is still figuring out their plans. Insofar as they're running again like the last two years, we will have a combo ticket with them.<br><br>We also expect to announce Summer Camp plans soon. Stay tuned!"
+      },
+      {
+        question: "How does volunteering work?",
+        answer: "It will involve 3 x 4-hour shifts over the course of the weekend. We're still figuring out pricing."
+      }
+    ];
+
+    // Function to populate FAQ items
+    function populateFAQ() {
+      const faqContainer = document.querySelector('.faq-questions');
+      if (!faqContainer) return; // Exit if container not found
+      
+      faqData.forEach((item, index) => {
+        const faqItem = document.createElement('div');
+        faqItem.className = 'faq-item';
+        faqItem.innerHTML = `
+          <div class="faq-question">${item.question}</div>
+          <div class="faq-answer">${item.answer}</div>
+        `;
+        faqContainer.appendChild(faqItem);
+        
+        // Add click event to toggle answer visibility
+        const question = faqItem.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          faqItem.classList.toggle('active');
+        });
+      });
+    }
+
+    // Function to handle "Show All" button
+    function setupShowAllButton() {
+      const showAllButton = document.getElementById('show-all-faq');
+      if (!showAllButton) return; // Exit if button not found
+      
+      showAllButton.addEventListener('click', () => {
+        const faqItems = document.querySelectorAll('.faq-item');
+        const allExpanded = Array.from(faqItems).every(item => item.classList.contains('active'));
+        
+        faqItems.forEach(item => {
+          if (allExpanded) {
+            item.classList.remove('active');
+          } else {
+            item.classList.add('active');
+          }
+        });
+        
+        showAllButton.textContent = allExpanded ? 'Show All' : 'Hide All';
+      });
+    }
+
+    // Add our initialization to the window load event to ensure DOM is fully loaded
+    window.addEventListener('load', function() {
+      populateFAQ();
+      setupShowAllButton();
+    });
+  </script>
 </body>
 
 </html>
