@@ -163,6 +163,11 @@
     }
 
     @media (max-width: 768px) {
+      .hero-section {
+        align-items: flex-start;
+        min-height: 600px;
+      }
+
       .hero-content {
         margin: 0;
         position: relative;
@@ -171,6 +176,14 @@
         width: 100%;
         max-width: 100%;
         padding: 20px;
+      }
+
+      .hero-content h1 {
+        margin-top: 0;
+      }
+
+      .buy-tickets-button {
+        padding: 0px;
       }
     }
 
@@ -202,7 +215,7 @@
     }
 
     .hero-content .tagline {
-      font-size: 36px;
+      font-size: clamp(24px, 5vw, 36px);
       /* Increased from 25px */
       margin-bottom: 20px;
       /* Increased from 15px */
@@ -212,7 +225,7 @@
     }
 
     .hero-content .event-details {
-      font-size: 24px;
+      font-size: clamp(18px, 5vw, 24px);
       /* Increased from 18px */
       color: white;
       margin-bottom: 15px;
