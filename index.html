@@ -80,6 +80,120 @@
       overflow-x: hidden;
     }
 
+    /* Menu Bar Styles */
+    .menu-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: transparent;
+      background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png');
+      background-size: cover;
+      background-position: top;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      padding: 10px 0;
+      height: 60px; /* Set a fixed height for the menu bar */
+    }
+    
+    /* Menu bar transition and hidden state */
+    .menu-bar-transition {
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .menu-bar-hidden {
+      transform: translateY(-100%);
+    }
+    
+    /* Add a semi-transparent overlay */
+    .menu-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .menu-bar .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1; /* Ensure content appears above the overlay */
+    }
+
+    .countdown-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .countdown-text {
+      font-weight: bold;
+      color: #3a2813; /* Darker brown for better contrast against parchment */
+    }
+
+    .countdown-timer {
+      display: flex;
+      gap: 10px;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 60px;
+    }
+
+    .countdown-item span:first-child {
+      font-size: 24px;
+      font-weight: bold;
+      color: #3a2813; /* Darker brown for better contrast against parchment */
+    }
+
+    .countdown-label {
+      font-size: 12px;
+      color: #5a3921; /* Slightly darker for better readability */
+    }
+
+    .price-info {
+      font-weight: bold;
+      color: #3a2813; /* Darker brown for better contrast against parchment */
+    }
+
+    @media (max-width: 768px) {
+      .countdown-container {
+        flex-direction: column;
+        gap: 5px;
+      }
+      
+      .countdown-item {
+        min-width: 50px;
+      }
+      
+      .countdown-item span:first-child {
+        font-size: 20px;
+      }
+
+      .menu-bar {
+        height: auto; /* Allow height to adjust based on content */
+        padding: 8px 0;
+      }
+
+      .price-info, .countdown-text {
+        font-size: 14px;
+      }
+
+    }
+
     a {
       color: #7faf83 !important;
       text-decoration: none !important;
@@ -130,6 +244,7 @@
       color: #4c8a50 !important;
     }
 
+    /* Hero Section Styles */
     .hero-section {
       background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741048939/cover_image_qmzcby.png');
       background-size: cover;
@@ -145,6 +260,7 @@
       z-index: 1;
       width: 100%;
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 83%);
+      padding-top: 0; /* Remove padding-top as we're adjusting the hero-content position instead */
     }
 
     .hero-content {
@@ -152,11 +268,23 @@
       text-align: left;
       max-width: 650px;
       position: absolute;
-      top: 0px;
+      top: calc(60px + 26px); /* Account for menu bar height (60px) plus original margin (26px) */
       left: 0px;
       box-sizing: border-box;
       backdrop-filter: blur(2px);
-      margin: 26px clamp(10px, 5vw, 40px);
+      margin: 0 clamp(10px, 5vw, 40px); /* Adjust margin to only have horizontal spacing */
+      transition: top 0.3s ease-in-out; /* Add transition to match menu bar */
+    }
+    
+    @media (max-width: 768px) {
+      .hero-content {
+        margin: 20px clamp(10px, 5vw, 40px);
+      }
+    }
+    
+    /* When menu bar is hidden, adjust hero content position */
+    .menu-bar-hidden ~ .hero-section .hero-content {
+      top: 26px; /* Only use the original margin when menu is hidden */
     }
 
     .hero-content h1 {
@@ -2482,6 +2610,33 @@
 <body>
   <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png" class="background">
 
+  <!-- Menu Bar with Countdown Timer -->
+  <div class="menu-bar">
+    <div class="container">
+      <div class="countdown-container">
+        <span class="countdown-text">Early Bird Pricing Ends In:</span>
+        <div class="countdown-timer">
+          <div class="countdown-item">
+            <span id="countdown-days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span id="countdown-seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+        <span class="price-info">Price increases to $550 on April 1st</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section with Background Image -->
   <div class="hero-section" style="z-index: 1;">
@@ -3392,6 +3547,93 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
     window.addEventListener('load', function() {
       populateFAQ();
       setupShowAllButton();
+    });
+  </script>
+
+  <!-- Countdown Timer JavaScript -->
+  <script>
+    // Set the date we're counting down to (April 1, 2025)
+    const countdownDate = new Date("Apr 1, 2025 00:00:00").getTime();
+
+    // Update the countdown every 1 second
+    const countdownTimer = setInterval(function() {
+      // Get current date and time
+      const now = new Date().getTime();
+      
+      // Find the distance between now and the countdown date
+      const distance = countdownDate - now;
+      
+      // Time calculations for days, hours, minutes and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      // Display the result
+      document.getElementById("countdown-days").textContent = days.toString().padStart(2, '0');
+      document.getElementById("countdown-hours").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("countdown-minutes").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("countdown-seconds").textContent = seconds.toString().padStart(2, '0');
+      
+      // If the countdown is finished, display a message
+      if (distance < 0) {
+        clearInterval(countdownTimer);
+        document.getElementById("countdown-days").textContent = "00";
+        document.getElementById("countdown-hours").textContent = "00";
+        document.getElementById("countdown-minutes").textContent = "00";
+        document.getElementById("countdown-seconds").textContent = "00";
+        document.querySelector(".price-info").textContent = "Price is now $550";
+      }
+    }, 1000);
+  </script>
+
+  <!-- Menu Bar Hide/Show on Scroll JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBar = document.querySelector('.menu-bar');
+      let lastScrollTop = 0;
+      let isScrolling = false;
+      const scrollThreshold = 5; // Minimum scroll amount to trigger hide/show
+      
+      // Add a class to handle the transition
+      menuBar.classList.add('menu-bar-transition');
+      
+      window.addEventListener('scroll', function() {
+        if (!isScrolling) {
+          window.requestAnimationFrame(function() {
+            handleScroll();
+            isScrolling = false;
+          });
+          isScrolling = true;
+        }
+      });
+      
+      function handleScroll() {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // If we're at the very top of the page, always show the menu
+        if (currentScrollTop <= 10) {
+          menuBar.classList.remove('menu-bar-hidden');
+          lastScrollTop = currentScrollTop;
+          return;
+        }
+        
+        // Only trigger if we've scrolled more than the threshold
+        if (Math.abs(lastScrollTop - currentScrollTop) <= scrollThreshold) {
+          return;
+        }
+        
+        // Scrolling down
+        if (currentScrollTop > lastScrollTop) {
+          menuBar.classList.add('menu-bar-hidden');
+        } 
+        // Scrolling up
+        else {
+          menuBar.classList.remove('menu-bar-hidden');
+        }
+        
+        lastScrollTop = currentScrollTop;
+      }
     });
   </script>
 </body>
