@@ -3563,8 +3563,7 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
     // Set the date we're counting down to (April 1, 2025)
     const countdownDate = new Date("Apr 1, 2025 00:00:00").getTime();
 
-    // Update the countdown every 1 second
-    const countdownTimer = setInterval(function() {
+    function countdownUpdate() {
       // Get current date and time
       const now = new Date().getTime();
       
@@ -3592,7 +3591,10 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
         document.getElementById("countdown-seconds").textContent = "00";
         document.querySelector(".price-info").textContent = "Price is now $550";
       }
-    }, 1000);
+    }
+    // Update the countdown every 1 second
+    const countdownTimer = setInterval(countdownUpdate, 1000);
+    countdownUpdate()
   </script>
 
   <!-- Menu Bar Hide/Show on Scroll JavaScript -->
