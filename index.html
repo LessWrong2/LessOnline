@@ -272,7 +272,7 @@
       text-align: left;
       max-width: 650px;
       position: absolute;
-      top: calc(60px + 26px); /* Account for menu bar height (60px) plus original margin (26px) */
+      top: 26px; /* Account for menu bar height (60px) plus original margin (26px) */
       left: 0px;
       box-sizing: border-box;
       backdrop-filter: blur(2px);
@@ -340,29 +340,156 @@
 
     /* BUY TICKETS BUTTON - MERGED STYLES */
     .buy-tickets-button {
-      font-family: 'Cinzel Decorative', cursive;
-      font-size: 32px;
-      font-weight: 700;
-      color: white;
-      text-shadow: 0 0 5px #f8d45c, 0 0 10px #f8d45c, 0 0 15px #f8b400, 0 0 20px #f8b400;
-      letter-spacing: 2px;
-      margin-top: 30px;
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 33px; /* Halfway between 22px and 44px */
+      font-weight: 600;
+      color: #5a3921;
+      background-color: #f8f3e2;
+      position: relative;
+      border-radius: 6px; /* Halfway between 4px and 8px */
+      border: 3px solid #5a3921; /* Halfway between 2px and 4px */
       cursor: pointer;
       transition: all 0.3s ease;
-      display: inline-block;
-      padding: 15px 30px;
-      border: none;
-      background-color: transparent;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 45px; /* Halfway between 12px 30px and 24px 60px */
+      margin-top: 15px; /* Halfway between 30px and 40px */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Halfway between original and doubled shadow */
+      text-transform: uppercase;
+      letter-spacing: 1.5px; /* Halfway between 1px and 2px */
+      min-width: 270px; /* Halfway between 180px and 360px */
+      /* Add subtle texture */
+      background-image: url('data:image/png;base64,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');
+      /* Add ticket stub notch on right side */
+      clip-path: polygon(
+        0% 0%,                 /* top-left */
+        97% 0%,                /* top-right before notch */
+        97% 10%,               /* top of right notch */
+        100% 10%,              /* top-right corner */
+        100% 20%,              /* right edge */
+        97% 20%,               /* bottom of right notch */
+        97% 30%,               /* right edge */
+        100% 30%,              /* right edge */
+        100% 40%,              /* right edge */
+        97% 40%,               /* bottom of right notch */
+        97% 50%,               /* right edge */
+        100% 50%,              /* right edge */
+        100% 60%,              /* right edge */
+        97% 60%,               /* bottom of right notch */
+        97% 70%,               /* right edge */
+        100% 70%,              /* right edge */
+        100% 80%,              /* right edge */
+        97% 80%,               /* bottom of right notch */
+        97% 90%,               /* right edge */
+        100% 90%,              /* right edge */
+        100% 100%,             /* bottom-right */
+        0% 100%,               /* bottom-left */
+        0% 90%,                /* left edge */
+        3% 90%,                /* bottom of left notch */
+        3% 80%,                /* left edge */
+        0% 80%,                /* left edge */
+        0% 70%,                /* left edge */
+        3% 70%,                /* bottom of left notch */
+        3% 60%,                /* left edge */
+        0% 60%,                /* left edge */
+        0% 50%,                /* left edge */
+        3% 50%,                /* bottom of left notch */
+        3% 40%,                /* left edge */
+        0% 40%,                /* left edge */
+        0% 30%,                /* left edge */
+        3% 30%,                /* bottom of left notch */
+        3% 20%,                /* left edge */
+        0% 20%,                /* left edge */
+        0% 10%,                /* left edge */
+        3% 10%,                /* top of left notch */
+        3% 0%                  /* top-left before notch */
+      );
     }
 
-    .buy-tickets-button:hover {
-      transform: scale(1.05);
-      text-shadow: 0 0 5px #f8d45c, 0 0 10px #f8d45c, 0 0 15px #f8b400, 0 0 20px #f8b400;
+    /* Change hover to apply to the wrapper instead of just the button */
+    .ticket-wrapper:hover {
+      transform: translateY(-7.5px);
+    }
+
+    .ticket-wrapper:hover .buy-tickets-button {
+      background-color: #f5ead0;
+      box-shadow: 0 12px 24px rgba(90, 57, 33, 0.3); /* Halfway between original and doubled shadow */
+    }
+
+    .buy-tickets-button::before {
+      content: "";
+      position: absolute;
+      top: 7.5px; /* Halfway between 5px and 10px */
+      left: 7.5px; /* Halfway between 5px and 10px */
+      right: 7.5px; /* Halfway between 5px and 10px */
+      bottom: 7.5px; /* Halfway between 5px and 10px */
+      border: 1.5px dashed #8c6d46; /* Halfway between 1px and 2px */
+      border-radius: 3px; /* Halfway between 2px and 4px */
+      pointer-events: none;
+    }
+    
+    .buy-tickets-button::after {
+      content: "";
+      position: absolute;
+      top: 15px; /* Halfway between 10px and 20px */
+      left: 15px; /* Halfway between 10px and 20px */
+      right: 15px; /* Halfway between 10px and 20px */
+      bottom: 15px; /* Halfway between 10px and 20px */
+      border: 1.5px solid #8c6d46; /* Halfway between 1px and 2px */
+      border-radius: 1.5px; /* Halfway between 1px and 2px */
+      pointer-events: none;
+    }
+    
+    .ticket-text {
+      font-size: 18px; /* Halfway between 12px and 24px */
+      color: #8c6d46;
+      margin-top: 6px; /* Halfway between 4px and 8px */
+      font-weight: normal;
+      letter-spacing: 3px; /* Halfway between 2px and 4px */
+      position: relative;
+    }
+    
+    .ticket-text::before,
+    .ticket-text::after {
+      content: "✦";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #8c6d46;
+      font-size: 15px; /* Halfway between 10px and 20px */
+    }
+    
+    .ticket-text::before {
+      left: -30px; /* Halfway between -20px and -40px */
+    }
+    
+    .ticket-text::after {
+      right: -30px; /* Halfway between -20px and -40px */
     }
 
     @media (max-width: 768px) {
       .buy-tickets-button {
-        padding: 0px;
+        font-size: 27px; /* Halfway between 18px and 36px */
+        padding: 15px 11px; /* Halfway between 10px 25px and 20px 50px */
+      }
+      
+      .ticket-text {
+        font-size: 15px; /* Halfway between 10px and 20px */
+      }
+      
+      .ticket-text::before,
+      .ticket-text::after {
+        font-size: 12px; /* Halfway between 8px and 16px */
+      }
+      
+      .ticket-text::before {
+        left: -22.5px; /* Halfway between -15px and -30px */
+      }
+      
+      .ticket-text::after {
+        right: -22.5px; /* Halfway between -15px and -30px */
       }
     }
 
@@ -1066,27 +1193,6 @@
     .image-grid img:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .buy-tickets-button {
-      font-family: 'Cinzel Decorative', cursive;
-      font-size: 32px;
-      font-weight: 700;
-      color: white;
-      text-shadow: 0 0 5px #f8d45c, 0 0 10px #f8d45c, 0 0 15px #f8b400, 0 0 20px #f8b400;
-      letter-spacing: 2px;
-      margin-top: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-block;
-      padding: 0px;
-      border: none;
-      background-color: transparent;
-    }
-
-    .buy-tickets-button:hover {
-      transform: scale(1.05);
-      text-shadow: 0 0 5px #f8d45c, 0 0 10px #f8d45c, 0 0 15px #f8b400, 0 0 20px #f8b400;
     }
 
     /* Update the full-screen background section styles */
@@ -2608,34 +2714,95 @@
       display: inline-block;
       margin-bottom: -4px;
     }
+
+    .early-bird-info {
+      background-color: white;
+      border: 1px solid black;
+      padding: 6px;
+      color: black;
+      font-size: 20px;
+      border-radius: 4px;
+      padding-top: 8px;
+      margin-left: 10px;
+    }
+    
+    .buy-tickets-container {
+      align-items: center;
+      vertical-align: middle;
+    }
+    
+    /* Early bird banner styling */
+    .early-bird-banner {
+      position: absolute;
+      right: -7.5px; /* Halfway between -5px and -10px */
+      background-color: #8B0000;
+      color: #f8f3e2;
+      font-size: 18px; /* Halfway between 12px and 24px */
+      padding: 6px 15px; /* Halfway between 4px 10px and 8px 20px */
+      border-radius: 4.5px; /* Halfway between 3px and 6px */
+      transform: rotate(5deg);
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Halfway between original and doubled shadow */
+      font-family: 'Bembo Book', serif;
+      font-weight: normal;
+      text-transform: none;
+      letter-spacing: 0.75px; /* Halfway between 0.5px and 1px */
+      z-index: 10;
+      white-space: nowrap;
+      /* Ensure the banner is not affected by the ticket's clip-path */
+      pointer-events: none;
+    }
+    
+    /* Remove the ::before pseudo-element that creates the triangular "tail" */
+    /*.early-bird-banner::before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 5px;
+      width: 10px;
+      height: 10px;
+      background-color: #8B0000;
+      transform: rotate(45deg);
+      z-index: -1;
+    }*/
+
+    @media (max-width: 768px) {
+      .early-bird-banner {
+        font-size: 15px; /* Halfway between 10px and 20px */
+        right: -4.5px; /* Halfway between -3px and -6px */
+        padding: 4.5px 12px; /* Halfway between 3px 8px and 6px 16px */
+        border-radius: 3px; /* Halfway between 2px and 4px */
+        transform: rotate(5deg);
+        box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.2); /* Halfway between original and doubled shadow */
+      }
+      
+      /* Remove the mobile version of the ::before pseudo-element as well */
+      /*.early-bird-banner::before {
+        bottom: -3px;
+        left: 3px;
+        width: 7px;
+        height: 7px;
+        transform: rotate(45deg);
+        z-index: -1;
+      }*/
+    }
+  </style>
+  <style>
+    /* Override the early bird banner's ::before pseudo-element to make it invisible */
+    .early-bird-banner::before {
+      display: none !important;
+    }
+  </style>
+  <style>
+    /* Add ticket wrapper styling to handle hover effect for both ticket and banner */
+    .ticket-wrapper {
+      position: relative;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
   </style>
 </head>
 <body>
   <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1741125515/parchment_z3s9da.png" class="background">
-
-  <!-- Menu Bar with Countdown Timer -->
-  <div class="menu-bar">
-    <div class="container">
-      <div class="countdown-container">
-        <span class="countdown-text">Early Bird Pricing Ends In:</span>
-        <div class="countdown-timer">
-          <div class="countdown-item">
-            <span id="countdown-days">00</span>
-            <span class="countdown-label">Days</span>
-          </div>
-          <div class="countdown-item">
-            <span id="countdown-hours">00</span>
-            <span class="countdown-label">Hours</span>
-          </div>
-          <div class="countdown-item">
-            <span id="countdown-minutes">00</span>
-            <span class="countdown-label">Minutes</span>
-          </div>
-        </div>
-        <span class="price-info">Price increases to $550 on April 1st</span>
-      </div>
-    </div>
-  </div>
 
   <!-- Hero Section with Background Image -->
   <div class="hero-section" style="z-index: 1;">
@@ -2643,7 +2810,13 @@
       <h1>LessOnline 2025</h1>
       <p class="tagline">A Celebration of Blogging, Truthseeking, and Original Seeing</p>
       <p class="event-details">Fri, May 30th — Sun, June 1st | Lighthaven, Berkeley CA</p>
-      <p class="buy-tickets-button" id="open-tickets-modal">Buy Tickets</p>
+      <div class="ticket-wrapper" style="position: relative; display: inline-block;">
+        <div class="early-bird-banner">Early Bird Until April 1st</div>
+        <div id="open-tickets-modal" class="buy-tickets-button">
+          BUY A TICKET
+          <span class="ticket-text">ADMIT ONE</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -3555,45 +3728,6 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top,`;
       populateFAQ();
       setupShowAllButton();
     });
-  </script>
-
-  <!-- Countdown Timer JavaScript -->
-  <script>
-    // Set the date we're counting down to (April 1, 2025)
-    const countdownDate = new Date("Apr 1, 2025 00:00:00").getTime();
-
-    function countdownUpdate() {
-      // Get current date and time
-      const now = new Date().getTime();
-      
-      // Find the distance between now and the countdown date
-      const distance = countdownDate - now;
-      
-      // Time calculations for days, hours, minutes and seconds
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      
-      // Display the result
-      document.getElementById("countdown-days").textContent = days.toString().padStart(2, '0');
-      document.getElementById("countdown-hours").textContent = hours.toString().padStart(2, '0');
-      document.getElementById("countdown-minutes").textContent = minutes.toString().padStart(2, '0');
-      document.getElementById("countdown-seconds").textContent = seconds.toString().padStart(2, '0');
-      
-      // If the countdown is finished, display a message
-      if (distance < 0) {
-        clearInterval(countdownTimer);
-        document.getElementById("countdown-days").textContent = "00";
-        document.getElementById("countdown-hours").textContent = "00";
-        document.getElementById("countdown-minutes").textContent = "00";
-        document.getElementById("countdown-seconds").textContent = "00";
-        document.querySelector(".price-info").textContent = "Price is now $550";
-      }
-    }
-    // Update the countdown every 1 second
-    const countdownTimer = setInterval(countdownUpdate, 1000);
-    countdownUpdate()
   </script>
 
   <!-- Menu Bar Hide/Show on Scroll JavaScript -->
