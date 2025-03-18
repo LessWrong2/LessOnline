@@ -631,9 +631,10 @@
       font-family: 'Bembo Book', serif;
       font-size: 36px;
       color: #5a3921;
-      text-align: center; /* Ensure right alignment */
+      text-align: center;
       text-transform: uppercase;
       letter-spacing: 3px;
+      position: relative;
     }
 
     /* Remove all the old divider styling */
@@ -712,15 +713,6 @@
       }
     }
 
-    .blogs-header h1 {
-      font-family: 'Bembo Book', serif;
-      font-size: 36px;
-      color: #5a3921;
-      text-align: right;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      position: relative;
-    }
 
     .blogs-header h1:before {
       content: "";
@@ -2899,6 +2891,96 @@
       }
     }
   </style>
+  <style>
+    /* Add styles for the attending guests section */
+    .attending-guests {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .guest-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .guest-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 180px;
+    }
+
+    .guest-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Individual image adjustments */
+    .guest-image[alt="Emmett Shear"] {
+      object-position: 72% center; /* Move image left by positioning rightward */
+    }
+
+    .guest-image[alt="David Friedman"] {
+      object-position: 6% center; /* Move image right by positioning leftward */
+    }
+
+    .guest-image:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .guest-name {
+      font-family: 'Bembo Book', serif;
+      font-size: 18px;
+      color: #5a3921;
+      text-align: center;
+    }
+
+    .guest-link {
+      font-size: 18px;
+      color: #8b6b4d;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: block;
+      margin-top: 4px;
+      font-family: 'Bembo Book', serif;
+    }
+
+    .guest-link:hover {
+      color: #5a3921;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .guest-grid {
+        gap: 20px;
+      }
+      
+      .guest-item {
+        width: 140px;
+      }
+      
+      .guest-image {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .guest-name {
+        font-size: 16px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741125515/parchment_z3s9da.png" class="background">
@@ -2962,6 +3044,70 @@
     </section>
   </div>
 
+<!-- Attending Guests Section -->
+<section class="attending-guests">
+  <div class="blogs-header">
+    <h1>Attending Guests Include</h1>
+    <div class="header-divider">
+      <span class="icon">❧</span>
+    </div>
+  </div>
+  <div class="guest-grid">
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1742329775/aella_face_takrn7.webp" alt="Aella" class="guest-image">
+      <div class="guest-name">Aella</div>
+      <a href="https://aella.substack.com/" class="guest-link">Knowingless</a>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1742329769/emmett_shear_face_dgtcps.webp" alt="Emmett Shear" class="guest-image">
+      <div class="guest-name">Emmett Shear</div>
+      <a href="https://x.com/eshear?lang=en" class="guest-link">Co-Founder of Twitch</a>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1742330835/kelsey_piper_face_ncewna.jpg" alt="Kelsey Piper" class="guest-image">
+      <div class="guest-name">Kelsey Piper</div>
+      <a href="https://www.tumblr.com/theunitofcaring" class="guest-link">The Unit of Caring</a>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1742329940/David_Friedman_face_uuscas.jpg" alt="David Friedman" class="guest-image">
+      <div class="guest-name">David Friedman</div>
+      <a href="https://daviddfriedman.blogspot.com/" class="guest-link">David Friedman</a>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1742329939/david_chapman_face_jhfwb7.jpg" alt="David Chapman" class="guest-image">
+      <div class="guest-name">David Chapman</div>
+      <a href="https://meaningness.com/about-my-sites" class="guest-link">Meaningness</a>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715114522/alexanderwhales_ugmlp2.jpg" alt="Alexander Wales" class="guest-image">
+      <div class="guest-name">Alexander Wales</div>
+      <a href="https://alexanderwales.com/" class="guest-link">Fiction Works</a>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715115375/scottalexander_rgjox9.jpg" alt="Scott Alexander" class="guest-image">
+      <div class="guest-name">Scott Alexander</div>
+      <a href="https://www.astralcodexten.com/" class="guest-link">Astral Codex Ten</a>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/f_auto,q_auto/v1/mirroredImages/fyrMCzw7vQBJmqexp/i94wayuy1pvx9pwzv8nt" alt="Eliezer Yudkowsky" class="guest-image">
+      <div class="guest-name">Eliezer Yudkowsky</div>
+      <div class="guest-links">
+        <a href="https://www.readthesequences.com/" class="guest-link">The Sequences</a>
+      </div>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1715024212/zvi_gcbx4c.jpg" alt="Zvi Mowshowitz" class="guest-image">
+      <div class="guest-name">Zvi Mowshowitz</div>
+      <a href="https://thezvi.substack.com/" class="guest-link">Don't Worry About The Vase</a>
+    </div>
+    <div class="guest-item">
+      <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/v1742329777/patrick_mckenzie_face_a7cfed.jpg" alt="Patrick McKenzie" class="guest-image">
+      <div class="guest-name">Patrick McKenzie</div>
+      <a href="https://www.kalzumeus.com/" class="guest-link">Kalzumeus</a>
+    </div>
+  </div>
+</section>
+
   <div class="full-bg-section">
     <section class="content-section-container">
       <div class="content-section" style="display: flex; align-items: center;">
@@ -2989,8 +3135,8 @@
     <!-- <section class="blogs-container table-of-contents-style reading-section-mobile">
       <div class="blogs-header">
         <h1>Related Readings</h1>
-        <div class="header-divider">
-          <span class="icon">❧</span>
+  <div class="header-divider">
+    <span class="icon">❧</span>
         </div>
         <p>Explore these posts for hints about how to do <i>Original Seeing</i>.</p>
       </div>
@@ -3038,8 +3184,8 @@
             <p>It's a good guess that the actual majority of human cognition consists of cache lookups.</p>
           </div>
         </a>
-      </div>
-    </section>
+  </div>
+</section>
   </div> -->
 
   <!-- Photo Gallery Section -->
