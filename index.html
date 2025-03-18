@@ -2800,6 +2800,105 @@
       transition: transform 0.3s ease;
     }
   </style>
+  <style>
+    /* Volunteer ticket styles */
+    .volunteer-ticket-info {
+      position: relative;
+      cursor: help;
+      text-align: center;
+      margin-top: 10px;
+      font-family: 'Bembo Book', serif;
+      color: #5a3921;
+    }
+
+    .volunteer-ticket-info p {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .volunteer-ticket-info .info-text {
+      visibility: hidden;
+      width: 300px;
+      background-color: #f8f3e2;
+      color: #5a3921;
+      text-align: center;
+      border-radius: 6px;
+      padding: 15px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      border: 2px solid #5a3921;
+      font-family: 'Bembo Book', serif;
+      font-size: 14px;
+      line-height: 1.5;
+      box-shadow: 0 4px 8px rgba(90, 57, 33, 0.2);
+    }
+
+    .volunteer-ticket-info:hover .info-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .volunteer-ticket-info .info-text::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #5a3921 transparent transparent transparent;
+    }
+
+    @media (max-width: 768px) {
+      .volunteer-ticket-info {
+        margin-top: 5px;
+      }
+      
+      .volunteer-ticket-info p {
+        font-size: 14px;
+      }
+      
+      .volunteer-ticket-info .info-text {
+        width: 250px;
+        font-size: 12px;
+        padding: 12px;
+      }
+    }
+  </style>
+  <style>
+    /* Volunteer ticket container */
+    .volunteer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 280px;
+    }
+
+    .volunteer-container .ticket {
+      width: 100%;
+    }
+
+    .volunteer-ticket-info {
+      position: relative;
+      cursor: help;
+      text-align: center;
+      margin-top: 10px;
+      font-family: 'Bembo Book', serif;
+      color: #5a3921;
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .volunteer-container {
+        width: 260px;
+      }
+    }
+  </style>
 </head>
 <body>
   <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741125515/parchment_z3s9da.png" class="background">
@@ -3105,28 +3204,34 @@
       </a>
 
       <!-- Volunteer Ticket -->
-      <div class="ticket ticket-button ticket-coming-soon">
-        <div class="ticket-inner">
-          <div class="ticket-front">
-            <div class="ticket-border">
-              <div class="ticket-content">
-                <div class="ticket-header">
-                  <h3>VOLUNTEER</h3>
-                  <div class="ticket-price">TBD</div>
+      <div class="volunteer-container">
+        <a href="https://buy.stripe.com/7sIaGTa4D6GWbyU00h" class="ticket ticket-button">
+          <div class="ticket-inner">
+            <div class="ticket-front">
+              <div class="ticket-border">
+                <div class="ticket-content">
+                  <div class="ticket-header">
+                    <h3>VOLUNTEER</h3>
+                    <div class="ticket-price">$250</div>
+                  </div>
+                  <div class="ticket-illustration">
+                    <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741998625/handshake_bp1919.png" alt="Volunteer Illustration">
+                  </div>
+                  <div class="ticket-details">
+                    <p class="ticket-admit">ADMITS ONE</p>
+                    <p class="ticket-event">LessOnline Festival</p>
+                    <p class="ticket-date">May 30 - June 1, 2025</p>
+                    <p class="ticket-location">Lighthaven, Berkeley CA</p>
+                  </div>
+                  <div class="ticket-number">No. 18255</div>
                 </div>
-                <div class="ticket-illustration">
-                  <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741998625/handshake_bp1919.png" alt="Volunteer Illustration">
-                </div>
-                <div class="ticket-details">
-                  <p class="ticket-admit">ADMITS ONE</p>
-                  <p class="ticket-event">LessOnline Festival</p>
-                  <p class="ticket-date">May 30 - June 1, 2025</p>
-                  <p class="ticket-location">Lighthaven, Berkeley CA</p>
-                </div>
-                <div class="ticket-number">No. 18255</div>
               </div>
             </div>
           </div>
+        </a>
+        <div class="volunteer-ticket-info">
+          <p>What does this ticket get me?</p>
+          <span class="info-text">This is a volunteer ticket for LessOnline. It signs you up for 3 x 4-hour shifts across the weekend. After completing your shifts satisfactorily, you are eligible for a full-refund. There are 50 volunteer tickets available.</span>
         </div>
       </div>
 
@@ -3212,7 +3317,7 @@
 A Collection of Unmitigated Pedantry, https://acoup.blog/, 
 A Song for Two Voices | Swimmer963 , https://archiveofourown.org/series/936480,
 Abram Demski, https://www.lesswrong.com/users/abramdemski?sortedBy=top,
-Abstraction, https://abstraction.substack.com/, 
+Abstraction, https://abstraction.substack.com/, true
 Aceso Under Glass, https://acesounderglass.com/, true
 Agenty Duck, https://agentyduck.blogspot.com/, 
 Agnes Callard, https://thepointmag.com/author/acallard/, 
@@ -3242,7 +3347,7 @@ Dan Luu, https://danluu.com/,
 Daniel Kokotajlo, https://www.lesswrong.com/users/daniel-kokotajlo?sortedBy=top, 
 David Friedman, https://daviddfriedman.substack.com/, true
 Daystar Eld | Pokemon: TOoS, https://daystareld.com/, true
-De Novo, https://denovo.substack.com/, 
+De Novo, https://denovo.substack.com/, true
 Death is Bad, https://deathisbad.substack.com/, true
 Dominic Cummings, https://dominiccummings.substack.com/, 
 Dynomight, https://dynomight.net/,
@@ -3250,6 +3355,7 @@ Eric S. Raymond, http://www.catb.org/~esr/,
 Escaping Flatland, https://www.henrikkarlsson.xyz/,
 Eukaryote Writes Blog, https://eukaryotewritesblog.com/, 
 Everything Studies, https://everythingstudies.com/, 
+Ex Anter, https://markxu.com/,
 Experimental History, https://www.experimental-history.com/,
 Friendship Is Optimal, https://www.fimfiction.net/user/16334/Iceman/stories,
 Gene Smith, https://www.lesswrong.com/users/genesmith?sortedBy=top, true
@@ -3259,7 +3365,7 @@ Homo Sabiens | r!Animorphs, https://homosabiens.substack.com/,
 Information Processing, https://infoproc.blogspot.com/, 
 J. D. Pressman, https://jdpressman.com/,
 Janus, https://generative.ink/artifacts/, 
-Jeff Kaufman, https://www.jefftk.com/, 
+Jeff Kaufman, https://www.jefftk.com/, true 
 Joe Carlsmith, https://joecarlsmith.com/, 
 John Salvatier, http://johnsalvatier.org/blog/, 
 John Wentworth, https://www.lesswrong.com/users/johnswentworth?sortedBy=top, 
