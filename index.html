@@ -214,9 +214,13 @@
       text-decoration: underline !important;
     }
 
-    .testimonial-author a:hover {
-      color: inherit !important;
-      opacity: 0.8;
+    /* Override for the buy tickets button */
+    a.buy-tickets-button {
+      color: #5a3921 !important;
+    }
+
+    a.buy-tickets-button:hover {
+      color: #5a3921 !important;
     }
 
     /* Override for blog links in the "Some Writings We Love" section */
@@ -2891,8 +2895,7 @@
         width: 260px;
       }
     }
-  </style>
-  <style>
+
     /* Add styles for the attending guests section */
     .attending-guests {
       max-width: 1200px;
@@ -2980,8 +2983,296 @@
         font-size: 16px;
       }
     }
+
+    .store-section {
+      /*sm:px-6 lg:px-8 */
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 3rem 1rem 84px;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .store-section {
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .store-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+
+    .store-section-two {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .wooden-sign {
+      background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1742861027/wood4_qxhfmp.jpg');
+      background-size: cover;
+      border: 8px solid #5d4037;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), inset 0 0 60px rgba(0, 0, 0, 0.2);
+      position: relative;
+      margin: 0 auto;
+      margin-bottom: 5rem;
+      padding: 3rem 1.5rem;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .wooden-sign::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        pointer-events: none;
+      }
+      
+      .carved-text {
+        color: rgba(255, 255, 240, 0.9);
+        text-shadow: 
+          0px 2px 3px rgba(0, 0, 0, 0.7),
+          0px -2px 1px rgba(255, 255, 255, 0.2);
+        font-weight: bold;
+        letter-spacing: 1px;
+        position: relative;
+        margin: 0;
+        font-size: 3rem;
+        font-variant: small-caps;
+        text-align: center;
+      }
+
+      @media (min-width: 768px) {
+        .carved-text {
+          font-size: 4.5rem;
+        }
+      }
+      
+      .carved-text::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        z-index: -1;
+        color: rgba(0, 0, 0, 0.3);
+      }
+      
+      .nail-top-left, .nail-top-right, .nail-bottom-left, .nail-bottom-right {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: #a0a0a0;
+        border-radius: 50%;
+        box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
+        border: 1px solid #707070;
+      }
+      
+      .nail-top-left {
+        top: 10px;
+        left: 10px;
+      }
+      
+      .nail-top-right {
+        top: 10px;
+        right: 10px;
+      }
+      
+      .nail-bottom-left {
+        bottom: 10px;
+        left: 10px;
+      }
+      
+      .nail-bottom-right {
+        bottom: 10px;
+        right: 10px;
+      }
+      
+      .price-banner {
+        background-color: #b22222;
+        background-image: 
+          linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px),
+          linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.05));
+        background-size: 10px 10px, 10px 10px, 100% 100%;
+        color: white;
+        padding: 6px;
+        transform: rotate(-2deg);
+        position: absolute;
+        bottom: clamp(-3.5rem, -2.5rem - 2vw, -2.5rem);
+        right: -1.5rem;
+        width: 60%;
+        z-index: 10;
+        border-radius: 2px;
+        border: 2px solid rgba(120, 30, 20, 0.8);
+        border-left: 6px solid rgba(120, 30, 20, 0.8);
+        border-right: 6px solid rgba(120, 30, 20, 0.8);
+        box-shadow: 
+          0 4px 6px rgba(0, 0, 0, 0.3),
+          inset 0 0 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        font-weight: bold;
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+      
+      .price-banner::before, .price-banner::after {
+        content: "";
+        position: absolute;
+        background: #781e14;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        top: 10px;
+        border: 1px solid rgba(0,0,0,0.3);
+      }
+      
+      .price-banner::before {
+        left: 10px;
+      }
+      
+      .price-banner::after {
+        right: 10px;
+      }
+
+    .sign-link {
+      text-decoration: none;
+      display: block;
+      position: relative;
+    }
+
+    .sign-link::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0);
+      pointer-events: none;
+      z-index: 9;
+      transition: background 0.3s ease-in-out;
+    }
+
+    .sign-link:hover::before {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .wooden-sign {
+      background-image: url('https://res.cloudinary.com/lesswrong-2-0/image/upload/v1742861027/wood4_qxhfmp.jpg');
+      background-size: cover;
+      border: 8px solid #5d4037;
+      border-radius: 0.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), inset 0 0 60px rgba(0, 0, 0, 0.2);
+      position: relative;
+      margin: 0 auto;
+      margin-bottom: 5rem;
+      padding: 3rem 1.5rem;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .sign-link:hover .wooden-sign {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 60px rgba(0, 0, 0, 0.2);
+      filter: brightness(1.1);
+    }
+
+    .sign-link:hover .price-banner {
+      transform: rotate(-2deg) scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .price-banner {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .click-hint {
+      position: absolute;
+      left: 20%;
+      bottom: -140px;
+      transform: translateX(-50%);
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.8rem;
+      font-family: 'Cinzel', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .sign-link:hover .click-hint {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-10px);
+    }
+
+    @media (max-width: 768px) {
+      .click-hint {
+        font-size: 1.4rem;
+        bottom: -80px;  /* Adjusted for mobile as well */
+        left: 30%;
+      }
+      .click-arrow {
+        width: 80px;
+        height: 40px;
+      }
+    }
+
+    .price-banner {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .click-arrow {
+      width: 100px;  /* Increased from 80px */
+      height: 50px;  /* Increased from 40px */
+      margin-bottom: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 -10 100 60' fill='none' stroke='rgba(255,255,255,0.95)' stroke-width='3'%3E%3Cpath d='M0 35 C20 35, 50 0, 75 0 L75 0 L62 12 M75 0 L62 -8'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(-25deg);
+    }
+
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Add mobile click hint styles */
+    .mobile-click-hint {
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-click-hint {
+        display: block;
+      }
+    }
+  </style>
+  <style>
+    .mobile-hint {
+      display: none;
+      font-size: 0.875rem;  /* equivalent to text-sm */
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-hint {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
   <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741125515/parchment_z3s9da.png" class="background">
@@ -2994,10 +3285,10 @@
       <p class="event-details">Fri, May 30th — Sun, June 1st | Lighthaven, Berkeley CA</p>
       <div class="ticket-wrapper" style="position: relative; display: inline-block;">
         <div class="early-bird-banner">Early Bird Until April 1st</div>
-        <div id="open-tickets-modal" class="buy-tickets-button">
+        <a href="https://www.havenbookings.space/festival-season" target="_blank" rel="noopener noreferrer" class="buy-tickets-button">
           BUY A TICKET
           <span class="ticket-text">ADMIT ONE</span>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -3291,149 +3582,26 @@
     </div>
   </section>
 
-  <!-- Tickets Section (Regular Section instead of Modal) -->
-  <section id="tickets-section" class="content-section-container">
-    <h2 class="full-width-title">Select Your Ticket</h2>
-    <p class="tickets-subtitle">Choose the ticket that best suits your participation in LessOnline 2025 <br/><br/> <b>LessWrong users can get a discount of $1 per 100 karma.</b> Change the price when you're purchasing your ticket, and enter your username so we can check your math.</p>
-
-    <div class="tickets-container">
-
-      <!-- Early Bird Ticket -->
-      <a href="https://buy.stripe.com/4gwaGT3Gf2qGauQfZ9" class="ticket ticket-button" target="_blank">
-        <div class="ticket-inner">
-          <div class="ticket-front">
-            <div class="ticket-border">
-              <div class="ticket-content">
-                <div class="ticket-header">
-                  <h3>EARLY BIRD</h3>
-                  <div class="ticket-price">$450</div>
-                </div>
-                <div class="ticket-illustration">
-                  <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741998625/handshake_bp1919.png" alt="Early Bird Illustration">
-                </div>
-                <div class="ticket-details">
-                  <p class="ticket-admit">ADMITS ONE</p>
-                  <p class="ticket-event">LessOnline Festival</p>
-                  <p class="ticket-date">May 30 - June 1, 2025</p>
-                  <p class="ticket-location">Lighthaven, Berkeley CA</p>
-                </div>
-                <div class="ticket-number">No. 18254</div>
-              </div>
-            </div>
+  <div class="store-section">
+    <div class="store-section-two">
+      <div class="mobile-hint">(Click to open)</div>
+      <a href="https://www.havenbookings.space/festival-season" target="_blank" rel="noopener noreferrer" class="sign-link">
+        <div class="wooden-sign">
+          <div class="price-banner">Prices Go Up April 1st</div>
+          <div class="nail-top-left"></div>
+          <div class="nail-top-right"></div>
+          <div class="nail-bottom-left"></div>
+          <div class="nail-bottom-right"></div>
+          <h1 class="carved-text">
+            Ye olde Lighthaven Festival Season Ticket Store
+          </h1>
+          <div class="click-hint">
+            <div class="click-arrow"></div>
+            <div class="click-text">Click to Visit Store</div>
           </div>
         </div>
       </a>
-
-      <!-- Supporter Ticket -->
-      <a href="https://buy.stripe.com/cN29CPa4D9T8byUaET" class="ticket ticket-button" target="_blank">
-        <div class="ticket-inner">
-          <div class="ticket-front">
-            <div class="ticket-border">
-              <div class="ticket-content">
-                <div class="ticket-header">
-                  <h3>SUPPORTER</h3>
-                  <div class="ticket-price">$3000</div>
-                </div>
-                <div class="ticket-illustration">
-                  <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741998625/handshake_bp1919.png" alt="Supporter Ticket Illustration">
-                </div>
-                <div class="ticket-details">
-                  <p class="ticket-admit">ADMITS ONE</p>
-                  <p class="ticket-event">LessOnline Festival</p>
-                  <p class="ticket-date">May 30 - June 1, 2025</p>
-                  <p class="ticket-location">Lighthaven, Berkeley CA</p>
-                </div>
-                <div class="ticket-number">No. 18257</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </a>
-
-      <!-- Volunteer Ticket -->
-      <div class="volunteer-container">
-        <a href="https://buy.stripe.com/7sIaGTa4D6GWbyU00h" class="ticket ticket-button">
-          <div class="ticket-inner">
-            <div class="ticket-front">
-              <div class="ticket-border">
-                <div class="ticket-content">
-                  <div class="ticket-header">
-                    <h3>VOLUNTEER</h3>
-                    <div class="ticket-price">$250</div>
-                  </div>
-                  <div class="ticket-illustration">
-                    <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741998625/handshake_bp1919.png" alt="Volunteer Illustration">
-                  </div>
-                  <div class="ticket-details">
-                    <p class="ticket-admit">ADMITS ONE</p>
-                    <p class="ticket-event">LessOnline Festival</p>
-                    <p class="ticket-date">May 30 - June 1, 2025</p>
-                    <p class="ticket-location">Lighthaven, Berkeley CA</p>
-                  </div>
-                  <div class="ticket-number">No. 18255</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-        <div class="volunteer-ticket-info">
-          <p>What does this ticket get me?</p>
-          <span class="info-text">This is a volunteer ticket for LessOnline. It signs you up for 3 x 4-hour shifts across the weekend. After completing your shifts satisfactorily, you are eligible for a full-refund. There are 50 volunteer tickets available.</span>
-        </div>
-      </div>
-
-      <!-- Day Pass Ticket -->
-      <div id="day-pass-container" class="day-pass-container">
-        <!-- Day Selection Bookmarks - moved outside the ticket -->
-        <div class="day-bookmarks day-bookmarks-mobile">
-          <div class="bookmark bookmark-fri">
-            <div class="bookmark-content">
-              <span class="bookmark-text">Fri</span>
-            </div>
-          </div>
-          <div class="bookmark bookmark-sat">
-            <div class="bookmark-content">
-              <span class="bookmark-text">Sat</span>
-            </div>
-          </div>
-          <div class="bookmark bookmark-sun">
-            <div class="bookmark-content">
-              <span class="bookmark-text">Sun</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="ticket ticket-button">
-          <div class="ticket-inner day-pass-mobile">
-            <div class="ticket-front">
-              <div class="ticket-border">
-                <div class="ticket-content">
-                  <div class="ticket-header">
-                    <h3>SINGLE DAY</h3>
-                    <div class="ticket-price">Please choose a day</div>
-                  </div>
-                  <div class="ticket-illustration">
-                    <img src="https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741998625/handshake_bp1919.png" alt="Day Pass Illustration">
-                  </div>
-                  <div class="ticket-details">
-                    <p class="ticket-admit">ADMITS ONE</p>
-                    <p class="ticket-event">LessOnline Festival</p>
-                    <p class="ticket-date">Select Days</p>
-                    <p class="ticket-location">Lighthaven, Berkeley CA</p>
-                  </div>
-                  <div class="ticket-number">No. 18253</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-
-  <div class="tickets-subtitle">All tickets bought today are fully eligible for any future Manifest discounts.
-  </div>
-  </section>
 
   <!-- FAQ Section -->
   <section id="faq-section" class="content-section-container">
