@@ -2588,6 +2588,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      text-align: left;
     }
 
     .faq-question:hover {
@@ -2612,6 +2613,7 @@
       font-size: 18px;
       line-height: 1.3;
       display: none;
+      text-align: left;
     }
 
     .faq-item.active .faq-answer {
@@ -4102,11 +4104,11 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top, true`;
     const faqData = [
       {
         question: "What is the address?",
-        answer: "It's pretty close to Downtown Berkeley, CA. You'll get the precise address after you purchase a ticket."
+        answer: "2740 Telegraph Avenue, Berkeley, CA."
       },
       {
         question: "Will housing be available for purchase?",
-        answer: "Yes! We will be selling rooms at Lighthaven. We're still figuring out the details, should be up by the end of the month.<br><br>We're aiming to have fewer solo rooms and more dense-bedrooms so that more people can stay on-site this year."
+        answer: "Yes! We are <a href='https://www.havenbookings.space/events/festival-season-2025'>selling rooms at Lighthaven</a>. Unfortunately there's about a 10 to 1 ratio of people to rooms, so most people will have to find other accomodations. We are hoping to add more shared dorm beds in the coming weeks."
       },
       {
         question: "What time on Friday does LessOnline start?",
@@ -4129,28 +4131,16 @@ Zack M. Davis, https://www.lesswrong.com/users/zack_m_davis?sortedBy=top, true`;
         answer: "Access from Friday through Sunday. It includes breakfast, lunch, and dinner."
       },
       {
-        question: "If I buy a ticket now, do I lose out on a future Manifest/LessOnline discount ticket?",
-        answer: "No! If-and-when a joint ticket becomes available, those who have already purchased LessOnline tickets will be able to apply their discount to their Manifold ticket."
-      },
-      {
-        question: "How do I get my LessWrong karma discount?",
-        answer: "After clicking on your ticket, you will be taken to a Stripe payment page. When you get there, do the following:<br><br><ol><li>In the field \"LessWrong Username,\" write your LessWrong username.</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741645344/Stripe_1_hgarfn.png\" style=\"max-width: 70%; margin: 10px 0;\"></div><br><ol start=\"2\"><li>Look up (on LessWrong) your karma. Multiply this number by 0.01 to determine your discount. (So, if you have 613 karma, your discount is $6.13.)</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741645344/Stripe_2_rlx2iv.png\" style=\"max-width: 70%; margin: 10px 0;\"></div><br><ol start=\"3\"><li>On the payment page, click the \"Change amount\" button beneath the listed price.</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741645344/Stripe_3_xp1vuu.png\" style=\"max-width: 70%; margin: 10px 0;\"></div><br><ol start=\"4\"><li>Subtract your discount from the price listed. (So, if the listed price is $400, and your discount is $6.13, you should change the amount to $393.87.)</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741645344/Stripe_4_po8mwv.png\" style=\"max-width: 70%; margin: 10px 0;\"></div><br><ol start=\"5\"><li>Click pay!</li></ol><div style=\"text-align: center;\"><img src=\"https://res.cloudinary.com/lesswrong-2-0/image/upload/q_auto,f_auto/v1741645344/Strip_5_wzosu9.png\" style=\"max-width: 70%; margin: 10px 0;\"></div>"
-      },
-      {
         question: "Can I bring my kids?",
-        answer: "Absolutely! We're still figuring out the details for tickets and what's on offer."
+        answer: "You're very welcome to bring your kids, but there isn't any kids-focused accomodations this year."
       },
       {
         question: "Can I come for just part of the event?",
         answer: "Sure! As much or as little as you want. If you're coming just for one day, you can buy a day pass for cheaper than the full ticket."
       },
       {
-        question: "What's up with Manifest & Summer Camp?",
-        answer: "The Manifest team is still figuring out their plans. Insofar as they're running again like the last two years, we will have a combo ticket with them.<br><br>We also expect to announce Summer Camp plans soon. Stay tuned!"
-      },
-      {
         question: "How does volunteering work?",
-        answer: "It will involve 3 x 4-hour shifts over the course of the weekend. The ticket costs $250, but if that is too much for you then after your 3 shifts you will be able to get a full reimbursement."
+        answer: "It involves 3 x 4-hour shifts over the course of the weekend. The ticket costs $250, but if that is too much for you then after your 3 shifts you will be able to get a full reimbursement. Volunteer tickets are now sold out."
       }
     ];
 
